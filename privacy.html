@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Privacy Policy — FolliSense</title>
+<meta name="description" content="How FolliSense collects, stores and handles your scalp photos and check-in data, and the rights you have over it under Kenya's Data Protection Act, 2019.">
+
+<meta property="og:title" content="Privacy Policy — FolliSense">
+<meta property="og:description" content="How FolliSense collects, stores and handles your scalp photos and check-in data.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://follisense.com/privacy.html">
+<meta name="theme-color" content="#FFFFFF">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --white:  #FFFFFF;
+    --paper:  #FAFAF9;
+    --mist:   #F4F4F2;
+    --line:   #E8E8E4;
+    --hair:   rgba(17,17,16,.08);
+    --ink:    #111110;
+    --body-c: #55554F;
+    --faint:  #8C8C85;
+    --accent: #2E4A39;
+    --accent-soft: rgba(46,74,57,.08);
+
+    --font: 'Instrument Sans', -apple-system, 'Segoe UI', sans-serif;
+    --gut:  clamp(20px, 5vw, 44px);
+    --r:    20px;
+  }
+
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0; background: var(--white); color: var(--ink);
+    font-family: var(--font); font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+  }
+  img, svg { display: block; max-width: 100%; }
+
+  .wrap { max-width: 1200px; margin: 0 auto; padding: 0 var(--gut); }
+  .doc  { max-width: 760px; margin: 0 auto; padding: 0 var(--gut); }
+
+  h1, h2, h3 { margin: 0; font-weight: 600; letter-spacing: -.035em; line-height: 1.02; }
+  h1 { font-size: clamp(34px, 5vw, 54px); }
+  h3 { font-size: 19px; line-height: 1.3; letter-spacing: -.015em; }
+  p  { margin: 0; }
+
+  .eyebrow {
+    display: inline-block; font-size: 11px; font-weight: 600; letter-spacing: .18em;
+    text-transform: uppercase; color: var(--faint); margin-bottom: 20px;
+  }
+  .copy  { font-size: 16.5px; line-height: 1.75; color: var(--body-c); }
+  .small { font-size: 14px; line-height: 1.65; color: var(--faint); }
+
+  .btn {
+    display: inline-flex; align-items: center; justify-content: center; gap: 9px;
+    height: 54px; padding: 0 28px; border-radius: 100px; border: none;
+    font-family: var(--font); font-size: 15.5px; font-weight: 600;
+    cursor: pointer; text-decoration: none; white-space: nowrap;
+    transition: transform .22s cubic-bezier(.2,.7,.3,1), box-shadow .22s, background .2s, color .2s;
+  }
+  .btn-ink { background: var(--ink); color: #fff; box-shadow: 0 8px 22px -12px rgba(17,17,16,.6); }
+  .btn-ink:hover { transform: translateY(-2px); box-shadow: 0 14px 30px -14px rgba(17,17,16,.65); }
+  .btn-sm { height: 42px; padding: 0 20px; font-size: 14px; }
+
+  /* Legal pages have no hero, so the nav is frosted from the start. */
+  header {
+    position: sticky; top: 0; z-index: 60;
+    background: rgba(255,255,255,.82);
+    backdrop-filter: saturate(160%) blur(16px);
+    -webkit-backdrop-filter: saturate(160%) blur(16px);
+    box-shadow: 0 1px 0 var(--hair);
+  }
+  .nav {
+    max-width: 1200px; margin: 0 auto; padding: 16px var(--gut);
+    display: flex; align-items: center; justify-content: space-between; gap: 16px;
+  }
+  .logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+  .mark { width: 28px; height: 28px; border-radius: 9px; display: grid; place-items: center; flex-shrink: 0; background: var(--accent); }
+  .mark svg { width: 16px; height: 16px; fill: none; stroke: #fff; stroke-width: 1.9; }
+  .logo-word { font-size: 18.5px; font-weight: 600; letter-spacing: -.03em; color: var(--ink); }
+  .nav-links { display: flex; align-items: center; gap: 4px; }
+  .nav-link {
+    padding: 10px 14px; border-radius: 100px; text-decoration: none;
+    font-size: 14.5px; font-weight: 500; color: var(--body-c); transition: opacity .2s;
+  }
+  .nav-link:hover { opacity: .7; }
+  .btn-nav { background: var(--ink); color: #fff; }
+
+  .doc-head { padding: clamp(48px, 7vw, 88px) 0 0; }
+  .rule { width: 44px; height: 3px; background: var(--accent); border-radius: 2px; margin: 18px 0 8px; }
+
+  .callout {
+    background: var(--accent-soft); border-radius: 14px;
+    padding: 18px 20px; margin: 28px 0 8px;
+  }
+  .callout p { font-size: 15px; line-height: 1.65; color: var(--body-c); }
+  .callout strong { color: var(--accent); }
+
+  .doc-body { padding-bottom: clamp(64px, 9vw, 120px); }
+  .doc-body h3 { margin: 38px 0 10px; }
+  .doc-body p  { font-size: 16px; line-height: 1.75; color: var(--body-c); }
+  .doc-body a  { color: var(--accent); }
+
+  footer { border-top: 1px solid var(--hair); background: var(--paper); }
+  .foot { max-width: 1200px; margin: 0 auto; padding: 36px var(--gut); display: flex; flex-wrap: wrap; gap: 18px; align-items: center; justify-content: space-between; }
+  .foot .mark { width: 24px; height: 24px; border-radius: 8px; }
+  .foot .mark svg { width: 14px; height: 14px; }
+  .foot-links { display: flex; gap: 22px; flex-wrap: wrap; }
+  .foot-link { font-size: 14px; color: var(--body-c); text-decoration: none; }
+  .foot-link:hover { color: var(--ink); text-decoration: underline; text-underline-offset: 3px; }
+</style>
+</head>
+<body>
+
+<header>
+  <nav class="nav">
+    <a class="logo" href="/">
+      <span class="mark" aria-hidden="true">
+        <svg viewBox="0 0 24 24"><path d="M12 21c0-7 3-12 8-15-6 1-9 5-10 9"/><path d="M12 21C9 15 6 12 3 11c3 5 5 7 9 10"/></svg>
+      </span>
+      <span class="logo-word">FolliSense</span>
+    </a>
+    <div class="nav-links">
+      <a class="nav-link" href="/">Home</a>
+      <a class="nav-link" href="/terms.html">Terms</a>
+      <a class="btn btn-nav btn-sm" href="https://app.follisense.com">Get started</a>
+    </div>
+  </nav>
+</header>
+
+<div class="doc doc-head">
+  <p class="eyebrow">Legal</p>
+  <h1>Privacy Policy</h1>
+  <div class="rule"></div>
+  <p class="small">Last updated: June 25, 2026</p>
+
+  <div class="callout">
+    <p><strong>In short:</strong> your scalp photos and check-in data belong to you, are stored privately, and are used only to provide FolliSense to you. We never sell your data, and you can delete everything at any time.</p>
+  </div>
+</div>
+
+<div class="doc doc-body">
+
+  <h3>1. Information we collect</h3>
+  <p>When you register, we collect your name and email address. As you use the Service, we collect the information you choose to provide, including scalp and hair photos, check-in responses, routine details, and hair profile information (such as hair texture). We also automatically collect limited technical data, such as device type and usage information, to keep the Service running reliably.</p>
+
+  <h3>2. How we use your information</h3>
+  <p>We use your information to create and manage your account, generate your check-in history and personalised wellness insights, analyse the photos you submit in order to provide the Service's features, and improve the Service. We do not use your photos or health-related information for advertising.</p>
+
+  <h3>3. Photo storage and analysis</h3>
+  <p>Photos you submit are stored securely in a private storage bucket accessible only to your account. When you request an analysis, your photo is processed by our AI service solely to generate your results, and is not used for any other purpose.</p>
+
+  <h3>4. Disclosure of your information</h3>
+  <p>We do not sell your personal information. We share data only with the service providers that make the Service work (such as secure hosting, authentication, and AI analysis providers), each bound to use it only on our behalf, or where disclosure is required by law.</p>
+
+  <h3>5. Data retention and deletion</h3>
+  <p>Your data is retained while your account is active. You may delete your account at any time from your profile settings, which permanently removes your account, photos, and check-in history from the Service, subject to any retention required by law.</p>
+
+  <h3>6. Security</h3>
+  <p>We use administrative and technical safeguards, including encrypted connections and access controls, to protect your personal information. No system is completely impenetrable, but we work to keep your data safe and will notify you of any breach affecting your personal data as required by law.</p>
+
+  <h3>7. Your rights</h3>
+  <p>Subject to applicable law, including Kenya's Data Protection Act, 2019, you have the right to access, correct, and delete your personal data, and to object to or restrict certain processing. To exercise these rights, use the in-app tools or contact us directly.</p>
+
+  <h3>8. Changes to this policy</h3>
+  <p>We may update this policy from time to time. If we make material changes, we will notify you through the Service before they take effect.</p>
+
+  <h3>9. Contact us</h3>
+  <p>Questions about this policy or your data? Contact us at <a href="mailto:support@follisense.com">support@follisense.com</a>.</p>
+
+</div>
+
+<footer>
+  <div class="foot">
+    <div class="logo">
+      <span class="mark" aria-hidden="true">
+        <svg viewBox="0 0 24 24"><path d="M12 21c0-7 3-12 8-15-6 1-9 5-10 9"/><path d="M12 21C9 15 6 12 3 11c3 5 5 7 9 10"/></svg>
+      </span>
+      <span class="logo-word" style="font-size:16px">FolliSense</span>
+      <span class="small" style="margin-left:8px;font-size:13.5px">Nairobi, Kenya</span>
+    </div>
+    <div class="foot-links">
+      <a class="foot-link" href="/privacy.html">Privacy</a>
+      <a class="foot-link" href="/terms.html">Terms</a>
+      <a class="foot-link" href="https://app.follisense.com/login">Log in</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

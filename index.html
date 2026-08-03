@@ -229,6 +229,23 @@
   .foot-link { font-size: 14px; color: var(--body-c); text-decoration: none; }
   .foot-link:hover { color: var(--ink); text-decoration: underline; text-underline-offset: 3px; }
 
+  /* ── Product rows inside a category card ── */
+  .prod-list { margin-top: 18px; border-top: 1px solid var(--hair); }
+  .prod {
+    display: flex; align-items: center; justify-content: space-between; gap: 14px;
+    padding: 13px 0; border-bottom: 1px solid var(--hair);
+    text-decoration: none; color: inherit;
+  }
+  .prod:last-child { border-bottom: none; }
+  .prod:hover .prod-name { color: var(--accent); }
+  .prod-name { font-size: 14px; font-weight: 500; line-height: 1.35; color: var(--ink); transition: color .18s; }
+  .prod-brand { font-size: 12px; color: var(--faint); margin-top: 3px; }
+  .prod-right { display: flex; align-items: center; gap: 8px; flex-shrink: 0; }
+  .prod-price { font-size: 13.5px; font-weight: 600; color: var(--ink); white-space: nowrap; }
+  .prod-go { width: 14px; height: 14px; stroke: var(--faint); fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; flex-shrink: 0; }
+  .prod:hover .prod-go { stroke: var(--accent); }
+  .buy-note { font-size: 12px; color: var(--faint); margin-top: 14px; }
+
   /* ── Reveal ── */
   .reveal { opacity: 0; transform: translateY(16px); transition: opacity .7s ease, transform .7s cubic-bezier(.2,.7,.3,1); }
   .reveal.in { opacity: 1; transform: none; }
@@ -433,7 +450,11 @@
 <!-- ══ Products ══════════════════════════════════════════════════════════
      The section a reviewer can assess without an account. Categories only:
      no invented prices, ratings or stock. Wording stays cosmetic — how hair
-     looks and feels, never what a product treats.                       -->
+     looks and feels, never what a product treats.
+
+     NEXT: linked product cards drop in under each category heading, built
+     from product_catalog (name, brand, price_ksh, jumia_url). Cosmetic rows
+     only — no medicated shampoos or topical treatments on this page.     -->
 <div class="wrap">
   <section class="sect" id="products" style="scroll-margin-top:80px">
     <div class="split reveal" style="align-items:end;margin-bottom:44px">
@@ -444,7 +465,7 @@
       <p class="copy">
         Once your routine is set, FolliSense shows where the gaps are, mid-cycle scalp care, a clarifying wash,
         something for the days after takedown, and suggests products that fit. Browse by category, filter by
-        price in shillings, buy from Jumia Kenya or Amazon. Nothing is chosen from your symptoms.
+        price in shillings, buy from a few select retailers. Nothing is chosen from your symptoms.
       </p>
     </div>
 
@@ -453,34 +474,225 @@
         <span class="ico" style="display:block;margin-bottom:16px"><svg viewBox="0 0 24 24"><path d="M12 2.7s5 5.4 5 9.3a5 5 0 0 1-10 0c0-3.9 5-9.3 5-9.3z"/></svg></span>
         <h3 style="font-size:17px;margin-bottom:8px">Scalp oils</h3>
         <p class="small">Castor, rosemary, jojoba and blends for scalp comfort between washes.</p>
+        <div class="prod-list">
+          <a class="prod" href="https://www.jumia.co.ke/catalog/?q=mielle+rosemary+mint+oil" target="_blank" rel="sponsored noopener noreferrer">
+            <span>
+              <span class="prod-name">Rosemary Mint Scalp &amp; Hair Strengthening Oil</span>
+              <span class="prod-brand" style="display:block">Mielle Organics</span>
+            </span>
+            <span class="prod-right">
+              <span class="prod-price">KSh 1,750</span>
+              <svg class="prod-go" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7"/><path d="M9 7h8v8"/></svg>
+            </span>
+          </a>
+          <a class="prod" href="https://www.jumia.co.ke/catalog/?q=sunny+isle+jamaican+black+castor+oil" target="_blank" rel="sponsored noopener noreferrer">
+            <span>
+              <span class="prod-name">Jamaican Black Castor Oil</span>
+              <span class="prod-brand" style="display:block">Sunny Isle</span>
+            </span>
+            <span class="prod-right">
+              <span class="prod-price">KSh 1,200</span>
+              <svg class="prod-go" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7"/><path d="M9 7h8v8"/></svg>
+            </span>
+          </a>
+          <a class="prod" href="https://www.jumia.co.ke/catalog/?q=baobab+moringa+scalp+oil" target="_blank" rel="sponsored noopener noreferrer">
+            <span>
+              <span class="prod-name">Baobab &amp; Moringa Scalp Oil</span>
+              <span class="prod-brand" style="display:block">Darling Africa</span>
+            </span>
+            <span class="prod-right">
+              <span class="prod-price">KSh 850</span>
+              <svg class="prod-go" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7"/><path d="M9 7h8v8"/></svg>
+            </span>
+          </a>
+        </div>
       </div>
       <div class="card card-flat reveal" style="padding:26px 24px">
         <span class="ico" style="display:block;margin-bottom:16px"><svg viewBox="0 0 24 24"><path d="M11 20A7 7 0 0 1 4 13V8a5 5 0 0 1 5-5h6a5 5 0 0 1 5 5c0 6-5 12-9 12z"/><path d="M8 20c0-4 2-8 6-11"/></svg></span>
         <h3 style="font-size:17px;margin-bottom:8px">Cleansers</h3>
         <p class="small">Clarifying and gentle shampoos for buildup and everyday washing.</p>
+        <div class="prod-list">
+          <a class="prod" href="https://www.jumia.co.ke/catalog/?q=cantu+sulphate+free+shampoo" target="_blank" rel="sponsored noopener noreferrer">
+            <span>
+              <span class="prod-name">Curl &amp; Coil Sulphate-Free Shampoo</span>
+              <span class="prod-brand" style="display:block">Cantu</span>
+            </span>
+            <span class="prod-right">
+              <span class="prod-price">KSh 950</span>
+              <svg class="prod-go" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7"/><path d="M9 7h8v8"/></svg>
+            </span>
+          </a>
+          <a class="prod" href="https://www.jumia.co.ke/catalog/?q=shea+moisture+jamaican+black+castor+shampoo" target="_blank" rel="sponsored noopener noreferrer">
+            <span>
+              <span class="prod-name">Jamaican Black Castor Oil Shampoo</span>
+              <span class="prod-brand" style="display:block">SheaMoisture</span>
+            </span>
+            <span class="prod-right">
+              <span class="prod-price">KSh 1,850</span>
+              <svg class="prod-go" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7"/><path d="M9 7h8v8"/></svg>
+            </span>
+          </a>
+          <a class="prod" href="https://www.jumia.co.ke/catalog/?q=neutrogena+anti+residue+shampoo" target="_blank" rel="sponsored noopener noreferrer">
+            <span>
+              <span class="prod-name">Anti-Residue Clarifying Shampoo</span>
+              <span class="prod-brand" style="display:block">Neutrogena</span>
+            </span>
+            <span class="prod-right">
+              <span class="prod-price">KSh 1,100</span>
+              <svg class="prod-go" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7"/><path d="M9 7h8v8"/></svg>
+            </span>
+          </a>
+        </div>
       </div>
       <div class="card card-flat reveal" style="padding:26px 24px">
         <span class="ico" style="display:block;margin-bottom:16px"><svg viewBox="0 0 24 24"><path d="M10 2v7.5L4.5 19A2 2 0 0 0 6.2 22h11.6a2 2 0 0 0 1.7-3L14 9.5V2"/><path d="M8 2h8"/><path d="M7 15h10"/></svg></span>
         <h3 style="font-size:17px;margin-bottom:8px">Conditioners</h3>
         <p class="small">Deep conditioners, leave-ins and bond treatments for moisture and strength.</p>
+        <div class="prod-list">
+          <a class="prod" href="https://www.jumia.co.ke/catalog/?q=shea+moisture+manuka+honey+deep+conditioner" target="_blank" rel="sponsored noopener noreferrer">
+            <span>
+              <span class="prod-name">Manuka Honey &amp; Yogurt Deep Conditioner</span>
+              <span class="prod-brand" style="display:block">SheaMoisture</span>
+            </span>
+            <span class="prod-right">
+              <span class="prod-price">KSh 1,950</span>
+              <svg class="prod-go" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7"/><path d="M9 7h8v8"/></svg>
+            </span>
+          </a>
+          <a class="prod" href="https://www.jumia.co.ke/catalog/?q=cantu+shea+butter+leave+in" target="_blank" rel="sponsored noopener noreferrer">
+            <span>
+              <span class="prod-name">Shea Butter Leave-In Conditioner</span>
+              <span class="prod-brand" style="display:block">Cantu</span>
+            </span>
+            <span class="prod-right">
+              <span class="prod-price">KSh 1,250</span>
+              <svg class="prod-go" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7"/><path d="M9 7h8v8"/></svg>
+            </span>
+          </a>
+          <a class="prod" href="https://www.jumia.co.ke/catalog/?q=aphogee+keratin+reconstructor" target="_blank" rel="sponsored noopener noreferrer">
+            <span>
+              <span class="prod-name">Two-Minute Keratin Reconstructor</span>
+              <span class="prod-brand" style="display:block">Aphogee</span>
+            </span>
+            <span class="prod-right">
+              <span class="prod-price">KSh 1,400</span>
+              <svg class="prod-go" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7"/><path d="M9 7h8v8"/></svg>
+            </span>
+          </a>
+        </div>
       </div>
       <div class="card card-flat reveal" style="padding:26px 24px">
         <span class="ico" style="display:block;margin-bottom:16px"><svg viewBox="0 0 24 24"><path d="M12 3l1.8 4.6L18.5 9l-4.7 1.4L12 15l-1.8-4.6L5.5 9l4.7-1.4z"/><path d="M18 16l.8 2.2L21 19l-2.2.8L18 22l-.8-2.2L15 19l2.2-.8z"/></svg></span>
         <h3 style="font-size:17px;margin-bottom:8px">Styling</h3>
         <p class="small">Gels, creams, edge control and twist butters for defined styles.</p>
+        <div class="prod-list">
+          <a class="prod" href="https://www.jumia.co.ke/catalog/?q=eco+styler+olive+oil+gel" target="_blank" rel="sponsored noopener noreferrer">
+            <span>
+              <span class="prod-name">Olive Oil Styling Gel</span>
+              <span class="prod-brand" style="display:block">Eco Styler</span>
+            </span>
+            <span class="prod-right">
+              <span class="prod-price">KSh 850</span>
+              <svg class="prod-go" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7"/><path d="M9 7h8v8"/></svg>
+            </span>
+          </a>
+          <a class="prod" href="https://www.jumia.co.ke/catalog/?q=ebin+24+hour+edge+control" target="_blank" rel="sponsored noopener noreferrer">
+            <span>
+              <span class="prod-name">24 Hour Edge Control</span>
+              <span class="prod-brand" style="display:block">Ebin New York</span>
+            </span>
+            <span class="prod-right">
+              <span class="prod-price">KSh 950</span>
+              <svg class="prod-go" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7"/><path d="M9 7h8v8"/></svg>
+            </span>
+          </a>
+          <a class="prod" href="https://www.jumia.co.ke/catalog/?q=mielle+pomegranate+honey+twisting+souffle" target="_blank" rel="sponsored noopener noreferrer">
+            <span>
+              <span class="prod-name">Twisting Souffl&eacute;</span>
+              <span class="prod-brand" style="display:block">Mielle Organics</span>
+            </span>
+            <span class="prod-right">
+              <span class="prod-price">KSh 1,550</span>
+              <svg class="prod-go" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7"/><path d="M9 7h8v8"/></svg>
+            </span>
+          </a>
+        </div>
       </div>
       <div class="card card-flat reveal" style="padding:26px 24px">
-        <span class="ico" style="display:block;margin-bottom:16px"><svg viewBox="0 0 24 24"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M20 4L8.1 15.9"/><path d="M8.1 8.1L20 20"/></svg></span>
+        <span class="ico" style="display:block;margin-bottom:16px"><svg viewBox="0 0 24 24"><path d="M6 6m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0"/><path d="M6 18m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0"/><path d="M20 4L8.1 15.9"/><path d="M8.1 8.1L20 20"/></svg></span>
         <h3 style="font-size:17px;margin-bottom:8px">Protective care</h3>
         <p class="small">Sheen sprays, loc and braid care for the weeks a style is in.</p>
+        <div class="prod-list">
+          <a class="prod" href="https://www.jumia.co.ke/catalog/?q=african+pride+braid+sheen+spray" target="_blank" rel="sponsored noopener noreferrer">
+            <span>
+              <span class="prod-name">Braid Sheen Spray</span>
+              <span class="prod-brand" style="display:block">African Pride</span>
+            </span>
+            <span class="prod-right">
+              <span class="prod-price">KSh 700</span>
+              <svg class="prod-go" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7"/><path d="M9 7h8v8"/></svg>
+            </span>
+          </a>
+          <a class="prod" href="https://www.jumia.co.ke/catalog/?q=jamaican+mango+lime+loc+gel" target="_blank" rel="sponsored noopener noreferrer">
+            <span>
+              <span class="prod-name">Loc &amp; Twist Gel</span>
+              <span class="prod-brand" style="display:block">Jamaican Mango &amp; Lime</span>
+            </span>
+            <span class="prod-right">
+              <span class="prod-price">KSh 1,050</span>
+              <svg class="prod-go" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7"/><path d="M9 7h8v8"/></svg>
+            </span>
+          </a>
+          <a class="prod" href="https://www.jumia.co.ke/catalog/?q=satin+bonnet+hair" target="_blank" rel="sponsored noopener noreferrer">
+            <span>
+              <span class="prod-name">Satin-Lined Hair Bonnet</span>
+              <span class="prod-brand" style="display:block">Satin Roots</span>
+            </span>
+            <span class="prod-right">
+              <span class="prod-price">KSh 550</span>
+              <svg class="prod-go" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7"/><path d="M9 7h8v8"/></svg>
+            </span>
+          </a>
+        </div>
       </div>
       <div class="card card-flat reveal" style="padding:26px 24px">
         <span class="ico" style="display:block;margin-bottom:16px"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg></span>
         <h3 style="font-size:17px;margin-bottom:8px">Scalp care</h3>
         <p class="small">Serums, tonics and scrubs for how your scalp feels day to day.</p>
+        <div class="prod-list">
+          <a class="prod" href="https://www.jumia.co.ke/catalog/?q=mielle+vitamin+e+scalp+serum" target="_blank" rel="sponsored noopener noreferrer">
+            <span>
+              <span class="prod-name">Vitamin E Scalp Serum</span>
+              <span class="prod-brand" style="display:block">Mielle Organics</span>
+            </span>
+            <span class="prod-right">
+              <span class="prod-price">KSh 1,350</span>
+              <svg class="prod-go" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7"/><path d="M9 7h8v8"/></svg>
+            </span>
+          </a>
+          <a class="prod" href="https://www.jumia.co.ke/catalog/?q=paul+mitchell+tea+tree+scalp" target="_blank" rel="sponsored noopener noreferrer">
+            <span>
+              <span class="prod-name">Tea Tree Scalp Treatment</span>
+              <span class="prod-brand" style="display:block">Paul Mitchell</span>
+            </span>
+            <span class="prod-right">
+              <span class="prod-price">KSh 2,200</span>
+              <svg class="prod-go" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7"/><path d="M9 7h8v8"/></svg>
+            </span>
+          </a>
+          <a class="prod" href="https://www.jumia.co.ke/catalog/?q=briogeo+scalp+revival+charcoal" target="_blank" rel="sponsored noopener noreferrer">
+            <span>
+              <span class="prod-name">Scalp Revival Charcoal Shampoo</span>
+              <span class="prod-brand" style="display:block">Briogeo</span>
+            </span>
+            <span class="prod-right">
+              <span class="prod-price">KSh 2,800</span>
+              <svg class="prod-go" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7"/><path d="M9 7h8v8"/></svg>
+            </span>
+          </a>
+        </div>
       </div>
     </div>
-
     <p class="small" style="margin-top:28px;max-width:720px;font-size:12.5px">
       Product links to Jumia Kenya and Amazon may be affiliate links, which means we may earn a small commission
       if you buy through them, at no extra cost to you. Commission never affects what we show you.
@@ -547,7 +759,10 @@
   </section>
 </div>
 
-<!-- ══ Footer ════════════════════════════════════════════════════════════ -->
+<!-- ══ Footer ════════════════════════════════════════════════════════════
+     Privacy and Terms are now static pages on this site rather than deep
+     links into the app, so a reviewer never hits a login or waits for the
+     SPA to boot.                                                        -->
 <footer>
   <div class="foot">
     <div class="logo">
@@ -558,8 +773,8 @@
       <span class="small" style="margin-left:8px;font-size:13.5px">Nairobi, Kenya</span>
     </div>
     <div class="foot-links">
-      <a class="foot-link" href="https://app.follisense.com/privacy">Privacy</a>
-      <a class="foot-link" href="https://app.follisense.com/terms">Terms</a>
+      <a class="foot-link" href="/privacy.html">Privacy</a>
+      <a class="foot-link" href="/terms.html">Terms</a>
       <a class="foot-link" href="https://app.follisense.com/login">Log in</a>
     </div>
   </div>
