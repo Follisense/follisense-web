@@ -12,6 +12,12 @@
 <meta property="og:url" content="https://follisense.com">
 <meta name="theme-color" content="#FFFFFF">
 <meta name="twitter:card" content="summary_large_image">
+<meta property="og:image" content="https://follisense.com/hero.jpg">
+
+<link rel="icon" href="/follisense-icon-green.png" sizes="256x256" type="image/png">
+<link rel="icon" href="/icon-512.png" sizes="512x512" type="image/png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png" sizes="180x180">
+<link rel="manifest" href="/site.webmanifest">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -107,8 +113,7 @@
     transition: background .35s, box-shadow .35s, backdrop-filter .35s;
   }
   header .nav-link, header .logo-word { color: #fff; }
-  header .mark { background: rgba(255,255,255,.16); box-shadow: inset 0 0 0 1px rgba(255,255,255,.34); }
-  header .mark svg { stroke: #fff; }
+  header .mark { background: rgba(255,255,255,.94); box-shadow: none; }
   header .btn-nav { background: rgba(255,255,255,.94); color: var(--ink); }
 
   header.stuck {
@@ -119,8 +124,7 @@
   }
   header.stuck .nav-link { color: var(--body-c); }
   header.stuck .logo-word { color: var(--ink); }
-  header.stuck .mark { background: var(--accent); box-shadow: none; }
-  header.stuck .mark svg { stroke: #fff; }
+  header.stuck .mark { background: transparent; box-shadow: none; }
   header.stuck .btn-nav { background: var(--ink); color: #fff; }
 
   .nav {
@@ -128,8 +132,8 @@
     display: flex; align-items: center; justify-content: space-between; gap: 16px;
   }
   .logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
-  .mark { width: 28px; height: 28px; border-radius: 9px; display: grid; place-items: center; flex-shrink: 0; transition: background .35s; }
-  .mark svg { width: 16px; height: 16px; fill: none; stroke-width: 1.9; transition: stroke .35s; }
+  .mark { width: 28px; height: 28px; border-radius: 9px; display: grid; place-items: center; flex-shrink: 0; overflow: hidden; transition: background .35s; }
+  .mark img { width: 100%; height: 100%; object-fit: contain; }
   .logo-word { font-size: 18.5px; font-weight: 600; letter-spacing: -.03em; transition: color .35s; }
   .nav-links { display: flex; align-items: center; gap: 4px; }
   .nav-link {
@@ -138,7 +142,7 @@
   }
   .nav-link:hover { opacity: .7; }
   .nav-hide { display: none; }
-  @media (min-width: 820px) { .nav-hide { display: inline-flex; } }
+  @media (min-width: 900px) { .nav-hide { display: inline-flex; } }
 
   /* ── Hero: photograph, scrim, glass panel ── */
   .hero {
@@ -193,12 +197,15 @@
   }
   .card-flat { background: var(--paper); box-shadow: none; }
   .card-flat:hover { transform: none; box-shadow: none; }
+  .card-still:hover { transform: none; box-shadow: inset 0 0 0 1px var(--line); }
 
   .grid { display: grid; grid-template-columns: 1fr; gap: 18px; }
   @media (min-width: 720px) { .grid-3 { grid-template-columns: repeat(3, minmax(0,1fr)); } }
   @media (min-width: 640px) { .grid-2 { grid-template-columns: repeat(2, minmax(0,1fr)); } }
   .split { display: grid; grid-template-columns: 1fr; gap: clamp(34px, 5vw, 72px); align-items: center; }
   @media (min-width: 980px) { .split { grid-template-columns: 1fr 1fr; } }
+  .split-flip > *:first-child { order: 1; }
+  @media (min-width: 980px) { .split-flip > *:first-child { order: 2; } .split-flip > *:last-child { order: 1; } }
 
   .ico svg { width: 21px; height: 21px; stroke: var(--accent); fill: none; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
   .num { font-size: 13px; font-weight: 600; color: var(--faint); letter-spacing: .1em; }
@@ -220,14 +227,40 @@
   .statement { font-size: clamp(26px, 3.6vw, 44px); font-weight: 600; letter-spacing: -.03em; line-height: 1.14; max-width: 940px; }
   .statement span { color: var(--faint); }
 
+  /* ── Reminder card ── */
+  .rem-card { background: var(--white); border-radius: var(--r); box-shadow: inset 0 0 0 1px var(--line); padding: 26px 24px; }
+  .rem-top { display: flex; align-items: center; gap: 11px; padding-bottom: 16px; border-bottom: 1px solid var(--hair); }
+  .rem-dot { width: 34px; height: 34px; border-radius: 11px; background: var(--accent); display: grid; place-items: center; flex-shrink: 0; }
+  .rem-dot svg { width: 17px; height: 17px; stroke: #fff; fill: none; stroke-width: 1.9; stroke-linecap: round; stroke-linejoin: round; }
+  .rem-row { display: flex; align-items: baseline; justify-content: space-between; gap: 14px; padding: 13px 0; border-bottom: 1px solid var(--hair); }
+  .rem-row:last-child { border-bottom: none; }
+  .rem-label { font-size: 14.5px; color: var(--body-c); }
+  .rem-val { font-size: 14.5px; font-weight: 600; color: var(--ink); }
+  .rem-bar { height: 6px; border-radius: 3px; background: var(--mist); overflow: hidden; margin-top: 18px; }
+  .rem-fill { height: 100%; width: 78%; border-radius: 3px; background: var(--accent); }
+
+  /* ── Chat mock ── */
+  .chat { background: var(--white); border-radius: var(--r); box-shadow: inset 0 0 0 1px var(--line); padding: 22px 20px; }
+  .chat-top { display: flex; align-items: center; gap: 11px; padding-bottom: 16px; border-bottom: 1px solid var(--hair); margin-bottom: 18px; }
+  .chat-av { width: 34px; height: 34px; border-radius: 50%; background: var(--accent-soft); display: grid; place-items: center; flex-shrink: 0; overflow: hidden; }
+  .chat-av img { width: 100%; height: 100%; object-fit: contain; }
+  .chat-name { font-size: 15px; font-weight: 600; }
+  .chat-sub { font-size: 12.5px; color: var(--faint); margin-top: 1px; }
+  .bub { max-width: 82%; padding: 12px 15px; border-radius: 16px; font-size: 14.5px; line-height: 1.55; margin-bottom: 10px; }
+  .bub-you { margin-left: auto; background: var(--ink); color: #fff; border-bottom-right-radius: 5px; }
+  .bub-foli { background: var(--mist); color: var(--body-c); border-bottom-left-radius: 5px; }
+  .chat-note { font-size: 12px; color: var(--faint); margin-top: 14px; padding-top: 14px; border-top: 1px solid var(--hair); }
+
   /* ── Footer ── */
   footer { border-top: 1px solid var(--hair); background: var(--paper); }
-  .foot { max-width: 1200px; margin: 0 auto; padding: 36px var(--gut); display: flex; flex-wrap: wrap; gap: 18px; align-items: center; justify-content: space-between; }
-  .foot .mark { background: var(--accent); }
-  .foot .mark svg { stroke: #fff; }
+  .foot { max-width: 1200px; margin: 0 auto; padding: 36px var(--gut) 26px; display: flex; flex-wrap: wrap; gap: 18px; align-items: center; justify-content: space-between; }
+  .foot .mark { background: transparent; }
   .foot-links { display: flex; gap: 22px; flex-wrap: wrap; }
   .foot-link { font-size: 14px; color: var(--body-c); text-decoration: none; }
   .foot-link:hover { color: var(--ink); text-decoration: underline; text-underline-offset: 3px; }
+  .foot-note { max-width: 1200px; margin: 0 auto; padding: 0 var(--gut) 34px; border-top: 1px solid var(--hair); padding-top: 24px; }
+  .foot-note p { font-size: 13px; line-height: 1.7; color: var(--faint); max-width: 760px; }
+  .foot-note p + p { margin-top: 10px; }
 
   /* ── Product rows inside a category card ── */
   .prod-list { margin-top: 18px; border-top: 1px solid var(--hair); }
@@ -257,13 +290,15 @@
 <header id="hdr">
   <nav class="nav">
     <a class="logo" href="/">
-      <span class="mark" aria-hidden="true">
-        <svg viewBox="0 0 24 24"><path d="M12 21c0-7 3-12 8-15-6 1-9 5-10 9"/><path d="M12 21C9 15 6 12 3 11c3 5 5 7 9 10"/></svg>
+      <span class="mark">
+        <img src="/follisense-icon-green.png" alt="" width="28" height="28">
       </span>
       <span class="logo-word">FolliSense</span>
     </a>
     <div class="nav-links">
       <a class="nav-link nav-hide" href="#how">How it works</a>
+      <a class="nav-link nav-hide" href="#men">For men</a>
+      <a class="nav-link nav-hide" href="#foli">Foli</a>
       <a class="nav-link nav-hide" href="#products">Products</a>
       <a class="nav-link" href="https://app.follisense.com/login">Log in</a>
       <a class="btn btn-nav btn-sm" href="https://app.follisense.com">Get started</a>
@@ -325,10 +360,16 @@
       <div class="reveal">
         <p class="eyebrow">Who it is for</p>
         <h2 style="margin-bottom:22px">Textured hair,<br>taken seriously</h2>
-        <p class="copy" style="margin-bottom:28px">
+        <p class="copy" style="margin-bottom:22px">
           FolliSense is built around protective styles, takedown days, retwists and barber visits, because
           tension, buildup and shrinkage are the things that actually shape scalp health for coily and curly
           hair.
+        </p>
+        <p class="copy" style="margin-bottom:28px">
+          That means the questions, the timing and the guidance are written for type 3 and type 4 patterns.
+          If your hair is straight or wavy, type 1 or type 2, you are welcome here and the photo record and
+          check-ins work the same way. Just know that some routine advice is shaped around wash days and
+          styles that may not be yours.
         </p>
         <div class="chips">
           <span class="chip">Braids</span>
@@ -389,61 +430,231 @@
   </section>
 </div>
 
-<!-- ══ How it works ══════════════════════════════════════════════════════ -->
+<!-- ══ For men ═══════════════════════════════════════════════════════════ -->
 <div style="background:var(--paper)">
   <div class="wrap">
-    <section class="sect" id="how" style="scroll-margin-top:80px">
-      <div class="reveal" style="margin-bottom:44px">
-        <p class="eyebrow">How it works</p>
-        <h2>Three steps, then it<br>runs on your cycle</h2>
+    <section class="sect" id="men" style="scroll-margin-top:80px">
+      <div class="reveal" style="max-width:640px;margin-bottom:44px">
+        <p class="eyebrow">For men</p>
+        <h2 style="margin-bottom:22px">A cut every week is<br>a cycle too</h2>
+        <p class="copy">
+          Most hair apps have nothing for men beyond a hairline photo. FolliSense tracks the parts that
+          actually repeat: the barber chair, the shave, the line-up, and what your scalp does in between.
+        </p>
       </div>
+
       <div class="grid grid-3">
-
         <div class="card reveal">
-          <div class="head-row">
-            <span class="ico">
-              <svg viewBox="0 0 24 24"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
-            </span>
-            <span class="num">01</span>
-          </div>
-          <h3 style="margin-bottom:10px">Set your baseline</h3>
+          <span class="ico" style="display:block;margin-bottom:16px">
+            <svg viewBox="0 0 24 24"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M20 4L8.1 15.9"/><path d="M8.1 8.1L20 20"/></svg>
+          </span>
+          <h3 style="margin-bottom:10px">Cuts and barber visits</h3>
           <p class="small" style="color:var(--body-c);font-size:14.5px">
-            Four guided photos of your hairline, sides, crown and nape, plus a few questions about how your
-            scalp feels. About three minutes.
+            Log a fade, a line-up or a full cut and check in around it, so you are comparing the same scalp at
+            the same point in the cycle rather than whenever you remember.
           </p>
         </div>
 
         <div class="card reveal">
-          <div class="head-row">
-            <span class="ico">
-              <svg viewBox="0 0 24 24"><path d="M3 3v18h18"/><path d="M7 15l4-5 3 3 5-7"/></svg>
-            </span>
-            <span class="num">02</span>
-          </div>
-          <h3 style="margin-bottom:10px">Check in on cycle</h3>
+          <span class="ico" style="display:block;margin-bottom:16px">
+            <svg viewBox="0 0 24 24"><path d="M12 3c3 3 5 6 5 9a5 5 0 0 1-10 0c0-3 2-6 5-9z"/><path d="M9.5 13.5a2.5 2.5 0 0 0 2.5 2.5"/></svg>
+          </span>
+          <h3 style="margin-bottom:10px">Razor bumps and irritation</h3>
           <p class="small" style="color:var(--body-c);font-size:14.5px">
-            Whether that is a four-week install or a weekly cut, check-ins land when they make sense and we
-            track what changes between them.
+            Bumps, ingrown hairs and soreness after a shave get logged as their own thing, so you can see
+            whether they follow a particular barber, blade or product.
           </p>
         </div>
 
         <div class="card reveal">
-          <div class="head-row">
-            <span class="ico">
-              <svg viewBox="0 0 24 24"><path d="M4 2v6a6 6 0 0 0 12 0V2"/><path d="M10 14v3a4 4 0 0 0 8 0v-1"/><circle cx="20" cy="10" r="2"/></svg>
-            </span>
-            <span class="num">03</span>
-          </div>
-          <h3 style="margin-bottom:10px">Know when to act</h3>
+          <span class="ico" style="display:block;margin-bottom:16px">
+            <svg viewBox="0 0 24 24"><path d="M4 16c1.5-3 4-4.5 8-4.5s6.5 1.5 8 4.5"/><path d="M4 16v3"/><path d="M20 16v3"/><path d="M12 11.5V4"/><path d="M8 6.5L12 4l4 2.5"/></svg>
+          </span>
+          <h3 style="margin-bottom:10px">Hairline and crown</h3>
           <p class="small" style="color:var(--body-c);font-size:14.5px">
-            If what you report is worth professional attention we say so, and package your record so a
-            trichologist can pick it up quickly.
+            Guided photos from the same angles each time, so a receding line or a thinning crown is something
+            you can see side by side instead of guessing at in the mirror.
           </p>
         </div>
+      </div>
 
+      <div class="chips reveal" style="margin-top:26px">
+        <span class="chip">Fades &amp; tapers</span>
+        <span class="chip">Line-ups</span>
+        <span class="chip">Waves</span>
+        <span class="chip">Locs &amp; twists</span>
+        <span class="chip">Bald &amp; shaved</span>
+        <span class="chip">Growing it out</span>
+      </div>
+
+      <p class="small reveal" style="margin-top:24px;max-width:720px;font-size:13px">
+        Any scale describing hairline or crown change is a way of recording what you can see, not a diagnosis
+        or a prediction. Hair loss has many causes. If you are worried about it, see a doctor or dermatologist.
+      </p>
+    </section>
+  </div>
+</div>
+
+<!-- ══ How it works ══════════════════════════════════════════════════════ -->
+<div class="wrap">
+  <section class="sect" id="how" style="scroll-margin-top:80px">
+    <div class="reveal" style="margin-bottom:44px">
+      <p class="eyebrow">How it works</p>
+      <h2>Three steps, then it<br>runs on your cycle</h2>
+    </div>
+    <div class="grid grid-3">
+
+      <div class="card reveal">
+        <div class="head-row">
+          <span class="ico">
+            <svg viewBox="0 0 24 24"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
+          </span>
+          <span class="num">01</span>
+        </div>
+        <h3 style="margin-bottom:10px">Set your baseline</h3>
+        <p class="small" style="color:var(--body-c);font-size:14.5px">
+          Four guided photos of your hairline, sides, crown and nape, plus a few questions about how your
+          scalp feels. About three minutes.
+        </p>
+      </div>
+
+      <div class="card reveal">
+        <div class="head-row">
+          <span class="ico">
+            <svg viewBox="0 0 24 24"><path d="M3 3v18h18"/><path d="M7 15l4-5 3 3 5-7"/></svg>
+          </span>
+          <span class="num">02</span>
+        </div>
+        <h3 style="margin-bottom:10px">Check in on cycle</h3>
+        <p class="small" style="color:var(--body-c);font-size:14.5px">
+          Whether that is a four-week install or a weekly cut, check-ins land when they make sense and we
+          track what changes between them.
+        </p>
+      </div>
+
+      <div class="card reveal">
+        <div class="head-row">
+          <span class="ico">
+            <svg viewBox="0 0 24 24"><path d="M4 2v6a6 6 0 0 0 12 0V2"/><path d="M10 14v3a4 4 0 0 0 8 0v-1"/><circle cx="20" cy="10" r="2"/></svg>
+          </span>
+          <span class="num">03</span>
+        </div>
+        <h3 style="margin-bottom:10px">Know when to act</h3>
+        <p class="small" style="color:var(--body-c);font-size:14.5px">
+          If what you report is worth professional attention we say so, and package your record so a
+          trichologist can pick it up quickly.
+        </p>
+      </div>
+
+    </div>
+  </section>
+</div>
+
+<!-- ══ Takedown reminders ════════════════════════════════════════════════ -->
+<div style="background:var(--paper)">
+  <div class="wrap">
+    <section class="sect" id="reminders" style="scroll-margin-top:80px">
+      <div class="split">
+        <div class="reveal">
+          <p class="eyebrow">Reminders</p>
+          <h2 style="margin-bottom:22px">The style has been in<br>longer than you think</h2>
+          <p class="copy" style="margin-bottom:18px">
+            Tell FolliSense when a style went in and how long you plan to keep it. You get a nudge as takedown
+            week approaches, and again if it runs past what you planned, because four weeks has a way of
+            quietly becoming seven.
+          </p>
+          <p class="copy" style="margin-bottom:28px">
+            The same works for retwists, wash days and barber visits. Reminders are built from what you told
+            us, and they are a convenience rather than a rule. If a style feels tight, itchy or sore, do not
+            wait for a notification.
+          </p>
+          <a class="btn btn-line btn-sm" href="https://app.follisense.com">Set your first cycle</a>
+        </div>
+
+        <div class="reveal" aria-hidden="true">
+          <div class="rem-card">
+            <div class="rem-top">
+              <span class="rem-dot">
+                <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+              </span>
+              <div>
+                <p style="font-size:15px;font-weight:600">Knotless braids</p>
+                <p style="font-size:12.5px;color:var(--faint);margin-top:1px">Installed 12 July</p>
+              </div>
+            </div>
+            <div style="padding-top:6px">
+              <div class="rem-row">
+                <span class="rem-label">Planned takedown</span>
+                <span class="rem-val">9 August</span>
+              </div>
+              <div class="rem-row">
+                <span class="rem-label">Day of cycle</span>
+                <span class="rem-val">22 of 28</span>
+              </div>
+              <div class="rem-row">
+                <span class="rem-label">Next check-in</span>
+                <span class="rem-val">In 3 days</span>
+              </div>
+            </div>
+            <div class="rem-bar"><span class="rem-fill"></span></div>
+            <p style="font-size:12.5px;color:var(--faint);margin-top:12px">
+              Takedown week starts Monday. We will remind you.
+            </p>
+          </div>
+        </div>
       </div>
     </section>
   </div>
+</div>
+
+<!-- ══ Foli ══════════════════════════════════════════════════════════════ -->
+<div class="wrap">
+  <section class="sect" id="foli" style="scroll-margin-top:80px">
+    <div class="split split-flip">
+      <div class="reveal">
+        <p class="eyebrow">Foli</p>
+        <h2 style="margin-bottom:22px">A live chatbot for<br>the questions in between</h2>
+        <p class="copy" style="margin-bottom:18px">
+          Foli is built into the app and answers straight away, at 2am on a takedown night or halfway through a
+          wash. Ask about buildup, protein and moisture, what to do about tight braids, or how to read your own
+          check-in history.
+        </p>
+        <p class="copy" style="margin-bottom:28px">
+          Foli is automated software, not a person. No stylist or clinician is reading your chat, and it can be
+          wrong, so treat it as a well-read friend rather than a professional. It does not diagnose anything and
+          it is not for emergencies.
+        </p>
+        <a class="btn btn-line btn-sm" href="https://app.follisense.com">Try Foli in the app</a>
+      </div>
+
+      <div class="reveal" aria-hidden="true">
+        <div class="chat">
+          <div class="chat-top">
+            <span class="chat-av">
+              <img src="/follisense-icon-green.png" alt="" width="34" height="34">
+            </span>
+            <div>
+              <p class="chat-name">Foli</p>
+              <p class="chat-sub">Automated assistant · replies instantly</p>
+            </div>
+          </div>
+          <p class="bub bub-you">My braids are 3 weeks in and my scalp is flaking. Wash or wait?</p>
+          <p class="bub bub-foli">
+            Three weeks is a normal point for buildup. A diluted clarifying wash applied at the scalp, then a
+            light moisturiser, usually settles it without disturbing the braids.
+          </p>
+          <p class="bub bub-you">Will that make them frizzy?</p>
+          <p class="bub bub-foli">
+            Some, yes. Applying with a nozzle bottle and drying fully afterwards keeps it to a minimum.
+          </p>
+          <p class="chat-note">
+            Foli is automated and can be wrong. It is not medical advice and not a substitute for seeing a
+            professional.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
 </div>
 
 <!-- ══ Products ══════════════════════════════════════════════════════════
@@ -454,256 +665,258 @@
      NEXT: linked product cards drop in under each category heading, built
      from product_catalog (name, brand, price_ksh, jumia_url). Cosmetic rows
      only — no medicated shampoos or topical treatments on this page.     -->
-<div class="wrap">
-  <section class="sect" id="products" style="scroll-margin-top:80px">
-    <div class="split reveal" style="align-items:end;margin-bottom:44px">
-      <div>
-        <p class="eyebrow">Products</p>
-        <h2>Products that fit your<br>routine, not a list</h2>
-      </div>
-      <p class="copy">
-        Once your routine is set, FolliSense shows where the gaps are, mid-cycle scalp care, a clarifying wash,
-        something for the days after takedown, and suggests products that fit. Browse by category, buy from a
-        few select retailers. Nothing is chosen from your symptoms.
-      </p>
-    </div>
-
-    <div class="grid grid-3">
-      <div class="card card-flat reveal" style="padding:26px 24px">
-        <span class="ico" style="display:block;margin-bottom:16px"><svg viewBox="0 0 24 24"><path d="M11 20A7 7 0 0 1 4 13V8a5 5 0 0 1 5-5h6a5 5 0 0 1 5 5c0 6-5 12-9 12z"/><path d="M8 20c0-4 2-8 6-11"/></svg></span>
-        <h3 style="font-size:17px;margin-bottom:8px">Cleansers</h3>
-        <p class="small">Clarifying and gentle shampoos for buildup and everyday washing.</p>
-        <div class="prod-list">
-          <a class="prod" href="https://www.jumia.co.ke/catalog/?q=cantu+sulphate+free+shampoo" target="_blank" rel="sponsored noopener noreferrer">
-            <span>
-              <span class="prod-name">Curl &amp; Coil Sulphate-Free Shampoo</span>
-              <span class="prod-brand" style="display:block">Cantu</span>
-            </span>
-            <span class="prod-right">
-              <svg class="prod-go" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7"/><path d="M9 7h8v8"/></svg>
-            </span>
-          </a>
-          <a class="prod" href="https://www.jumia.co.ke/catalog/?q=shea+moisture+jamaican+black+castor+shampoo" target="_blank" rel="sponsored noopener noreferrer">
-            <span>
-              <span class="prod-name">Jamaican Black Castor Oil Shampoo</span>
-              <span class="prod-brand" style="display:block">SheaMoisture</span>
-            </span>
-            <span class="prod-right">
-              <svg class="prod-go" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7"/><path d="M9 7h8v8"/></svg>
-            </span>
-          </a>
-          <a class="prod" href="https://www.jumia.co.ke/catalog/?q=neutrogena+anti+residue+shampoo" target="_blank" rel="sponsored noopener noreferrer">
-            <span>
-              <span class="prod-name">Anti-Residue Clarifying Shampoo</span>
-              <span class="prod-brand" style="display:block">Neutrogena</span>
-            </span>
-            <span class="prod-right">
-              <svg class="prod-go" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7"/><path d="M9 7h8v8"/></svg>
-            </span>
-          </a>
-        </div>
-      </div>
-      <div class="card card-flat reveal" style="padding:26px 24px">
-        <span class="ico" style="display:block;margin-bottom:16px"><svg viewBox="0 0 24 24"><path d="M10 2v7.5L4.5 19A2 2 0 0 0 6.2 22h11.6a2 2 0 0 0 1.7-3L14 9.5V2"/><path d="M8 2h8"/><path d="M7 15h10"/></svg></span>
-        <h3 style="font-size:17px;margin-bottom:8px">Conditioners</h3>
-        <p class="small">Deep conditioners, leave-ins and bond treatments for moisture and strength.</p>
-        <div class="prod-list">
-          <a class="prod" href="https://www.jumia.co.ke/catalog/?q=shea+moisture+manuka+honey+deep+conditioner" target="_blank" rel="sponsored noopener noreferrer">
-            <span>
-              <span class="prod-name">Manuka Honey &amp; Yogurt Deep Conditioner</span>
-              <span class="prod-brand" style="display:block">SheaMoisture</span>
-            </span>
-            <span class="prod-right">
-              <svg class="prod-go" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7"/><path d="M9 7h8v8"/></svg>
-            </span>
-          </a>
-          <a class="prod" href="https://www.jumia.co.ke/catalog/?q=cantu+shea+butter+leave+in" target="_blank" rel="sponsored noopener noreferrer">
-            <span>
-              <span class="prod-name">Shea Butter Leave-In Conditioner</span>
-              <span class="prod-brand" style="display:block">Cantu</span>
-            </span>
-            <span class="prod-right">
-              <svg class="prod-go" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7"/><path d="M9 7h8v8"/></svg>
-            </span>
-          </a>
-          <a class="prod" href="https://www.jumia.co.ke/catalog/?q=aphogee+keratin+reconstructor" target="_blank" rel="sponsored noopener noreferrer">
-            <span>
-              <span class="prod-name">Two-Minute Keratin Reconstructor</span>
-              <span class="prod-brand" style="display:block">Aphogee</span>
-            </span>
-            <span class="prod-right">
-              <svg class="prod-go" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7"/><path d="M9 7h8v8"/></svg>
-            </span>
-          </a>
-        </div>
-      </div>
-      <div class="card card-flat reveal" style="padding:26px 24px">
-        <span class="ico" style="display:block;margin-bottom:16px"><svg viewBox="0 0 24 24"><path d="M12 3l1.8 4.6L18.5 9l-4.7 1.4L12 15l-1.8-4.6L5.5 9l4.7-1.4z"/><path d="M18 16l.8 2.2L21 19l-2.2.8L18 22l-.8-2.2L15 19l2.2-.8z"/></svg></span>
-        <h3 style="font-size:17px;margin-bottom:8px">Styling</h3>
-        <p class="small">Gels, creams, edge control and twist butters for defined styles.</p>
-        <div class="prod-list">
-          <a class="prod" href="https://www.jumia.co.ke/catalog/?q=eco+styler+olive+oil+gel" target="_blank" rel="sponsored noopener noreferrer">
-            <span>
-              <span class="prod-name">Olive Oil Styling Gel</span>
-              <span class="prod-brand" style="display:block">Eco Styler</span>
-            </span>
-            <span class="prod-right">
-              <svg class="prod-go" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7"/><path d="M9 7h8v8"/></svg>
-            </span>
-          </a>
-          <a class="prod" href="https://www.jumia.co.ke/catalog/?q=ebin+24+hour+edge+control" target="_blank" rel="sponsored noopener noreferrer">
-            <span>
-              <span class="prod-name">24 Hour Edge Control</span>
-              <span class="prod-brand" style="display:block">Ebin New York</span>
-            </span>
-            <span class="prod-right">
-              <svg class="prod-go" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7"/><path d="M9 7h8v8"/></svg>
-            </span>
-          </a>
-          <a class="prod" href="https://www.jumia.co.ke/catalog/?q=mielle+pomegranate+honey+twisting+souffle" target="_blank" rel="sponsored noopener noreferrer">
-            <span>
-              <span class="prod-name">Twisting Souffl&eacute;</span>
-              <span class="prod-brand" style="display:block">Mielle Organics</span>
-            </span>
-            <span class="prod-right">
-              <svg class="prod-go" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7"/><path d="M9 7h8v8"/></svg>
-            </span>
-          </a>
-        </div>
-      </div>
-      <div class="card card-flat reveal" style="padding:26px 24px">
-        <span class="ico" style="display:block;margin-bottom:16px"><svg viewBox="0 0 24 24"><path d="M6 6m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0"/><path d="M6 18m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0"/><path d="M20 4L8.1 15.9"/><path d="M8.1 8.1L20 20"/></svg></span>
-        <h3 style="font-size:17px;margin-bottom:8px">Protective care</h3>
-        <p class="small">Sheen sprays, loc and braid care for the weeks a style is in.</p>
-        <div class="prod-list">
-          <a class="prod" href="https://www.jumia.co.ke/catalog/?q=african+pride+braid+sheen+spray" target="_blank" rel="sponsored noopener noreferrer">
-            <span>
-              <span class="prod-name">Braid Sheen Spray</span>
-              <span class="prod-brand" style="display:block">African Pride</span>
-            </span>
-            <span class="prod-right">
-              <svg class="prod-go" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7"/><path d="M9 7h8v8"/></svg>
-            </span>
-          </a>
-          <a class="prod" href="https://www.jumia.co.ke/catalog/?q=jamaican+mango+lime+loc+gel" target="_blank" rel="sponsored noopener noreferrer">
-            <span>
-              <span class="prod-name">Loc &amp; Twist Gel</span>
-              <span class="prod-brand" style="display:block">Jamaican Mango &amp; Lime</span>
-            </span>
-            <span class="prod-right">
-              <svg class="prod-go" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7"/><path d="M9 7h8v8"/></svg>
-            </span>
-          </a>
-          <a class="prod" href="https://www.jumia.co.ke/catalog/?q=satin+bonnet+hair" target="_blank" rel="sponsored noopener noreferrer">
-            <span>
-              <span class="prod-name">Satin-Lined Hair Bonnet</span>
-              <span class="prod-brand" style="display:block">Satin Roots</span>
-            </span>
-            <span class="prod-right">
-              <svg class="prod-go" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7"/><path d="M9 7h8v8"/></svg>
-            </span>
-          </a>
-        </div>
-      </div>
-      <div class="card card-flat reveal" style="padding:26px 24px">
-        <span class="ico" style="display:block;margin-bottom:16px"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg></span>
-        <h3 style="font-size:17px;margin-bottom:8px">Scalp care</h3>
-        <p class="small">Serums, tonics and scrubs for how your scalp feels day to day.</p>
-        <div class="prod-list">
-          <a class="prod" href="https://www.jumia.co.ke/catalog/?q=mielle+vitamin+e+scalp+serum" target="_blank" rel="sponsored noopener noreferrer">
-            <span>
-              <span class="prod-name">Vitamin E Scalp Serum</span>
-              <span class="prod-brand" style="display:block">Mielle Organics</span>
-            </span>
-            <span class="prod-right">
-              <svg class="prod-go" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7"/><path d="M9 7h8v8"/></svg>
-            </span>
-          </a>
-          <a class="prod" href="https://www.jumia.co.ke/catalog/?q=paul+mitchell+tea+tree+scalp" target="_blank" rel="sponsored noopener noreferrer">
-            <span>
-              <span class="prod-name">Tea Tree Scalp Treatment</span>
-              <span class="prod-brand" style="display:block">Paul Mitchell</span>
-            </span>
-            <span class="prod-right">
-              <svg class="prod-go" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7"/><path d="M9 7h8v8"/></svg>
-            </span>
-          </a>
-          <a class="prod" href="https://www.jumia.co.ke/catalog/?q=briogeo+scalp+revival+charcoal" target="_blank" rel="sponsored noopener noreferrer">
-            <span>
-              <span class="prod-name">Scalp Revival Charcoal Shampoo</span>
-              <span class="prod-brand" style="display:block">Briogeo</span>
-            </span>
-            <span class="prod-right">
-              <svg class="prod-go" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7"/><path d="M9 7h8v8"/></svg>
-            </span>
-          </a>
-        </div>
-      </div>
-    </div>
-    <p class="small" style="margin-top:28px;max-width:720px;font-size:12.5px">
-      Product links to Jumia Kenya and Amazon may be affiliate links, which means we may earn a small commission
-      if you buy through them, at no extra cost to you. Commission never affects what we show you.
-    </p>
-  </section>
-</div>
-
-<!-- ══ What it is not ════════════════════════════════════════════════════ -->
 <div style="background:var(--paper)">
   <div class="wrap">
-    <section class="sect">
-      <div class="split">
-        <div class="reveal">
-          <p class="eyebrow">Being clear</p>
-          <h2 style="margin-bottom:22px">What FolliSense<br>is not</h2>
-          <p class="copy" style="margin-bottom:18px">
-            It does not diagnose anything, and it will never tell you that you have a named condition. It is not
-            a substitute for a trichologist, a dermatologist or a doctor.
-          </p>
-          <p class="copy">
-            What it does is keep an honest record, and tell you plainly when what you have reported is worth
-            showing to someone qualified, with your history organised so that appointment starts further along.
-          </p>
+    <section class="sect" id="products" style="scroll-margin-top:80px">
+      <div class="split reveal" style="align-items:end;margin-bottom:44px">
+        <div>
+          <p class="eyebrow">Products</p>
+          <h2>Products that fit your<br>routine, not a list</h2>
         </div>
-        <div class="card reveal" style="padding:10px 28px">
-          <div class="tick">
-            <svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
-            <div>
-              <p style="font-weight:600;margin-bottom:3px">Only you see your photos</p>
-              <p class="small">Stored securely and never shown to anyone else.</p>
-            </div>
+        <p class="copy">
+          Once your routine is set, FolliSense shows where the gaps are, mid-cycle scalp care, a clarifying wash,
+          something for the days after takedown, and suggests products that fit. Browse by category, buy from a
+          few select retailers. Nothing is chosen from your symptoms.
+        </p>
+      </div>
+
+      <div class="grid grid-3">
+        <div class="card card-still reveal" style="padding:26px 24px">
+          <span class="ico" style="display:block;margin-bottom:16px"><svg viewBox="0 0 24 24"><path d="M11 20A7 7 0 0 1 4 13V8a5 5 0 0 1 5-5h6a5 5 0 0 1 5 5c0 6-5 12-9 12z"/><path d="M8 20c0-4 2-8 6-11"/></svg></span>
+          <h3 style="font-size:17px;margin-bottom:8px">Cleansers</h3>
+          <p class="small">Clarifying and gentle shampoos for buildup and everyday washing.</p>
+          <div class="prod-list">
+            <a class="prod" href="https://www.jumia.co.ke/catalog/?q=cantu+sulphate+free+shampoo" target="_blank" rel="sponsored noopener noreferrer">
+              <span>
+                <span class="prod-name">Curl &amp; Coil Sulphate-Free Shampoo</span>
+                <span class="prod-brand" style="display:block">Cantu</span>
+              </span>
+              <span class="prod-right">
+                <svg class="prod-go" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7"/><path d="M9 7h8v8"/></svg>
+              </span>
+            </a>
+            <a class="prod" href="https://www.jumia.co.ke/catalog/?q=shea+moisture+jamaican+black+castor+shampoo" target="_blank" rel="sponsored noopener noreferrer">
+              <span>
+                <span class="prod-name">Jamaican Black Castor Oil Shampoo</span>
+                <span class="prod-brand" style="display:block">SheaMoisture</span>
+              </span>
+              <span class="prod-right">
+                <svg class="prod-go" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7"/><path d="M9 7h8v8"/></svg>
+              </span>
+            </a>
+            <a class="prod" href="https://www.jumia.co.ke/catalog/?q=neutrogena+anti+residue+shampoo" target="_blank" rel="sponsored noopener noreferrer">
+              <span>
+                <span class="prod-name">Anti-Residue Clarifying Shampoo</span>
+                <span class="prod-brand" style="display:block">Neutrogena</span>
+              </span>
+              <span class="prod-right">
+                <svg class="prod-go" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7"/><path d="M9 7h8v8"/></svg>
+              </span>
+            </a>
           </div>
-          <div class="tick">
-            <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>
-            <div>
-              <p style="font-weight:600;margin-bottom:3px">Treated as health data</p>
-              <p class="small">Handled with the care that implies, not as ordinary app content.</p>
-            </div>
+        </div>
+        <div class="card card-still reveal" style="padding:26px 24px">
+          <span class="ico" style="display:block;margin-bottom:16px"><svg viewBox="0 0 24 24"><path d="M10 2v7.5L4.5 19A2 2 0 0 0 6.2 22h11.6a2 2 0 0 0 1.7-3L14 9.5V2"/><path d="M8 2h8"/><path d="M7 15h10"/></svg></span>
+          <h3 style="font-size:17px;margin-bottom:8px">Conditioners</h3>
+          <p class="small">Deep conditioners, leave-ins and bond treatments for moisture and strength.</p>
+          <div class="prod-list">
+            <a class="prod" href="https://www.jumia.co.ke/catalog/?q=shea+moisture+manuka+honey+deep+conditioner" target="_blank" rel="sponsored noopener noreferrer">
+              <span>
+                <span class="prod-name">Manuka Honey &amp; Yogurt Deep Conditioner</span>
+                <span class="prod-brand" style="display:block">SheaMoisture</span>
+              </span>
+              <span class="prod-right">
+                <svg class="prod-go" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7"/><path d="M9 7h8v8"/></svg>
+              </span>
+            </a>
+            <a class="prod" href="https://www.jumia.co.ke/catalog/?q=cantu+shea+butter+leave+in" target="_blank" rel="sponsored noopener noreferrer">
+              <span>
+                <span class="prod-name">Shea Butter Leave-In Conditioner</span>
+                <span class="prod-brand" style="display:block">Cantu</span>
+              </span>
+              <span class="prod-right">
+                <svg class="prod-go" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7"/><path d="M9 7h8v8"/></svg>
+              </span>
+            </a>
+            <a class="prod" href="https://www.jumia.co.ke/catalog/?q=aphogee+keratin+reconstructor" target="_blank" rel="sponsored noopener noreferrer">
+              <span>
+                <span class="prod-name">Two-Minute Keratin Reconstructor</span>
+                <span class="prod-brand" style="display:block">Aphogee</span>
+              </span>
+              <span class="prod-right">
+                <svg class="prod-go" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7"/><path d="M9 7h8v8"/></svg>
+              </span>
+            </a>
           </div>
-          <div class="tick">
-            <svg viewBox="0 0 24 24"><path d="M3 6h18"/><path d="M8 6V4a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1v2"/><path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"/></svg>
-            <div>
-              <p style="font-weight:600;margin-bottom:3px">Delete any time</p>
-              <p class="small">One photo, or your whole account, whenever you want.</p>
-            </div>
+        </div>
+        <div class="card card-still reveal" style="padding:26px 24px">
+          <span class="ico" style="display:block;margin-bottom:16px"><svg viewBox="0 0 24 24"><path d="M12 3l1.8 4.6L18.5 9l-4.7 1.4L12 15l-1.8-4.6L5.5 9l4.7-1.4z"/><path d="M18 16l.8 2.2L21 19l-2.2.8L18 22l-.8-2.2L15 19l2.2-.8z"/></svg></span>
+          <h3 style="font-size:17px;margin-bottom:8px">Styling</h3>
+          <p class="small">Gels, creams, edge control and twist butters for defined styles.</p>
+          <div class="prod-list">
+            <a class="prod" href="https://www.jumia.co.ke/catalog/?q=eco+styler+olive+oil+gel" target="_blank" rel="sponsored noopener noreferrer">
+              <span>
+                <span class="prod-name">Olive Oil Styling Gel</span>
+                <span class="prod-brand" style="display:block">Eco Styler</span>
+              </span>
+              <span class="prod-right">
+                <svg class="prod-go" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7"/><path d="M9 7h8v8"/></svg>
+              </span>
+            </a>
+            <a class="prod" href="https://www.jumia.co.ke/catalog/?q=ebin+24+hour+edge+control" target="_blank" rel="sponsored noopener noreferrer">
+              <span>
+                <span class="prod-name">24 Hour Edge Control</span>
+                <span class="prod-brand" style="display:block">Ebin New York</span>
+              </span>
+              <span class="prod-right">
+                <svg class="prod-go" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7"/><path d="M9 7h8v8"/></svg>
+              </span>
+            </a>
+            <a class="prod" href="https://www.jumia.co.ke/catalog/?q=mielle+pomegranate+honey+twisting+souffle" target="_blank" rel="sponsored noopener noreferrer">
+              <span>
+                <span class="prod-name">Twisting Souffl&eacute;</span>
+                <span class="prod-brand" style="display:block">Mielle Organics</span>
+              </span>
+              <span class="prod-right">
+                <svg class="prod-go" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7"/><path d="M9 7h8v8"/></svg>
+              </span>
+            </a>
+          </div>
+        </div>
+        <div class="card card-still reveal" style="padding:26px 24px">
+          <span class="ico" style="display:block;margin-bottom:16px"><svg viewBox="0 0 24 24"><path d="M6 6m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0"/><path d="M6 18m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0"/><path d="M20 4L8.1 15.9"/><path d="M8.1 8.1L20 20"/></svg></span>
+          <h3 style="font-size:17px;margin-bottom:8px">Protective care</h3>
+          <p class="small">Sheen sprays, loc and braid care for the weeks a style is in.</p>
+          <div class="prod-list">
+            <a class="prod" href="https://www.jumia.co.ke/catalog/?q=african+pride+braid+sheen+spray" target="_blank" rel="sponsored noopener noreferrer">
+              <span>
+                <span class="prod-name">Braid Sheen Spray</span>
+                <span class="prod-brand" style="display:block">African Pride</span>
+              </span>
+              <span class="prod-right">
+                <svg class="prod-go" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7"/><path d="M9 7h8v8"/></svg>
+              </span>
+            </a>
+            <a class="prod" href="https://www.jumia.co.ke/catalog/?q=jamaican+mango+lime+loc+gel" target="_blank" rel="sponsored noopener noreferrer">
+              <span>
+                <span class="prod-name">Loc &amp; Twist Gel</span>
+                <span class="prod-brand" style="display:block">Jamaican Mango &amp; Lime</span>
+              </span>
+              <span class="prod-right">
+                <svg class="prod-go" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7"/><path d="M9 7h8v8"/></svg>
+              </span>
+            </a>
+            <a class="prod" href="https://www.jumia.co.ke/catalog/?q=satin+bonnet+hair" target="_blank" rel="sponsored noopener noreferrer">
+              <span>
+                <span class="prod-name">Satin-Lined Hair Bonnet</span>
+                <span class="prod-brand" style="display:block">Satin Roots</span>
+              </span>
+              <span class="prod-right">
+                <svg class="prod-go" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7"/><path d="M9 7h8v8"/></svg>
+              </span>
+            </a>
+          </div>
+        </div>
+        <div class="card card-still reveal" style="padding:26px 24px">
+          <span class="ico" style="display:block;margin-bottom:16px"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg></span>
+          <h3 style="font-size:17px;margin-bottom:8px">Scalp care</h3>
+          <p class="small">Serums, tonics and scrubs for how your scalp feels day to day.</p>
+          <div class="prod-list">
+            <a class="prod" href="https://www.jumia.co.ke/catalog/?q=mielle+vitamin+e+scalp+serum" target="_blank" rel="sponsored noopener noreferrer">
+              <span>
+                <span class="prod-name">Vitamin E Scalp Serum</span>
+                <span class="prod-brand" style="display:block">Mielle Organics</span>
+              </span>
+              <span class="prod-right">
+                <svg class="prod-go" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7"/><path d="M9 7h8v8"/></svg>
+              </span>
+            </a>
+            <a class="prod" href="https://www.jumia.co.ke/catalog/?q=paul+mitchell+tea+tree+scalp" target="_blank" rel="sponsored noopener noreferrer">
+              <span>
+                <span class="prod-name">Tea Tree Scalp Treatment</span>
+                <span class="prod-brand" style="display:block">Paul Mitchell</span>
+              </span>
+              <span class="prod-right">
+                <svg class="prod-go" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7"/><path d="M9 7h8v8"/></svg>
+              </span>
+            </a>
+            <a class="prod" href="https://www.jumia.co.ke/catalog/?q=briogeo+scalp+revival+charcoal" target="_blank" rel="sponsored noopener noreferrer">
+              <span>
+                <span class="prod-name">Scalp Revival Charcoal Shampoo</span>
+                <span class="prod-brand" style="display:block">Briogeo</span>
+              </span>
+              <span class="prod-right">
+                <svg class="prod-go" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7"/><path d="M9 7h8v8"/></svg>
+              </span>
+            </a>
           </div>
         </div>
       </div>
+      <p class="small" style="margin-top:28px;max-width:720px;font-size:12.5px">
+        Product links to Jumia Kenya and Amazon may be affiliate links, which means we may earn a small commission
+        if you buy through them, at no extra cost to you. Commission never affects what we show you.
+      </p>
     </section>
   </div>
 </div>
 
-<!-- ══ Closing ═══════════════════════════════════════════════════════════ -->
+<!-- ══ What it is not ════════════════════════════════════════════════════ -->
 <div class="wrap">
-  <section class="sect reveal" style="text-align:center">
-    <h2 style="max-width:780px;margin:0 auto 20px">Start with a baseline.<br>Everything compares against it.</h2>
-    <p class="lede" style="max-width:520px;margin:0 auto 34px">
-      Three minutes now gives you a starting point you can measure against for as long as you use it.
-    </p>
-    <a class="btn btn-ink" href="https://app.follisense.com">
-      Create your account
-      <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-    </a>
+  <section class="sect">
+    <div class="split">
+      <div class="reveal">
+        <p class="eyebrow">Being clear</p>
+        <h2 style="margin-bottom:22px">What FolliSense<br>is not</h2>
+        <p class="copy" style="margin-bottom:18px">
+          It does not diagnose anything, and it will never tell you that you have a named condition. It is not
+          a substitute for a trichologist, a dermatologist or a doctor.
+        </p>
+        <p class="copy">
+          What it does is keep an honest record, and tell you plainly when what you have reported is worth
+          showing to someone qualified, with your history organised so that appointment starts further along.
+        </p>
+      </div>
+      <div class="card reveal" style="padding:10px 28px">
+        <div class="tick">
+          <svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+          <div>
+            <p style="font-weight:600;margin-bottom:3px">Only you see your photos</p>
+            <p class="small">Stored securely and never shown to anyone else.</p>
+          </div>
+        </div>
+        <div class="tick">
+          <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>
+          <div>
+            <p style="font-weight:600;margin-bottom:3px">Treated as health data</p>
+            <p class="small">Handled with the care that implies, not as ordinary app content.</p>
+          </div>
+        </div>
+        <div class="tick">
+          <svg viewBox="0 0 24 24"><path d="M3 6h18"/><path d="M8 6V4a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1v2"/><path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"/></svg>
+          <div>
+            <p style="font-weight:600;margin-bottom:3px">Delete any time</p>
+            <p class="small">One photo, or your whole account, whenever you want.</p>
+          </div>
+        </div>
+      </div>
+    </div>
   </section>
+</div>
+
+<!-- ══ Closing ═══════════════════════════════════════════════════════════ -->
+<div style="background:var(--paper)">
+  <div class="wrap">
+    <section class="sect reveal" style="text-align:center">
+      <h2 style="max-width:780px;margin:0 auto 20px">Start with a baseline.<br>Everything compares against it.</h2>
+      <p class="lede" style="max-width:520px;margin:0 auto 34px">
+        Three minutes now gives you a starting point you can measure against for as long as you use it.
+      </p>
+      <a class="btn btn-ink" href="https://app.follisense.com">
+        Create your account
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+    </section>
+  </div>
 </div>
 
 <!-- ══ Footer ════════════════════════════════════════════════════════════
@@ -713,18 +926,35 @@
 <footer>
   <div class="foot">
     <div class="logo">
-      <span class="mark" style="width:24px;height:24px;border-radius:8px" aria-hidden="true">
-        <svg viewBox="0 0 24 24" style="width:14px;height:14px"><path d="M12 21c0-7 3-12 8-15-6 1-9 5-10 9"/><path d="M12 21C9 15 6 12 3 11c3 5 5 7 9 10"/></svg>
+      <span class="mark" style="width:24px;height:24px;border-radius:8px">
+        <img src="/follisense-icon-green.png" alt="" width="24" height="24">
       </span>
       <span class="logo-word" style="font-size:16px;color:var(--ink)">FolliSense</span>
       <span class="small" style="margin-left:8px;font-size:13.5px">Nairobi, Kenya</span>
     </div>
     <div class="foot-links">
+      <a class="foot-link" href="#how">How it works</a>
+      <a class="foot-link" href="#men">For men</a>
+      <a class="foot-link" href="#foli">Foli</a>
       <a class="foot-link" href="/privacy.html">Privacy</a>
       <a class="foot-link" href="/terms.html">Terms</a>
+      <a class="foot-link" href="mailto:support@follisense.com">Support</a>
       <a class="foot-link" href="#" onclick="FolliSenseConsent.open(); return false;">Cookie settings</a>
       <a class="foot-link" href="https://app.follisense.com/login">Log in</a>
     </div>
+  </div>
+  <div class="foot-note">
+    <p>
+      FolliSense is a wellness and self-care companion for scalp and hair health. It does not diagnose, treat or
+      prevent any medical condition and is not a substitute for advice from a qualified healthcare professional.
+      Foli, our in-app chatbot, is automated software and can be wrong. Reminders are a convenience, not a safety
+      mechanism. If something about your scalp or hair worries you, please see a professional.
+    </p>
+    <p>
+      Some product links are affiliate links. We may earn a small commission if you buy through them, at no extra
+      cost to you, and we are not the seller.
+    </p>
+    <p>&copy; 2026 FolliSense. All rights reserved.</p>
   </div>
 </footer>
 

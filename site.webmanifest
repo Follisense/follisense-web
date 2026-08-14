@@ -1,0 +1,15 @@
+{
+  "name": "FolliSense",
+  "short_name": "FolliSense",
+  "description": "Scalp and hair health tracking for textured hair.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#FFFFFF",
+  "theme_color": "#FFFFFF",
+  "icons": [
+    { "src": "/follisense-icon-green.png", "sizes": "256x256", "type": "image/png" },
+    { "src": "/icon-512.png", "sizes": "512x512", "type": "image/png" },
+    { "src": "/logo-master.png", "sizes": "1024x1024", "type": "image/png" }
+  ]
+}
