@@ -327,6 +327,79 @@
     html { scroll-behavior: auto; }
     * { transition-duration: .01ms !important; }
   }
+  /* ══ Mobile pass ══════════════════════════════════════════════════════
+     Everything below 700px. Kept in one block on purpose so it is easy to
+     find and tune without hunting through the stylesheet above. */
+  @media (max-width: 700px) {
+
+    /* Hero was running to 96vh on top of a stacked three-cell strip, which
+       made it enormous before you reached any content. */
+    .hero { min-height: auto; padding: 104px 0 44px; }
+    .hero h1 { font-size: clamp(34px, 8.6vw, 46px); line-height: 1.06; }
+    .hero .lede { font-size: 16px; }
+    .glass-strip { margin-top: 32px; }
+    .glass-cell { padding: 17px 18px; }
+    .glass-cell p.t { font-size: 14.5px; }
+    .glass-cell p.b { font-size: 13px; }
+
+    /* Two stacked buttons of different widths look accidental. */
+    .cta-row .btn { width: 100%; height: 50px; }
+
+    /* Nav pill was tight at the small end. */
+    header { padding: 10px 14px; }
+    .nav { padding: 6px 6px 6px 14px; }
+    .logo-word { font-size: 17px; }
+    .nav-link { padding: 8px 10px; font-size: 13.5px; }
+    .btn-sm { height: 38px; padding: 0 16px; font-size: 13.5px; }
+
+      .types-tabs {
+      flex-wrap: nowrap; overflow-x: auto; scroll-snap-type: x proximity;
+      margin-left: calc(var(--gut) * -1); margin-right: calc(var(--gut) * -1);
+      padding: 2px var(--gut) 10px; scrollbar-width: none;
+      -webkit-mask-image: linear-gradient(to right, #000 0, #000 calc(100% - 48px), transparent 100%);
+      mask-image: linear-gradient(to right, #000 0, #000 calc(100% - 48px), transparent 100%);
+    }
+    .types-tabs::-webkit-scrollbar { display: none; }
+    .types-tabs {
+      -webkit-mask-image: linear-gradient(to right, #000 0, #000 calc(100% - 48px), transparent 100%);
+      mask-image: linear-gradient(to right, #000 0, #000 calc(100% - 48px), transparent 100%);
+    }
+    .tt { flex: 0 0 auto; scroll-snap-align: start; }
+
+    /* Two phones side by side came out around 150px wide. Stack them. */
+    .phone-pair { grid-template-columns: 1fr; gap: 40px; max-width: 186px; }
+
+    /* The comparison stays side by side, that is the whole point, but the
+       captions need to stack or the date and the week collide. */
+    .cmp { gap: 10px; }
+    .cmp figcaption { display: block; margin-top: 9px; }
+    .cmp .d { font-size: 13px; display: block; }
+    .cmp .w { font-size: 12px; display: block; margin-top: 2px; }
+
+    /* Screenshots and photographs both come down hard. On a phone they are
+       already being viewed at phone scale, so a 240px frame inside a 375px
+       screen just eats the page. */
+    .phone-narrow { max-width: 186px; }
+    .phone-cap { font-size: 12px; margin-top: 10px; }
+    .photo { max-width: 300px; }
+    .tp-photo { max-width: 250px; height: auto; aspect-ratio: 4 / 5; }
+    .cmp { max-width: 340px; }
+
+    /* More air. The page is a single column here, so the only thing keeping
+       blocks apart is vertical space. */
+    .sect { padding: 88px 0; }
+    .split { gap: 48px; }
+    .grid { gap: 22px; }
+    .tp-kicker { font-size: 24px; margin-bottom: 18px; }
+    .tracks { margin: 28px 0 30px; }
+    .track-row { padding: 13px 0; }
+    .chips { gap: 10px; }
+    .statement { margin-bottom: 8px; }
+
+    .foot { gap: 16px; padding-top: 44px; }
+    .foot-links { gap: 16px 20px; }
+    .foot-link { font-size: 13.5px; }
+  }
 </style>
 </head>
 <body>
