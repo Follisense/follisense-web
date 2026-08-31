@@ -3,11 +3,11 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>FolliSense — Scalp and hair health tracking for textured hair</title>
-<meta name="description" content="FolliSense keeps a photo and symptom record of your scalp on the rhythm you actually live on, so thinning edges, breakage or an unsettled scalp show up early. Built for textured hair.">
+<title>FolliSense — Scalp and hair health tracking for every hair type</title>
+<meta name="description" content="FolliSense keeps a photo and symptom record of your scalp on the rhythm you actually live on, so thinning, breakage or a scalp that will not settle show up early. Straight, wavy, curly, coily, locs and relaxed.">
 
-<meta property="og:title" content="FolliSense — Scalp and hair health tracking for textured hair">
-<meta property="og:description" content="Track your scalp and hair health around braids, locs, twists, relaxers or a weekly fade. Know when something is worth a professional look.">
+<meta property="og:title" content="FolliSense — Scalp and hair health tracking for every hair type">
+<meta property="og:description" content="Track your scalp and hair health around braids, locs, twists, blow-dries, colour or a weekly fade. Know when something is worth a professional look.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://follisense.com">
 <meta name="theme-color" content="#FFFFFF">
@@ -25,20 +25,32 @@
 
 <style>
   /* ═══════════════════════════════════════════════════════════════════════
-     SWAP THE HERO IMAGE HERE — one line, nothing else to change.
+     IMAGE FILES THIS PAGE EXPECTS
 
-     The current URL points at Pinterest's CDN. Two problems worth knowing:
-     it blocks hotlinking unpredictably, so the image can disappear on its
-     own, and the photo belongs to whoever made it, which is a licensing
-     issue on a commercial site. Replace with a commercially licensed image
-     (Unsplash, Pexels) or your own photography before this goes live.
+     Photographs (not screenshots) — put these in the repo root:
+       hero.jpg      Full-screen hero background. Wide landscape, at least
+                     2000px across. Text sits on top of it, so the subject
+                     should sit RIGHT of centre and the left third should be
+                     relatively quiet.
+       type1.jpg     Straight hair
+       type2.jpg     Wavy hair
+       type3.jpg     Curly hair
+       type4.jpg     Coily hair
+       locs.jpg      Locs
+       relaxed.jpg   Relaxed or colour-treated
+                     ^ these six are 4:5 portrait, same crop as each other
+       men.jpg       Barber chair or line-up. Wide, roughly 3:2.
+       style.jpg     A takedown or install. Wide, roughly 3:2.
 
-     A local file is best: put it in the repo and use  url('hero.jpg')
+     App screenshots — already in the repo:
+       shot-home.png shot-photos.png shot-progress.png
+       shot-knowit.png shot-learn.png shot-products.png shot-foli.png
+       All eight must share one aspect ratio, with browser chrome and the
+       phone status bar cropped out.
      ═══════════════════════════════════════════════════════════════════════ */
   :root {
     --hero-img: url('hero.jpg');
 
-    /* Light, modern, mostly white. Green survives only as a small accent. */
     --white:  #FFFFFF;
     --paper:  #FAFAF9;
     --mist:   #F4F4F2;
@@ -47,12 +59,16 @@
     --ink:    #111110;
     --body-c: #55554F;
     --faint:  #8C8C85;
-    --accent: #2E4A39;
-    --accent-soft: rgba(46,74,57,.08);
 
-    --font: 'Instrument Sans', -apple-system, 'Segoe UI', sans-serif;
+    --accent:      #2E4A39;
+    --accent-mid:  #4C7A5A;
+    --accent-lite: #6E9E82;
+    --accent-soft: rgba(46,74,57,.08);
+    --deep:        #1A2820;
+
+    --font:    'Instrument Sans', -apple-system, 'Segoe UI', sans-serif;
     --gut:  clamp(20px, 5vw, 44px);
-    --sect: clamp(80px, 11vw, 148px);
+    --sect: clamp(76px, 10vw, 132px);
     --r:    20px;
   }
 
@@ -64,11 +80,12 @@
     -webkit-font-smoothing: antialiased; overflow-x: hidden;
   }
   img, svg { display: block; max-width: 100%; }
+  :focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 4px; }
 
   .wrap { max-width: 1200px; margin: 0 auto; padding: 0 var(--gut); }
   .sect { padding: var(--sect) 0; }
 
-  /* ── Type: one modern sans, tight tracking at display sizes ── */
+  /* ── Type: one sans, tight tracking at display sizes ── */
   h1, h2, h3 { margin: 0; font-weight: 600; letter-spacing: -.035em; line-height: 1.02; }
   h1 { font-size: clamp(42px, 7vw, 82px); }
   h2 { font-size: clamp(30px, 4.1vw, 52px); line-height: 1.06; letter-spacing: -.03em; }
@@ -79,7 +96,7 @@
     display: inline-block; font-size: 11px; font-weight: 600; letter-spacing: .18em;
     text-transform: uppercase; color: var(--faint); margin-bottom: 20px;
   }
-  .lede  { font-size: clamp(17px, 1.45vw, 20px); line-height: 1.6; color: var(--body-c); }
+  .lede  { font-size: clamp(17px, 1.4vw, 19.5px); line-height: 1.6; color: var(--body-c); }
   .copy  { font-size: 16.5px; line-height: 1.75; color: var(--body-c); }
   .small { font-size: 14px; line-height: 1.65; color: var(--faint); }
 
@@ -91,87 +108,79 @@
     cursor: pointer; text-decoration: none; white-space: nowrap;
     transition: transform .22s cubic-bezier(.2,.7,.3,1), box-shadow .22s, background .2s, color .2s;
   }
-  .btn svg { transition: transform .22s cubic-bezier(.2,.7,.3,1); }
-  .btn:hover svg { transform: translateX(3px); }
-  .btn-ink { background: var(--ink); color: #fff; box-shadow: 0 8px 22px -12px rgba(17,17,16,.6); }
+  .btn-ink { background: var(--ink); color: #fff; }
   .btn-ink:hover { transform: translateY(-2px); box-shadow: 0 14px 30px -14px rgba(17,17,16,.65); }
-  .btn-white { background: #fff; color: var(--ink); box-shadow: 0 8px 24px -14px rgba(0,0,0,.5); }
-  .btn-white:hover { transform: translateY(-2px); }
+  .btn-white { background: #fff; color: var(--deep); }
+  .btn-white:hover { transform: translateY(-2px); box-shadow: 0 14px 30px -16px rgba(0,0,0,.6); }
   .btn-glass {
-    background: rgba(255,255,255,.13); color: #fff;
-    box-shadow: inset 0 0 0 1px rgba(255,255,255,.3);
+    background: rgba(255,255,255,.12); color: #fff;
+    box-shadow: inset 0 0 0 1px rgba(255,255,255,.34);
     backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
   }
   .btn-glass:hover { background: rgba(255,255,255,.2); }
   .btn-line { background: transparent; color: var(--ink); box-shadow: inset 0 0 0 1.5px var(--line); }
-  .btn-line:hover { box-shadow: inset 0 0 0 1.5px var(--ink); }
+  .btn-line:hover { box-shadow: inset 0 0 0 1.5px var(--accent); color: var(--accent); }
   .btn-sm { height: 42px; padding: 0 20px; font-size: 14px; }
 
-  /* ── Nav: transparent over the hero, frosted white once you scroll ── */
+  /* ── Nav: a pill floating inside the hero, solid once you scroll past ── */
   header {
-    position: fixed; top: 0; left: 0; right: 0; z-index: 60;
-    transition: background .35s, box-shadow .35s, backdrop-filter .35s;
+    position: absolute; top: 0; left: 0; right: 0; z-index: 60;
+    padding: 12px var(--gut);
+  }
+  .nav {
+    max-width: 1156px; margin: 0 auto;
+    display: flex; align-items: center; justify-content: space-between; gap: 16px;
+    padding: 8px 8px 8px 18px; border-radius: 100px;
+    background: rgba(255,255,255,.10);
+    box-shadow: inset 0 0 0 1px rgba(255,255,255,.20);
+    backdrop-filter: saturate(150%) blur(14px);
+    -webkit-backdrop-filter: saturate(150%) blur(14px);
   }
   header .nav-link, header .logo-word { color: #fff; }
-  header .mark { background: rgba(255,255,255,.94); box-shadow: none; }
-  header .btn-nav { background: rgba(255,255,255,.94); color: var(--ink); }
+  header .btn-nav { background: #fff; color: var(--deep); }
 
-  header.stuck {
-    background: rgba(255,255,255,.82);
-    backdrop-filter: saturate(160%) blur(16px);
-    -webkit-backdrop-filter: saturate(160%) blur(16px);
-    box-shadow: 0 1px 0 var(--hair);
-  }
-  header.stuck .nav-link { color: var(--body-c); }
-  header.stuck .logo-word { color: var(--ink); }
-  header.stuck .mark { background: transparent; box-shadow: none; }
-  header.stuck .btn-nav { background: var(--ink); color: #fff; }
-
-  .nav {
-    max-width: 1200px; margin: 0 auto; padding: 16px var(--gut);
-    display: flex; align-items: center; justify-content: space-between; gap: 16px;
-  }
   .logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
-  .mark { width: 28px; height: 28px; border-radius: 9px; display: grid; place-items: center; flex-shrink: 0; overflow: hidden; transition: background .35s; }
+  .mark { width: 26px; height: 26px; display: grid; place-items: center; flex-shrink: 0; }
   .mark img { width: 100%; height: 100%; object-fit: contain; }
-  .logo-word { font-size: 18.5px; font-weight: 600; letter-spacing: -.03em; transition: color .35s; }
-  .nav-links { display: flex; align-items: center; gap: 4px; }
+  .logo-word { font-size: 18.5px; font-weight: 600; letter-spacing: -.03em; }
+  .nav-links { display: flex; align-items: center; gap: 2px; }
   .nav-link {
-    padding: 10px 14px; border-radius: 100px; text-decoration: none;
-    font-size: 14.5px; font-weight: 500; transition: opacity .2s, color .35s;
+    padding: 9px 13px; border-radius: 100px; text-decoration: none;
+    font-size: 14px; font-weight: 500; transition: opacity .2s;
   }
-  .nav-link:hover { opacity: .7; }
+  .nav-link:hover { opacity: .68; }
   .nav-hide { display: none; }
-  @media (min-width: 900px) { .nav-hide { display: inline-flex; } }
+  @media (min-width: 960px) { .nav-hide { display: inline-flex; } }
 
-  /* ── Hero: photograph, scrim, glass panel ── */
+  /* ── Hero: full-bleed photograph, scrim, copy on top ──
+     The scrim is heavier on the left than the right, so the headline always
+     has something dark behind it whatever ends up in hero.jpg. */
   .hero {
-    position: relative; min-height: min(94vh, 860px);
+    position: relative; min-height: min(96vh, 900px);
     display: flex; align-items: flex-end;
-    /* Colour fallback sits under the image, so text stays readable if the
-       photo fails to load or is slow. */
-    background-color: #24261F;
+    background-color: #1E2A22;
     background-image: var(--hero-img);
     background-size: cover; background-position: center 28%;
-    padding: 128px 0 clamp(40px, 6vw, 72px);
+    padding: 132px 0 clamp(44px, 6vw, 76px);
     overflow: hidden;
   }
   .scrim {
     position: absolute; inset: 0; pointer-events: none;
     background:
-      linear-gradient(to top, rgba(12,13,10,.86) 0%, rgba(12,13,10,.52) 42%, rgba(12,13,10,.22) 72%, rgba(12,13,10,.42) 100%);
+      linear-gradient(to top, rgba(12,16,12,.88) 0%, rgba(12,16,12,.5) 44%, rgba(12,16,12,.2) 74%, rgba(12,16,12,.46) 100%),
+      linear-gradient(to right, rgba(12,16,12,.5) 0%, rgba(12,16,12,.12) 52%, rgba(12,16,12,0) 100%);
   }
   .hero .wrap { position: relative; z-index: 1; width: 100%; }
-  .hero h1, .hero .lede { color: #fff; }
-  .hero .lede { color: rgba(255,255,255,.82); }
+  .hero h1 { color: #fff; margin-bottom: 22px; }
+  .hero .lede { color: rgba(255,255,255,.84); max-width: 44ch; }
   .hero .eyebrow { color: rgba(255,255,255,.66); }
-  .hero-copy { max-width: 720px; }
-  .cta-row { display: flex; flex-direction: column; gap: 12px; margin-top: 34px; }
-  @media (min-width: 560px) { .cta-row { flex-direction: row; align-items: center; } }
+  .hero-copy { max-width: 740px; }
+  .cta-row { display: flex; flex-direction: column; gap: 12px; margin-top: 32px; }
+  @media (min-width: 520px) { .cta-row { flex-direction: row; align-items: center; } }
 
-  /* Glass stat strip sitting on the photo */
+  /* Glass fact strip sitting on the photograph */
   .glass-strip {
-    margin-top: clamp(40px, 5vw, 64px);
+    margin-top: clamp(38px, 5vw, 60px);
     display: grid; grid-template-columns: 1fr; gap: 1px;
     border-radius: var(--r); overflow: hidden;
     background: rgba(255,255,255,.16);
@@ -179,30 +188,25 @@
     backdrop-filter: blur(18px) saturate(140%);
     -webkit-backdrop-filter: blur(18px) saturate(140%);
   }
-  @media (min-width: 720px) { .glass-strip { grid-template-columns: repeat(3, 1fr); } }
+  @media (min-width: 760px) { .glass-strip { grid-template-columns: repeat(3, 1fr); } }
   .glass-cell { padding: 22px 24px; background: rgba(255,255,255,.06); }
   .glass-cell p.t { font-size: 15px; font-weight: 600; color: #fff; margin-bottom: 5px; }
-  .glass-cell p.b { font-size: 13.5px; line-height: 1.55; color: rgba(255,255,255,.7); }
+  .glass-cell p.b { font-size: 13.5px; line-height: 1.55; color: rgba(255,255,255,.72); }
 
-  /* ── Cards ── */
+  /* ── Cards: white, hairline border, accent edge on hover ── */
   .card {
     background: var(--white); border-radius: var(--r);
     box-shadow: inset 0 0 0 1px var(--line);
     padding: 30px 28px;
-    transition: transform .26s cubic-bezier(.2,.7,.3,1), box-shadow .26s;
+    transition: box-shadow .3s cubic-bezier(.2,.7,.3,1);
   }
-  .card:hover {
-    transform: translateY(-3px);
-    box-shadow: inset 0 0 0 1px var(--line), 0 18px 36px -22px rgba(17,17,16,.3);
-  }
-  .card-flat { background: var(--paper); box-shadow: none; }
-  .card-flat:hover { transform: none; box-shadow: none; }
-  .card-still:hover { transform: none; box-shadow: inset 0 0 0 1px var(--line); }
+  .card:hover { box-shadow: inset 0 0 0 1px var(--line), inset 4px 0 0 var(--accent); }
+  .card-still:hover { box-shadow: inset 0 0 0 1px var(--line); }
 
   .grid { display: grid; grid-template-columns: 1fr; gap: 18px; }
-  @media (min-width: 720px) { .grid-3 { grid-template-columns: repeat(3, minmax(0,1fr)); } }
+  @media (min-width: 760px) { .grid-3 { grid-template-columns: repeat(3, minmax(0,1fr)); } }
   @media (min-width: 640px) { .grid-2 { grid-template-columns: repeat(2, minmax(0,1fr)); } }
-  .split { display: grid; grid-template-columns: 1fr; gap: clamp(34px, 5vw, 72px); align-items: center; }
+  .split { display: grid; grid-template-columns: 1fr; gap: clamp(34px, 5vw, 68px); align-items: center; }
   @media (min-width: 980px) { .split { grid-template-columns: 1fr 1fr; } }
   .split-flip > *:first-child { order: 1; }
   @media (min-width: 980px) { .split-flip > *:first-child { order: 2; } .split-flip > *:last-child { order: 1; } }
@@ -223,46 +227,49 @@
   .tick:last-child { border-bottom: none; }
   .tick svg { width: 17px; height: 17px; stroke: var(--accent); fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; flex-shrink: 0; margin-top: 3px; }
 
-  /* ── Statement ── */
-  .statement { font-size: clamp(26px, 3.6vw, 44px); font-weight: 600; letter-spacing: -.03em; line-height: 1.14; max-width: 940px; }
+  .statement { font-size: clamp(30px, 4.4vw, 58px); font-weight: 600; letter-spacing: -.035em; line-height: 1.08; }
   .statement span { color: var(--faint); }
 
-  /* ── Reminder card ── */
-  .rem-card { background: var(--white); border-radius: var(--r); box-shadow: inset 0 0 0 1px var(--line); padding: 26px 24px; }
-  .rem-top { display: flex; align-items: center; gap: 11px; padding-bottom: 16px; border-bottom: 1px solid var(--hair); }
-  .rem-dot { width: 34px; height: 34px; border-radius: 11px; background: var(--accent); display: grid; place-items: center; flex-shrink: 0; }
-  .rem-dot svg { width: 17px; height: 17px; stroke: #fff; fill: none; stroke-width: 1.9; stroke-linecap: round; stroke-linejoin: round; }
-  .rem-row { display: flex; align-items: baseline; justify-content: space-between; gap: 14px; padding: 13px 0; border-bottom: 1px solid var(--hair); }
-  .rem-row:last-child { border-bottom: none; }
-  .rem-label { font-size: 14.5px; color: var(--body-c); }
-  .rem-val { font-size: 14.5px; font-weight: 600; color: var(--ink); }
-  .rem-bar { height: 6px; border-radius: 3px; background: var(--mist); overflow: hidden; margin-top: 18px; }
-  .rem-fill { height: 100%; width: 78%; border-radius: 3px; background: var(--accent); }
+  /* ── Hair type selector ── */
+  .types-tabs { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 34px; }
+  .tt {
+    font-family: var(--font); font-size: 14px; font-weight: 500;
+    padding: 11px 18px; border-radius: 100px; cursor: pointer;
+    border: none; background: var(--mist); color: var(--body-c);
+    transition: background .22s, color .22s, box-shadow .22s;
+  }
+  .tt:hover { box-shadow: inset 0 0 0 1px var(--accent-lite); }
+  .tt[aria-selected="true"] { background: var(--accent); color: #fff; box-shadow: none; }
+  .tp[hidden] { display: none; }
+  .tp-photo {
+    border-radius: var(--r); overflow: hidden; background: var(--mist);
+    aspect-ratio: 4 / 5; max-width: 340px; margin: 0 auto;
+  }
+  .tp-photo img { width: 100%; height: 100%; object-fit: cover; }
+  .tp-kicker { font-size: clamp(24px, 2.8vw, 33px); font-weight: 600; line-height: 1.12; letter-spacing: -.03em; margin-bottom: 16px; }
+  .tracks { margin: 24px 0 26px; }
+  .track-row { display: flex; gap: 11px; align-items: flex-start; padding: 11px 0; border-bottom: 1px solid var(--hair); font-size: 15px; color: var(--body-c); }
+  .track-row:last-child { border-bottom: none; }
+  .track-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--accent-mid); flex-shrink: 0; margin-top: 7px; }
 
-  /* ── Chat mock ── */
-  .chat { background: var(--white); border-radius: var(--r); box-shadow: inset 0 0 0 1px var(--line); padding: 22px 20px; }
-  .chat-top { display: flex; align-items: center; gap: 11px; padding-bottom: 16px; border-bottom: 1px solid var(--hair); margin-bottom: 18px; }
-  .chat-av { width: 34px; height: 34px; border-radius: 50%; background: var(--accent-soft); display: grid; place-items: center; flex-shrink: 0; overflow: hidden; }
-  .chat-av img { width: 100%; height: 100%; object-fit: contain; }
-  .chat-name { font-size: 15px; font-weight: 600; }
-  .chat-sub { font-size: 12.5px; color: var(--faint); margin-top: 1px; }
-  .bub { max-width: 82%; padding: 12px 15px; border-radius: 16px; font-size: 14.5px; line-height: 1.55; margin-bottom: 10px; }
-  .bub-you { margin-left: auto; background: var(--ink); color: #fff; border-bottom-right-radius: 5px; }
-  .bub-foli { background: var(--mist); color: var(--body-c); border-bottom-left-radius: 5px; }
-  .chat-note { font-size: 12px; color: var(--faint); margin-top: 14px; padding-top: 14px; border-top: 1px solid var(--hair); }
+  /* ── Phone frames ──
+     Generic bezel on purpose: no notch, no home indicator, nothing that
+     picks a side between iOS and Android or dates in a year. */
+  .phone { background: #0A0908; border-radius: 26px; padding: 7px; box-shadow: inset 0 0 0 1px rgba(255,255,255,.16), 0 22px 46px -26px rgba(0,0,0,.62); }
+  .phone-slit { height: 4px; width: 34px; background: #262622; border-radius: 3px; margin: 3px auto 6px; }
+  .phone-screen { border-radius: 20px; overflow: hidden; background: #FAFAF9; }
+  .phone-screen img { width: 100%; height: auto; display: block; }
+  .phone-cap { font-size: 12.5px; color: var(--faint); margin-top: 12px; text-align: center; }
+  .phone-narrow { max-width: 290px; margin-left: auto; margin-right: auto; }
+  .phone-pair { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 18px; max-width: 560px; margin: 0 auto; }
+  .on-green .phone-cap { color: rgba(245,247,242,.58); }
 
-  /* ── Footer ── */
-  footer { border-top: 1px solid var(--hair); background: var(--paper); }
-  .foot { max-width: 1200px; margin: 0 auto; padding: 36px var(--gut) 26px; display: flex; flex-wrap: wrap; gap: 18px; align-items: center; justify-content: space-between; }
-  .foot .mark { background: transparent; }
-  .foot-links { display: flex; gap: 22px; flex-wrap: wrap; }
-  .foot-link { font-size: 14px; color: var(--body-c); text-decoration: none; }
-  .foot-link:hover { color: var(--ink); text-decoration: underline; text-underline-offset: 3px; }
-  .foot-note { max-width: 1200px; margin: 0 auto; padding: 0 var(--gut) 34px; border-top: 1px solid var(--hair); padding-top: 24px; }
-  .foot-note p { font-size: 13px; line-height: 1.7; color: var(--faint); max-width: 760px; }
-  .foot-note p + p { margin-top: 10px; }
+  /* ── Photo panels ── */
+  .photo { border-radius: var(--r); overflow: hidden; background: var(--mist); max-width: 440px; margin: 0 auto; }
+  .photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .photo-wide { aspect-ratio: 3 / 2; }
 
-  /* ── Product rows inside a category card ── */
+  /* ── Product rows ── */
   .prod-list { margin-top: 18px; border-top: 1px solid var(--hair); }
   .prod {
     display: flex; align-items: center; justify-content: space-between; gap: 14px;
@@ -272,40 +279,67 @@
   .prod:last-child { border-bottom: none; }
   .prod:hover .prod-name { color: var(--accent); }
   .prod-name { font-size: 14px; font-weight: 500; line-height: 1.35; color: var(--ink); transition: color .18s; }
-  .prod-brand { font-size: 12px; color: var(--faint); margin-top: 3px; }
-  .prod-right { display: flex; align-items: center; gap: 8px; flex-shrink: 0; }
-  .prod-go { width: 14px; height: 14px; stroke: var(--faint); fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; flex-shrink: 0; }
-  .prod:hover .prod-go { stroke: var(--accent); }
-  .buy-note { font-size: 12px; color: var(--faint); margin-top: 14px; }
-  /* Screenshots */
-    .shots { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 14px; max-width: 760px; margin: 0 auto; }
-  @media (min-width: 760px) { .shots { grid-template-columns: repeat(4, minmax(0,1fr)); gap: 20px; } }
-  .shot { border-radius: 20px; overflow: hidden; background: #0A0908; box-shadow: 0 18px 40px -20px rgba(0,0,0,.5); }
-  .shot img { width: 100%; height: auto; display: block; }
-    .shot-cap { font-size: 12px; color: rgba(245,247,242,.55); margin-top: 10px; text-align: center; }
-  /* Green section: used sparingly, for rhythm between white blocks */
-  .sect-green { background: linear-gradient(165deg, #23392C 0%, #1A2820 55%, #101A14 100%); }
+  .prod-brand { font-size: 12px; color: var(--faint); margin-top: 3px; display: block; }
+  .prod-go { width: 14px; height: 14px; stroke: var(--faint); fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; flex-shrink: 0; transition: stroke .18s, transform .18s; }
+  .prod:hover .prod-go { stroke: var(--accent); transform: translate(2px,-2px); }
+  .cat-ico { width: 40px; height: 40px; border-radius: 13px; background: var(--accent-soft); display: grid; place-items: center; margin-bottom: 15px; }
+  .cat-ico svg { width: 19px; height: 19px; stroke: var(--accent); fill: none; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
+
+  /* ── Matched comparison ── */
+  .cmp { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 16px; max-width: 760px; }
+  .cmp figure { margin: 0; }
+  .cmp .photo { max-width: none; aspect-ratio: 4 / 5; }
+  .cmp figcaption { display: flex; align-items: baseline; justify-content: space-between; gap: 10px; margin-top: 12px; }
+  .cmp .d { font-size: 14px; font-weight: 600; }
+  .cmp .w { font-size: 13px; color: var(--faint); }
+  .cmp-meta { max-width: 760px; margin-top: 22px; padding-top: 20px; border-top: 1px solid var(--hair); display: flex; flex-wrap: wrap; gap: 9px; align-items: center; }
+  .cmp-meta .lbl { font-size: 13px; color: var(--faint); margin-right: 4px; }
+
+  /* ── Green sections ── */
+  .sect-green { background: var(--deep); }
+  .sect-green .tp-kicker { color: #F5F7F2; }
+  .sect-green .track-row { color: rgba(245,247,242,.74); border-bottom-color: rgba(245,247,242,.14); }
+  .sect-green .track-dot { background: var(--accent-lite); }
+  .sect-green .tt { background: rgba(245,247,242,.10); color: rgba(245,247,242,.82); }
+  .sect-green .tt:hover { box-shadow: inset 0 0 0 1px rgba(245,247,242,.45); }
+  .sect-green .tt[aria-selected="true"] { background: #F5F7F2; color: var(--deep); }
+  .sect-green .chip { background: rgba(245,247,242,.10); color: rgba(245,247,242,.80); }
+  .sect-green .tp-photo { background: rgba(245,247,242,.08); }
   .sect-green h2 { color: #F5F7F2; }
-  .sect-green .eyebrow { color: rgba(110,158,130,.9); }
+  .sect-green .eyebrow { color: var(--accent-lite); }
   .sect-green .copy, .sect-green .lede { color: rgba(245,247,242,.72); }
+  .sect-green .small { color: rgba(245,247,242,.5); }
+
+  /* ── Footer ── */
+  footer { border-top: 1px solid var(--hair); background: var(--paper); }
+  .foot { max-width: 1200px; margin: 0 auto; padding: 40px var(--gut) 26px; display: flex; flex-wrap: wrap; gap: 20px; align-items: center; justify-content: space-between; }
+  .foot-links { display: flex; gap: 22px; flex-wrap: wrap; }
+  .foot-link { font-size: 14px; color: var(--body-c); text-decoration: none; }
+  .foot-link:hover { color: var(--accent); text-decoration: underline; text-underline-offset: 3px; }
+  .foot-note { max-width: 1200px; margin: 0 auto; padding: 0 var(--gut) 34px; border-top: 1px solid var(--hair); padding-top: 24px; }
+  .foot-note p { font-size: 13px; line-height: 1.7; color: var(--faint); max-width: 760px; }
+
   /* ── Reveal ── */
-  .reveal { opacity: 0; transform: translateY(16px); transition: opacity .7s ease, transform .7s cubic-bezier(.2,.7,.3,1); }
+  .reveal { opacity: 0; transform: translateY(14px); transition: opacity .7s ease, transform .7s cubic-bezier(.2,.7,.3,1); }
   .reveal.in { opacity: 1; transform: none; }
-  @media (prefers-reduced-motion: reduce) { .reveal { opacity: 1; transform: none; transition: none } }
+  @media (prefers-reduced-motion: reduce) {
+    .reveal { opacity: 1; transform: none; transition: none; }
+    html { scroll-behavior: auto; }
+    * { transition-duration: .01ms !important; }
+  }
 </style>
 </head>
 <body>
 
 <!-- ══ Nav ═══════════════════════════════════════════════════════════════ -->
-<header id="hdr">
+<header>
   <nav class="nav">
     <a class="logo" href="/">
-      <span class="mark">
-        <img src="/follisense-icon-green.png" alt="" width="28" height="28">
-      </span>
+      <span class="mark"><img src="/follisense-icon-green.png" alt="" width="26" height="26"></span>
       <span class="logo-word">FolliSense</span>
     </a>
     <div class="nav-links">
+      <a class="nav-link nav-hide" href="#types">Hair types</a>
       <a class="nav-link nav-hide" href="#how">How it works</a>
       <a class="nav-link nav-hide" href="#men">For men</a>
       <a class="nav-link nav-hide" href="#foli">Foli</a>
@@ -316,34 +350,33 @@
   </nav>
 </header>
 
-<!-- ══ Hero ══════════════════════════════════════════════════════════════ -->
+<!-- ══ Hero ══════════════════════════════════════════════════════════════
+     PHOTO SLOT 1 — hero.jpg. Set in the --hero-img variable near the top of
+     the stylesheet, not here.                                            -->
 <section class="hero">
   <span class="scrim" aria-hidden="true"></span>
   <div class="wrap">
     <div class="hero-copy reveal">
       <p class="eyebrow">Scalp and hair health, tracked</p>
-      <h1 style="margin-bottom:24px">Your scalp changes slowly.<br>That is why it is hard to see.</h1>
-      <p class="lede" style="max-width:600px">
-        FolliSense keeps a photo and symptom record of your scalp on the rhythm you actually live on, so thinning
-        edges, breakage or a scalp that will not settle show up early rather than months later.
+      <h1>Your scalp changes slowly.<br>That is why it is hard to see.</h1>
+      <p class="lede">
+        FolliSense keeps a photo and symptom record of your scalp on the rhythm you actually live on, so
+        thinning, breakage or a scalp that will not settle show up early rather than months later.
       </p>
       <div class="cta-row">
-        <a class="btn btn-white" href="https://app.follisense.com">
-          Start your baseline
-          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-        </a>
+        <a class="btn btn-white" href="https://app.follisense.com">Start your baseline</a>
         <a class="btn btn-glass" href="#how">See how it works</a>
       </div>
     </div>
 
     <div class="glass-strip reveal" role="list">
       <div class="glass-cell" role="listitem">
-        <p class="t">Built for textured hair</p>
-        <p class="b">Braids, locs, twists, silk presses, relaxers, fades and waves.</p>
+        <p class="t">Built for every hair type</p>
+        <p class="b">Straight, wavy, curly, coily, locs and relaxed.</p>
       </div>
       <div class="glass-cell" role="listitem">
-        <p class="t">Runs on your cycle</p>
-        <p class="b">Check-ins timed to installs and cuts, not a generic weekly nudge.</p>
+        <p class="t">Timed to your styles</p>
+        <p class="b">Check-ins land around installs and cuts, not a generic weekly nudge.</p>
       </div>
       <div class="glass-cell" role="listitem">
         <p class="t">Never a diagnosis</p>
@@ -355,117 +388,364 @@
 
 <!-- ══ Statement ═════════════════════════════════════════════════════════ -->
 <div class="wrap">
-  <section class="sect reveal" style="padding-bottom:0">
+  <section class="sect reveal" style="padding-bottom:56px">
     <p class="statement">
-      Most hair tracking assumes hair that hangs straight, washes weekly and is never in a style for a month.
-      <span>That is not how any of this works.</span>
+      Most hair tracking assumes one routine, one wash day and a scalp you can see.
+      <span>Almost nobody lives like that.</span>
     </p>
   </section>
 </div>
 
-<!-- ══ Who it is for ═════════════════════════════════════════════════════ -->
-<div class="wrap">
-  <section class="sect">
-    <div class="split">
-      <div class="reveal">
-        <p class="eyebrow">Who it is for</p>
-        <h2 style="margin-bottom:22px">Textured hair,<br>taken seriously</h2>
-        <p class="copy" style="margin-bottom:22px">
-          FolliSense is built around protective styles, takedown days, retwists and barber visits, because
-          tension, buildup and shrinkage are the things that actually shape scalp health for coily and curly
-          hair.
-        </p>
-        <p class="copy" style="margin-bottom:28px">
-          That means the questions, the timing and the guidance are written for type 3 and type 4 patterns.
-          If your hair is straight or wavy, type 1 or type 2, you are welcome here and the photo record and
-          check-ins work the same way. Just know that some routine advice is shaped around wash days and
-          styles that may not be yours.
-        </p>
-        <div class="chips">
-          <span class="chip">Braids</span>
-          <span class="chip">Locs</span>
-          <span class="chip">Twists</span>
-          <span class="chip">Cornrows</span>
-          <span class="chip">Wigs &amp; weaves</span>
-          <span class="chip">Silk press</span>
-          <span class="chip">Relaxed &amp; growing out</span>
-          <span class="chip">Wash-and-go</span>
-          <span class="chip">Low cuts &amp; fades</span>
-          <span class="chip">Waves</span>
+<!-- ══ Hair types ════════════════════════════════════════════════════════
+     PHOTO SLOTS 2 to 7 — type1.jpg, type2.jpg, type3.jpg, type4.jpg,
+     locs.jpg, relaxed.jpg. All six the same 4:5 crop.                    -->
+<div class="sect-green">
+  <div class="wrap">
+  <section class="sect" id="types" style="scroll-margin-top:88px">
+    <div class="reveal" style="max-width:660px;margin-bottom:36px">
+      <p class="eyebrow">Hair types</p>
+      <h2 style="margin-bottom:20px">Every hair type has its own way of going wrong</h2>
+      <p class="copy">
+        A scalp under braids and a scalp under a blow-dry fail differently. Pick yours and see what
+        FolliSense actually watches for.
+      </p>
+    </div>
+
+    <div class="types-tabs reveal" role="tablist" aria-label="Hair types">
+      <button class="tt" role="tab" id="tab-1" aria-controls="pan-1" aria-selected="false" data-p="1">Type 1 straight</button>
+      <button class="tt" role="tab" id="tab-2" aria-controls="pan-2" aria-selected="false" data-p="2">Type 2 wavy</button>
+      <button class="tt" role="tab" id="tab-3" aria-controls="pan-3" aria-selected="false" data-p="3">Type 3 curly</button>
+      <button class="tt" role="tab" id="tab-4" aria-controls="pan-4" aria-selected="true"  data-p="4">Type 4 coily</button>
+      <button class="tt" role="tab" id="tab-5" aria-controls="pan-5" aria-selected="false" data-p="5">Locs</button>
+      <button class="tt" role="tab" id="tab-6" aria-controls="pan-6" aria-selected="false" data-p="6">Relaxed &amp; coloured</button>
+    </div>
+
+    <div class="tp" id="pan-1" role="tabpanel" aria-labelledby="tab-1" hidden>
+      <div class="split">
+        <div>
+          <p class="tp-kicker">Straight hair shows the scalp, for better and worse</p>
+          <p class="copy">
+            Oil reaches the ends within a day and the part is visible from the moment you make it. That cuts
+            both ways. You will notice a change early, and you will also notice a normal shed and worry about it.
+            A record tells the two apart.
+          </p>
+          <div class="tracks">
+            <div class="track-row"><span class="track-dot"></span>Oil and greasiness at the roots between washes</div>
+            <div class="track-row"><span class="track-dot"></span>How wide the part looks over time, in the same light</div>
+            <div class="track-row"><span class="track-dot"></span>Flaking, itch and tenderness</div>
+            <div class="track-row"><span class="track-dot"></span>Shedding, so a heavy week can be checked against a normal one</div>
+          </div>
+          <div class="chips">
+            <span class="chip">Daily washing</span><span class="chip">Blow-dry</span>
+            <span class="chip">Fine and flat</span><span class="chip">Long and straight</span>
+            <span class="chip">Colour-treated</span>
+          </div>
+        </div>
+        <div class="tp-photo"><img src="/type1.jpg" alt="Straight hair parted at the crown" loading="lazy"></div>
+      </div>
+    </div>
+
+    <div class="tp" id="pan-2" role="tabpanel" aria-labelledby="tab-2" hidden>
+      <div class="split">
+        <div>
+          <p class="tp-kicker">Wavy hair falls between two routines and often gets neither</p>
+          <p class="copy">
+            Too much product and the waves go flat and the scalp goes greasy. Too little and the ends go dry
+            while the roots stay oily. Most wavy scalps are dealing with buildup and an uneven balance at the
+            same time, which is hard to diagnose by feel alone.
+          </p>
+          <div class="tracks">
+            <div class="track-row"><span class="track-dot"></span>Product buildup between washes</div>
+            <div class="track-row"><span class="track-dot"></span>An oily scalp sitting above dry mid-lengths</div>
+            <div class="track-row"><span class="track-dot"></span>Breakage and frizz where heat lands most often</div>
+            <div class="track-row"><span class="track-dot"></span>How your scalp responds to a change of product</div>
+          </div>
+          <div class="chips">
+            <span class="chip">Air-dry</span><span class="chip">Heat styling</span>
+            <span class="chip">Beach waves</span><span class="chip">Dry shampoo</span>
+            <span class="chip">Colour-treated</span>
+          </div>
+        </div>
+        <div class="tp-photo"><img src="/type2.jpg" alt="Loose waves worn down" loading="lazy"></div>
+      </div>
+    </div>
+
+    <div class="tp" id="pan-3" role="tabpanel" aria-labelledby="tab-3" hidden>
+      <div class="split">
+        <div>
+          <p class="tp-kicker">Curls cover the scalp, so an unhappy one goes unnoticed</p>
+          <p class="copy">
+            Gel casts, refresh sprays and a wash every week or two leave residue that builds quietly under
+            the curl pattern. By the time it itches enough to notice, it has usually been there a while.
+          </p>
+          <div class="tracks">
+            <div class="track-row"><span class="track-dot"></span>Buildup across the gap between washes</div>
+            <div class="track-row"><span class="track-dot"></span>Itch and flaking under the curl pattern</div>
+            <div class="track-row"><span class="track-dot"></span>Definition holding or dropping after a wash</div>
+            <div class="track-row"><span class="track-dot"></span>Breakage where curls tangle and knot</div>
+          </div>
+          <div class="chips">
+            <span class="chip">Wash-and-go</span><span class="chip">Twist-outs</span>
+            <span class="chip">Diffusing</span><span class="chip">Silk press</span>
+            <span class="chip">Curly cuts</span>
+          </div>
+        </div>
+        <div class="tp-photo"><img src="/type3.jpg" alt="Defined curls" loading="lazy"></div>
+      </div>
+    </div>
+
+    <div class="tp" id="pan-4" role="tabpanel" aria-labelledby="tab-4">
+      <div class="split">
+        <div>
+          <p class="tp-kicker">The tightest patterns carry the most tension and the longest gaps</p>
+          <p class="copy">
+            Braids, cornrows and wigs put steady pull on the hairline and nape, and a style stays in for weeks
+            at a time. Tension and buildup are slow, cumulative and almost invisible day to day, which is
+            exactly the sort of change a record is for.
+          </p>
+          <div class="tracks">
+            <div class="track-row"><span class="track-dot"></span>Tension at the hairline, nape and crown</div>
+            <div class="track-row"><span class="track-dot"></span>Buildup underneath a style you cannot wash properly</div>
+            <div class="track-row"><span class="track-dot"></span>Dryness, itch and soreness while a style is in</div>
+            <div class="track-row"><span class="track-dot"></span>How the same areas look install after install</div>
+          </div>
+          <div class="chips">
+            <span class="chip">Braids</span><span class="chip">Cornrows</span>
+            <span class="chip">Twists</span><span class="chip">Wigs &amp; weaves</span>
+            <span class="chip">Wash-and-go</span><span class="chip">Fades</span>
+          </div>
+        </div>
+        <div class="tp-photo"><img src="/type4.jpg" alt="Coily hair worn in a protective style" loading="lazy"></div>
+      </div>
+    </div>
+
+    <div class="tp" id="pan-5" role="tabpanel" aria-labelledby="tab-5" hidden>
+      <div class="split">
+        <div>
+          <p class="tp-kicker">Locs are a long commitment, and the scalp underneath is hard to see</p>
+          <p class="copy">
+            A retwist that is a little too tight is fine once. Every six weeks for three years is a different
+            question, and the perimeter is usually where it shows first. Photographs from the same angles make
+            that visible long before a mirror does.
+          </p>
+          <div class="tracks">
+            <div class="track-row"><span class="track-dot"></span>Tension at the root after each retwist</div>
+            <div class="track-row"><span class="track-dot"></span>Residue and buildup between the rows</div>
+            <div class="track-row"><span class="track-dot"></span>The perimeter and hairline over months, not weeks</div>
+            <div class="track-row"><span class="track-dot"></span>How long your scalp stays comfortable between washes</div>
+          </div>
+          <div class="chips">
+            <span class="chip">Starter locs</span><span class="chip">Retwists</span>
+            <span class="chip">Interlocking</span><span class="chip">Freeform</span>
+            <span class="chip">Loc styles</span>
+          </div>
+        </div>
+        <div class="tp-photo"><img src="/locs.jpg" alt="Locs" loading="lazy"></div>
+      </div>
+    </div>
+
+    <div class="tp" id="pan-6" role="tabpanel" aria-labelledby="tab-6" hidden>
+      <div class="split">
+        <div>
+          <p class="tp-kicker">Chemical processing changes what your scalp can take</p>
+          <p class="copy">
+            The days after a relaxer, a bleach or a colour service are when a scalp is most reactive, and the
+            line where processed hair meets new growth is where breakage starts. Both are easy to lose track of
+            once the appointment is over.
+          </p>
+          <div class="tracks">
+            <div class="track-row"><span class="track-dot"></span>Scalp sensitivity in the days after a service</div>
+            <div class="track-row"><span class="track-dot"></span>Breakage where processed hair meets new growth</div>
+            <div class="track-row"><span class="track-dot"></span>How long you actually stretch between services</div>
+            <div class="track-row"><span class="track-dot"></span>Whether a change of formula changed anything</div>
+          </div>
+          <div class="chips">
+            <span class="chip">Relaxed</span><span class="chip">Growing out</span>
+            <span class="chip">Bleached</span><span class="chip">Colour-treated</span>
+            <span class="chip">Silk press</span>
+          </div>
+        </div>
+        <div class="tp-photo"><img src="/relaxed.jpg" alt="Relaxed and colour-treated hair" loading="lazy"></div>
+      </div>
+    </div>
+  </section>
+  </div>
+</div>
+
+<!-- ══ How it works ══════════════════════════════════════════════════════ -->
+<div style="background:var(--paper)">
+  <div class="wrap">
+    <section class="sect" id="how" style="scroll-margin-top:88px">
+      <div class="split">
+        <div class="reveal">
+          <p class="eyebrow">How it works</p>
+          <h2 style="margin-bottom:20px">Three steps, then it runs on your rhythm</h2>
+          <p class="copy" style="margin-bottom:28px">
+            Set a starting point once, then check in when it makes sense for the way you wear your hair.
+            Everything after that compares against what you already logged.
+          </p>
+
+          <div class="grid" style="gap:14px">
+            <div class="card" style="padding:24px 24px">
+              <div class="head-row" style="margin-bottom:16px">
+                <span class="ico"><svg viewBox="0 0 24 24"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg></span>
+                <span class="num">01</span>
+              </div>
+              <h3 style="margin-bottom:8px">Set your baseline</h3>
+              <p class="small" style="color:var(--body-c);font-size:14.5px">
+                Four guided photos of your hairline, sides, crown and nape, plus a few questions about how your
+                scalp feels. About three minutes.
+              </p>
+            </div>
+
+            <div class="card" style="padding:24px 24px">
+              <div class="head-row" style="margin-bottom:16px">
+                <span class="ico"><svg viewBox="0 0 24 24"><path d="M3 3v18h18"/><path d="M7 15l4-5 3 3 5-7"/></svg></span>
+                <span class="num">02</span>
+              </div>
+              <h3 style="margin-bottom:8px">Check in around your styles</h3>
+              <p class="small" style="color:var(--body-c);font-size:14.5px">
+                A four-week install, a weekly cut or a Sunday wash. Check-ins land when they make sense for you,
+                and we track what changed in between.
+              </p>
+            </div>
+
+            <div class="card" style="padding:24px 24px">
+              <div class="head-row" style="margin-bottom:16px">
+                <span class="ico"><svg viewBox="0 0 24 24"><path d="M4 2v6a6 6 0 0 0 12 0V2"/><path d="M10 14v3a4 4 0 0 0 8 0v-1"/><circle cx="20" cy="10" r="2"/></svg></span>
+                <span class="num">03</span>
+              </div>
+              <h3 style="margin-bottom:8px">Know when to act</h3>
+              <p class="small" style="color:var(--body-c);font-size:14.5px">
+                If what you report is worth professional attention we say so, and package your record so a
+                trichologist can pick it up quickly.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="reveal phone-narrow">
+          <div class="phone">
+            <span class="phone-slit" aria-hidden="true"></span>
+            <div class="phone-screen">
+              <img src="/shot-home.png" alt="Home screen showing the day's focus and check-in progress" loading="lazy">
+            </div>
+          </div>
+          <p class="phone-cap">Your day at a glance</p>
         </div>
       </div>
+    </section>
+  </div>
+</div>
 
-      <!-- Abstract record card. No stock photography of people, nothing invented. -->
-      <div class="reveal" aria-hidden="true">
-        <div class="card" style="padding:28px 26px">
-          <div class="head-row" style="margin-bottom:18px">
-            <p style="font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--faint)">Scalp health</p>
-            <span style="font-size:12px;font-weight:600;color:var(--accent);background:var(--accent-soft);padding:5px 11px;border-radius:100px">On track</span>
-          </div>
-          <svg viewBox="0 0 420 150" style="width:100%;height:auto">
-            <defs>
-              <linearGradient id="ar" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="0%" stop-color="#2E4A39" stop-opacity=".14"/>
-                <stop offset="100%" stop-color="#2E4A39" stop-opacity="0"/>
-              </linearGradient>
-            </defs>
-            <g stroke="#E8E8E4" stroke-width="1">
-              <line x1="0" y1="36" x2="420" y2="36"/>
-              <line x1="0" y1="76" x2="420" y2="76"/>
-              <line x1="0" y1="116" x2="420" y2="116"/>
-            </g>
-            <path d="M12 118 C 60 112, 96 96, 140 100 C 196 106, 232 70, 288 62 C 336 55, 372 44, 408 38 L408 132 L12 132 Z" fill="url(#ar)"/>
-            <path d="M12 118 C 60 112, 96 96, 140 100 C 196 106, 232 70, 288 62 C 336 55, 372 44, 408 38"
-                  fill="none" stroke="#2E4A39" stroke-width="2.6" stroke-linecap="round"/>
-            <circle cx="12"  cy="118" r="4" fill="#fff" stroke="#2E4A39" stroke-width="2.4"/>
-            <circle cx="140" cy="100" r="3.4" fill="#4C7A5A"/>
-            <circle cx="288" cy="62"  r="3.4" fill="#4C7A5A"/>
-            <circle cx="408" cy="38"  r="5" fill="#2E4A39"/>
-          </svg>
-          <div style="display:flex;justify-content:space-between;margin-top:12px">
-            <span class="small" style="font-size:12px">Baseline</span>
-            <span class="small" style="font-size:12px">Week 4</span>
-            <span class="small" style="font-size:12px">Week 8</span>
-            <span class="small" style="font-size:12px">Week 12</span>
-          </div>
-          <div style="height:1px;background:var(--hair);margin:22px 0"></div>
-          <div class="chips">
-            <span class="chip" style="background:var(--accent-soft);color:var(--accent)">Edges holding</span>
-            <span class="chip" style="background:var(--accent-soft);color:var(--accent)">Breakage down</span>
-            <span class="chip">Itch settled</span>
+<!-- ══ Patterns over time ════════════════════════════════════════════════ -->
+<div class="wrap">
+  <section class="sect">
+    <div class="split split-flip">
+      <div class="reveal">
+        <p class="eyebrow">Your record</p>
+        <h2 style="margin-bottom:20px">Six check-ins tell you what one never could</h2>
+        <p class="copy" style="margin-bottom:18px">
+          One rough scalp day is noise. The same symptom turning up in four of your last six check-ins is a
+          pattern, and that is the sort of thing worth showing to somebody qualified.
+        </p>
+        <p class="copy" style="margin-bottom:26px">
+          FolliSense counts what you logged and shows it back plainly. It does not score you, rank you against
+          anyone else, or tell you what it thinks is wrong.
+        </p>
+        <div class="tracks" style="margin:0">
+          <div class="track-row"><span class="track-dot"></span>Length tracked by the markers people actually use, ear, chin, shoulder, bra strap, with trims recorded beside growth rather than subtracted from it</div>
+          <div class="track-row"><span class="track-dot"></span>A timeline putting check-ins, photos, styles, trims and product changes on one dated line, without deciding what caused what</div>
+        </div>
+      </div>
+      <div class="reveal phone-narrow">
+        <div class="phone">
+          <span class="phone-slit" aria-hidden="true"></span>
+          <div class="phone-screen">
+            <img src="/shot-progress.png" alt="Chart showing how often each symptom was reported across recent check-ins" loading="lazy">
           </div>
         </div>
+        <p class="phone-cap">Patterns over time</p>
       </div>
     </div>
   </section>
 </div>
 
-<!-- ══ For men ═══════════════════════════════════════════════════════════ -->
+<!-- ══ Matched comparison ════════════════════════════════════════════════
+     PHOTO SLOTS 10 and 11 — compare-a.jpg and compare-b.jpg, 4:5 portrait,
+     the SAME region of the SAME head at two dates. No improvement is being
+     claimed here and none should be staged: the point is that the two shots
+     are honestly comparable, not that one of them is better.             -->
+<div class="wrap">
+  <section class="sect" id="compare" style="scroll-margin-top:88px">
+    <div class="reveal" style="max-width:640px;margin-bottom:40px">
+      <p class="eyebrow">Matched comparison</p>
+      <h2 style="margin-bottom:20px">Two photos only sit side by side if they are actually comparable</h2>
+      <p class="copy">
+        Most hair photos taken weeks apart are useless next to each other. Different light, different point in
+        the wash week, hair wet one time and dry the next. FolliSense records those conditions at the shutter
+        and only offers a pair when they match. If nothing matches yet, it says so rather than showing you a
+        comparison that means nothing.
+      </p>
+    </div>
+
+    <div class="cmp reveal">
+      <figure>
+        <div class="photo"><img src="/compare-a.jpg" alt="Crown photographed at the start of a style" loading="lazy"></div>
+        <figcaption><span class="d">12 July</span><span class="w">Day 1</span></figcaption>
+      </figure>
+      <figure>
+        <div class="photo"><img src="/compare-b.jpg" alt="The same crown photographed six weeks later" loading="lazy"></div>
+        <figcaption><span class="d">23 August</span><span class="w">Week 6</span></figcaption>
+      </figure>
+    </div>
+
+    <div class="cmp-meta reveal">
+      <span class="lbl">Matched on</span>
+      <span class="chip">Crown</span>
+      <span class="chip">Dry</span>
+      <span class="chip">Unstretched</span>
+      <span class="chip">No product</span>
+    </div>
+    <p class="small reveal" style="margin-top:16px;max-width:640px;font-size:13px">
+      A pair like this is a record of what changed, not evidence that anything worked. FolliSense does not
+      claim a result and does not sell one.
+    </p>
+  </section>
+</div>
+
+<!-- ══ For men ═══════════════════════════════════════════════════════════
+     PHOTO SLOT 8 — men.jpg, wide crop roughly 3:2.                       -->
 <div style="background:var(--paper)">
   <div class="wrap">
-    <section class="sect" id="men" style="scroll-margin-top:80px">
-      <div class="reveal" style="max-width:640px;margin-bottom:44px">
-        <p class="eyebrow">For men</p>
-        <h2 style="margin-bottom:22px">A cut every week is<br>a cycle too</h2>
-        <p class="copy">
-          Most hair apps have nothing for men beyond a hairline photo. FolliSense tracks the parts that
-          actually repeat: the barber chair, the shave, the line-up, and what your scalp does in between.
-        </p>
+    <section class="sect" id="men" style="scroll-margin-top:88px">
+      <div class="split" style="margin-bottom:48px">
+        <div class="reveal">
+          <p class="eyebrow">For men</p>
+          <h2 style="margin-bottom:20px">A cut every week counts too</h2>
+          <p class="copy">
+            Most hair apps have nothing for men beyond a hairline photo. FolliSense tracks the parts that
+            actually repeat: the barber chair, the shave, the line-up, and what your scalp does in between.
+          </p>
+        </div>
+        <div class="reveal photo photo-wide">
+          <img src="/men.jpg" alt="A line-up being finished in the barber chair" loading="lazy">
+        </div>
       </div>
 
-      <div class="grid grid-3">
-        <div class="card reveal">
+      <div class="grid grid-3 reveal">
+        <div class="card">
           <span class="ico" style="display:block;margin-bottom:16px">
             <svg viewBox="0 0 24 24"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M20 4L8.1 15.9"/><path d="M8.1 8.1L20 20"/></svg>
           </span>
           <h3 style="margin-bottom:10px">Cuts and barber visits</h3>
           <p class="small" style="color:var(--body-c);font-size:14.5px">
             Log a fade, a line-up or a full cut and check in around it, so you are comparing the same scalp at
-            the same point in the cycle rather than whenever you remember.
+            the same point after a cut rather than whenever you remember.
           </p>
         </div>
 
-        <div class="card reveal">
+        <div class="card">
           <span class="ico" style="display:block;margin-bottom:16px">
             <svg viewBox="0 0 24 24"><path d="M12 3c3 3 5 6 5 9a5 5 0 0 1-10 0c0-3 2-6 5-9z"/><path d="M9.5 13.5a2.5 2.5 0 0 0 2.5 2.5"/></svg>
           </span>
@@ -476,7 +756,7 @@
           </p>
         </div>
 
-        <div class="card reveal">
+        <div class="card">
           <span class="ico" style="display:block;margin-bottom:16px">
             <svg viewBox="0 0 24 24"><path d="M4 16c1.5-3 4-4.5 8-4.5s6.5 1.5 8 4.5"/><path d="M4 16v3"/><path d="M20 16v3"/><path d="M12 11.5V4"/><path d="M8 6.5L12 4l4 2.5"/></svg>
           </span>
@@ -489,12 +769,9 @@
       </div>
 
       <div class="chips reveal" style="margin-top:26px">
-        <span class="chip">Fades &amp; tapers</span>
-        <span class="chip">Line-ups</span>
-        <span class="chip">Waves</span>
-        <span class="chip">Locs &amp; twists</span>
-        <span class="chip">Bald &amp; shaved</span>
-        <span class="chip">Growing it out</span>
+        <span class="chip">Fades &amp; tapers</span><span class="chip">Line-ups</span>
+        <span class="chip">Waves</span><span class="chip">Locs &amp; twists</span>
+        <span class="chip">Bald &amp; shaved</span><span class="chip">Growing it out</span>
       </div>
 
       <p class="small reveal" style="margin-top:24px;max-width:720px;font-size:13px">
@@ -504,158 +781,81 @@
     </section>
   </div>
 </div>
-<!-- ══ Screenshots ═══════════════════════════════════════════════════════ -->
-<div class="sect-green">
-  <div class="wrap">
-    <section class="sect">
-      <div class="reveal" style="max-width:620px;margin:0 auto 40px;text-align:center">
-        <p class="eyebrow">Inside the app</p>
-        <h2 style="margin-bottom:22px">What you<br>actually get</h2>
-        <p class="copy">
-          Check-ins that take a minute, a photo record only you can see, and a clear
-          picture of what you have logged over time.
-        </p>
-      </div>
-      <div class="shots">
-        <figure class="reveal" style="margin:0">
-          <div class="shot"><img src="/shot-home.png" alt="Home screen showing the day's routine focus and check-in progress" loading="lazy"></div>
-          <figcaption class="shot-cap">Your day at a glance</figcaption>
-        </figure>
-        <figure class="reveal" style="margin:0">
-          <div class="shot"><img src="/shot-photos.png" alt="Photo timeline showing dated progress photos" loading="lazy"></div>
-          <figcaption class="shot-cap">A photo record</figcaption>
-        </figure>
-        <figure class="reveal" style="margin:0">
-          <div class="shot"><img src="/shot-progress.png" alt="Chart showing how often each symptom was reported across recent check-ins" loading="lazy"></div>
-          <figcaption class="shot-cap">Patterns over time</figcaption>
-        </figure>
-        <figure class="reveal" style="margin:0">
-          <div class="shot"><img src="/shot-foli.png" alt="Foli, the in-app chatbot, ready to answer a question" loading="lazy"></div>
-          <figcaption class="shot-cap">Foli, any time</figcaption>
-        </figure>
-      </div>
-    </section>
-  </div>
-</div>
-<!-- ══ How it works ══════════════════════════════════════════════════════ -->
+
+<!-- ══ Reminders ═════════════════════════════════════════════════════════
+     PHOTO SLOT 9 — style.jpg, wide crop roughly 3:2.                     -->
 <div class="wrap">
-  <section class="sect" id="how" style="scroll-margin-top:80px">
-    <div class="reveal" style="margin-bottom:44px">
-      <p class="eyebrow">How it works</p>
-      <h2>Three steps, then it<br>runs on your cycle</h2>
+  <section class="sect" id="reminders" style="scroll-margin-top:88px">
+    <div class="split">
+      <div class="reveal">
+        <p class="eyebrow">Reminders</p>
+        <h2 style="margin-bottom:20px">The style has been in longer than you think</h2>
+        <p class="copy" style="margin-bottom:18px">
+          Tell FolliSense when a style went in and how long you plan to keep it. You get a nudge as takedown
+          week approaches, and again if it runs past what you planned, because four weeks has a way of quietly
+          becoming seven.
+        </p>
+        <p class="copy" style="margin-bottom:28px">
+          The same works for retwists, wash days, colour appointments and barber visits. Reminders are built
+          from what you told us, and they are a convenience rather than a rule. If a style feels tight, itchy
+          or sore, do not wait for a notification.
+        </p>
+        <a class="btn btn-line btn-sm" href="https://app.follisense.com">Add your first style</a>
+      </div>
+      <div class="reveal photo photo-wide">
+        <img src="/style.jpg" alt="A protective style being taken down" loading="lazy">
+      </div>
     </div>
-    <div class="grid grid-3">
 
-      <div class="card reveal">
-        <div class="head-row">
-          <span class="ico">
-            <svg viewBox="0 0 24 24"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
-          </span>
-          <span class="num">01</span>
-        </div>
-        <h3 style="margin-bottom:10px">Set your baseline</h3>
-        <p class="small" style="color:var(--body-c);font-size:14.5px">
-          Four guided photos of your hairline, sides, crown and nape, plus a few questions about how your
-          scalp feels. About three minutes.
-        </p>
-      </div>
-
-      <div class="card reveal">
-        <div class="head-row">
-          <span class="ico">
-            <svg viewBox="0 0 24 24"><path d="M3 3v18h18"/><path d="M7 15l4-5 3 3 5-7"/></svg>
-          </span>
-          <span class="num">02</span>
-        </div>
-        <h3 style="margin-bottom:10px">Check in on cycle</h3>
-        <p class="small" style="color:var(--body-c);font-size:14.5px">
-          Whether that is a four-week install or a weekly cut, check-ins land when they make sense and we
-          track what changes between them.
-        </p>
-      </div>
-
-      <div class="card reveal">
-        <div class="head-row">
-          <span class="ico">
-            <svg viewBox="0 0 24 24"><path d="M4 2v6a6 6 0 0 0 12 0V2"/><path d="M10 14v3a4 4 0 0 0 8 0v-1"/><circle cx="20" cy="10" r="2"/></svg>
-          </span>
-          <span class="num">03</span>
-        </div>
-        <h3 style="margin-bottom:10px">Know when to act</h3>
-        <p class="small" style="color:var(--body-c);font-size:14.5px">
-          If what you report is worth professional attention we say so, and package your record so a
-          trichologist can pick it up quickly.
-        </p>
-      </div>
-
-    </div>
   </section>
 </div>
 
-<!-- ══ Takedown reminders ════════════════════════════════════════════════ -->
+<!-- ══ Learn ═════════════════════════════════════════════════════════════ -->
 <div style="background:var(--paper)">
   <div class="wrap">
-    <section class="sect" id="reminders" style="scroll-margin-top:80px">
-      <div class="split">
+    <section class="sect" id="learn" style="scroll-margin-top:88px">
+      <div class="reveal" style="max-width:600px;margin:0 auto 44px;text-align:center">
+        <p class="eyebrow">Learn</p>
+        <h2 style="margin-bottom:20px">Understand what you are looking at</h2>
+        <p class="copy">
+          A plain-language library of what scalps do and why, plus articles worth the ten minutes. Written to
+          explain, never to tell you what you have.
+        </p>
+      </div>
+      <div class="phone-pair">
         <div class="reveal">
-          <p class="eyebrow">Reminders</p>
-          <h2 style="margin-bottom:22px">The style has been in<br>longer than you think</h2>
-          <p class="copy" style="margin-bottom:18px">
-            Tell FolliSense when a style went in and how long you plan to keep it. You get a nudge as takedown
-            week approaches, and again if it runs past what you planned, because four weeks has a way of
-            quietly becoming seven.
-          </p>
-          <p class="copy" style="margin-bottom:28px">
-            The same works for retwists, wash days and barber visits. Reminders are built from what you told
-            us, and they are a convenience rather than a rule. If a style feels tight, itchy or sore, do not
-            wait for a notification.
-          </p>
-          <a class="btn btn-line btn-sm" href="https://app.follisense.com">Set your first cycle</a>
-        </div>
-
-        <div class="reveal" aria-hidden="true">
-          <div class="rem-card">
-            <div class="rem-top">
-              <span class="rem-dot">
-                <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
-              </span>
-              <div>
-                <p style="font-size:15px;font-weight:600">Knotless braids</p>
-                <p style="font-size:12.5px;color:var(--faint);margin-top:1px">Installed 12 July</p>
-              </div>
+          <div class="phone">
+            <span class="phone-slit" aria-hidden="true"></span>
+            <div class="phone-screen">
+              <img src="/shot-knowit.png" alt="Know It library of scalp topics" loading="lazy">
             </div>
-            <div style="padding-top:6px">
-              <div class="rem-row">
-                <span class="rem-label">Planned takedown</span>
-                <span class="rem-val">9 August</span>
-              </div>
-              <div class="rem-row">
-                <span class="rem-label">Day of cycle</span>
-                <span class="rem-val">22 of 28</span>
-              </div>
-              <div class="rem-row">
-                <span class="rem-label">Next check-in</span>
-                <span class="rem-val">In 3 days</span>
-              </div>
-            </div>
-            <div class="rem-bar"><span class="rem-fill"></span></div>
-            <p style="font-size:12.5px;color:var(--faint);margin-top:12px">
-              Takedown week starts Monday. We will remind you.
-            </p>
           </div>
+          <p class="phone-cap">Know what you are seeing</p>
+        </div>
+        <div class="reveal">
+          <div class="phone">
+            <span class="phone-slit" aria-hidden="true"></span>
+            <div class="phone-screen">
+              <img src="/shot-learn.png" alt="A Learn article open with its cover image" loading="lazy">
+            </div>
+          </div>
+          <p class="phone-cap">Articles worth your time</p>
         </div>
       </div>
+      <p class="small reveal" style="margin:32px auto 0;max-width:620px;text-align:center;font-size:13px">
+        Education, not diagnosis. Reading about something does not mean you have it.
+      </p>
     </section>
   </div>
 </div>
 
 <!-- ══ Foli ══════════════════════════════════════════════════════════════ -->
 <div class="wrap">
-  <section class="sect" id="foli" style="scroll-margin-top:80px">
+  <section class="sect" id="foli" style="scroll-margin-top:88px">
     <div class="split split-flip">
       <div class="reveal">
         <p class="eyebrow">Foli</p>
-        <h2 style="margin-bottom:22px">A live chatbot for<br>the questions in between</h2>
+        <h2 style="margin-bottom:20px">A live chatbot for the questions in between</h2>
         <p class="copy" style="margin-bottom:18px">
           Foli is built into the app and answers straight away, at 2am on a takedown night or halfway through a
           wash. Ask about buildup, protein and moisture, what to do about tight braids, or how to read your own
@@ -668,235 +868,198 @@
         </p>
         <a class="btn btn-line btn-sm" href="https://app.follisense.com">Try Foli in the app</a>
       </div>
-
-      <div class="reveal" aria-hidden="true">
-        <div class="chat">
-          <div class="chat-top">
-            <span class="chat-av">
-              <img src="/follisense-icon-green.png" alt="" width="34" height="34">
-            </span>
-            <div>
-              <p class="chat-name">Foli</p>
-              <p class="chat-sub">Automated assistant · replies instantly</p>
-            </div>
+      <div class="reveal phone-narrow">
+        <div class="phone">
+          <span class="phone-slit" aria-hidden="true"></span>
+          <div class="phone-screen">
+            <img src="/shot-foli.png" alt="A conversation with Foli, the in-app assistant" loading="lazy">
           </div>
-          <p class="bub bub-you">My braids are 3 weeks in and my scalp is flaking. Wash or wait?</p>
-          <p class="bub bub-foli">
-            Three weeks is a normal point for buildup. A diluted clarifying wash applied at the scalp, then a
-            light moisturiser, usually settles it without disturbing the braids.
-          </p>
-          <p class="bub bub-you">Will that make them frizzy?</p>
-          <p class="bub bub-foli">
-            Some, yes. Applying with a nozzle bottle and drying fully afterwards keeps it to a minimum.
-          </p>
-          <p class="chat-note">
-            Foli is automated and can be wrong. It is not medical advice and not a substitute for seeing a
-            professional.
-          </p>
         </div>
+        <p class="phone-cap">Foli, any time</p>
       </div>
     </div>
   </section>
 </div>
 
 <!-- ══ Products ══════════════════════════════════════════════════════════
-     The section a reviewer can assess without an account. Categories only:
-     no invented prices, ratings or stock. Wording stays cosmetic — how hair
-     looks and feels, never what a product treats.
-
-     NEXT: linked product cards drop in under each category heading, built
-     from product_catalog (name, brand, price_ksh, jumia_url). Cosmetic rows
-     only — no medicated shampoos or topical treatments on this page.     -->
+     Categories and named products only: no invented prices, ratings or
+     stock. Wording stays cosmetic, how hair looks and feels, never what a
+     product treats. No medicated shampoos or topical treatments here.    -->
 <div style="background:var(--paper)">
   <div class="wrap">
-    <section class="sect" id="products" style="scroll-margin-top:80px">
-      <div class="split reveal" style="align-items:end;margin-bottom:44px">
-        <div>
+    <section class="sect" id="products" style="scroll-margin-top:88px">
+      <div class="split" style="margin-bottom:48px">
+        <div class="reveal">
           <p class="eyebrow">Products</p>
-          <h2>Products that fit your<br>routine, not a list</h2>
+          <h2 style="margin-bottom:20px">Products that fit your routine, not a list</h2>
+          <p class="copy">
+            Once your routine is set, FolliSense shows where the gaps are, scalp care mid-style, a clarifying
+            wash, something for the days after takedown, and suggests products that fit. Browse by category,
+            buy from a few select retailers. Nothing is chosen from your symptoms.
+          </p>
         </div>
-        <p class="copy">
-          Once your routine is set, FolliSense shows where the gaps are, mid-cycle scalp care, a clarifying wash,
-          something for the days after takedown, and suggests products that fit. Browse by category, buy from a
-          few select retailers. Nothing is chosen from your symptoms.
-        </p>
+        <div class="reveal phone-narrow">
+          <div class="phone">
+            <span class="phone-slit" aria-hidden="true"></span>
+            <div class="phone-screen">
+              <img src="/shot-products.png" alt="Product suggestions grouped by category" loading="lazy">
+            </div>
+          </div>
+          <p class="phone-cap">Products that fit</p>
+        </div>
       </div>
 
       <div class="grid grid-3">
         <div class="card card-still reveal" style="padding:26px 24px">
-          <span class="ico" style="display:block;margin-bottom:16px"><svg viewBox="0 0 24 24"><path d="M11 20A7 7 0 0 1 4 13V8a5 5 0 0 1 5-5h6a5 5 0 0 1 5 5c0 6-5 12-9 12z"/><path d="M8 20c0-4 2-8 6-11"/></svg></span>
+          <span class="cat-ico"><svg viewBox="0 0 24 24"><path d="M11 20A7 7 0 0 1 4 13V8a5 5 0 0 1 5-5h6a5 5 0 0 1 5 5c0 6-5 12-9 12z"/><path d="M8 20c0-4 2-8 6-11"/></svg></span>
           <h3 style="font-size:17px;margin-bottom:8px">Cleansers</h3>
           <p class="small">Clarifying and gentle shampoos for buildup and everyday washing.</p>
           <div class="prod-list">
             <a class="prod" href="https://www.jumia.co.ke/catalog/?q=cantu+sulphate+free+shampoo" target="_blank" rel="sponsored noopener noreferrer">
-              <span>
-                <span class="prod-name">Curl &amp; Coil Sulphate-Free Shampoo</span>
-                <span class="prod-brand" style="display:block">Cantu</span>
-              </span>
-              <span class="prod-right">
-                <svg class="prod-go" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7"/><path d="M9 7h8v8"/></svg>
-              </span>
+              <span><span class="prod-name">Curl &amp; Coil Sulphate-Free Shampoo</span><span class="prod-brand">Cantu</span></span>
+              <svg class="prod-go" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7"/><path d="M9 7h8v8"/></svg>
             </a>
             <a class="prod" href="https://www.jumia.co.ke/catalog/?q=shea+moisture+jamaican+black+castor+shampoo" target="_blank" rel="sponsored noopener noreferrer">
-              <span>
-                <span class="prod-name">Jamaican Black Castor Oil Shampoo</span>
-                <span class="prod-brand" style="display:block">SheaMoisture</span>
-              </span>
-              <span class="prod-right">
-                <svg class="prod-go" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7"/><path d="M9 7h8v8"/></svg>
-              </span>
+              <span><span class="prod-name">Jamaican Black Castor Oil Shampoo</span><span class="prod-brand">SheaMoisture</span></span>
+              <svg class="prod-go" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7"/><path d="M9 7h8v8"/></svg>
             </a>
             <a class="prod" href="https://www.jumia.co.ke/catalog/?q=neutrogena+anti+residue+shampoo" target="_blank" rel="sponsored noopener noreferrer">
-              <span>
-                <span class="prod-name">Anti-Residue Clarifying Shampoo</span>
-                <span class="prod-brand" style="display:block">Neutrogena</span>
-              </span>
-              <span class="prod-right">
-                <svg class="prod-go" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7"/><path d="M9 7h8v8"/></svg>
-              </span>
+              <span><span class="prod-name">Anti-Residue Clarifying Shampoo</span><span class="prod-brand">Neutrogena</span></span>
+              <svg class="prod-go" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7"/><path d="M9 7h8v8"/></svg>
+            </a>
+            <a class="prod" href="https://www.jumia.co.ke/catalog/?q=pantene+pro+v+shampoo" target="_blank" rel="sponsored noopener noreferrer">
+              <span><span class="prod-name">Pro-V Daily Shampoo</span><span class="prod-brand">Pantene</span></span>
+              <svg class="prod-go" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7"/><path d="M9 7h8v8"/></svg>
             </a>
           </div>
         </div>
+
         <div class="card card-still reveal" style="padding:26px 24px">
-          <span class="ico" style="display:block;margin-bottom:16px"><svg viewBox="0 0 24 24"><path d="M10 2v7.5L4.5 19A2 2 0 0 0 6.2 22h11.6a2 2 0 0 0 1.7-3L14 9.5V2"/><path d="M8 2h8"/><path d="M7 15h10"/></svg></span>
+          <span class="cat-ico"><svg viewBox="0 0 24 24"><path d="M10 2v7.5L4.5 19A2 2 0 0 0 6.2 22h11.6a2 2 0 0 0 1.7-3L14 9.5V2"/><path d="M8 2h8"/><path d="M7 15h10"/></svg></span>
           <h3 style="font-size:17px;margin-bottom:8px">Conditioners</h3>
           <p class="small">Deep conditioners, leave-ins and bond treatments for moisture and strength.</p>
           <div class="prod-list">
             <a class="prod" href="https://www.jumia.co.ke/catalog/?q=shea+moisture+manuka+honey+deep+conditioner" target="_blank" rel="sponsored noopener noreferrer">
-              <span>
-                <span class="prod-name">Manuka Honey &amp; Yogurt Deep Conditioner</span>
-                <span class="prod-brand" style="display:block">SheaMoisture</span>
-              </span>
-              <span class="prod-right">
-                <svg class="prod-go" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7"/><path d="M9 7h8v8"/></svg>
-              </span>
+              <span><span class="prod-name">Manuka Honey &amp; Yogurt Deep Conditioner</span><span class="prod-brand">SheaMoisture</span></span>
+              <svg class="prod-go" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7"/><path d="M9 7h8v8"/></svg>
             </a>
             <a class="prod" href="https://www.jumia.co.ke/catalog/?q=cantu+shea+butter+leave+in" target="_blank" rel="sponsored noopener noreferrer">
-              <span>
-                <span class="prod-name">Shea Butter Leave-In Conditioner</span>
-                <span class="prod-brand" style="display:block">Cantu</span>
-              </span>
-              <span class="prod-right">
-                <svg class="prod-go" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7"/><path d="M9 7h8v8"/></svg>
-              </span>
+              <span><span class="prod-name">Shea Butter Leave-In Conditioner</span><span class="prod-brand">Cantu</span></span>
+              <svg class="prod-go" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7"/><path d="M9 7h8v8"/></svg>
             </a>
             <a class="prod" href="https://www.jumia.co.ke/catalog/?q=aphogee+keratin+reconstructor" target="_blank" rel="sponsored noopener noreferrer">
-              <span>
-                <span class="prod-name">Two-Minute Keratin Reconstructor</span>
-                <span class="prod-brand" style="display:block">Aphogee</span>
-              </span>
-              <span class="prod-right">
-                <svg class="prod-go" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7"/><path d="M9 7h8v8"/></svg>
-              </span>
+              <span><span class="prod-name">Two-Minute Keratin Reconstructor</span><span class="prod-brand">Aphogee</span></span>
+              <svg class="prod-go" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7"/><path d="M9 7h8v8"/></svg>
+            </a>
+            <a class="prod" href="https://www.jumia.co.ke/catalog/?q=loreal+elvive+conditioner" target="_blank" rel="sponsored noopener noreferrer">
+              <span><span class="prod-name">Elvive Conditioner</span><span class="prod-brand">L'Or&eacute;al Paris</span></span>
+              <svg class="prod-go" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7"/><path d="M9 7h8v8"/></svg>
             </a>
           </div>
         </div>
+
         <div class="card card-still reveal" style="padding:26px 24px">
-          <span class="ico" style="display:block;margin-bottom:16px"><svg viewBox="0 0 24 24"><path d="M12 3l1.8 4.6L18.5 9l-4.7 1.4L12 15l-1.8-4.6L5.5 9l4.7-1.4z"/><path d="M18 16l.8 2.2L21 19l-2.2.8L18 22l-.8-2.2L15 19l2.2-.8z"/></svg></span>
+          <span class="cat-ico"><svg viewBox="0 0 24 24"><path d="M12 3l1.8 4.6L18.5 9l-4.7 1.4L12 15l-1.8-4.6L5.5 9l4.7-1.4z"/><path d="M18 16l.8 2.2L21 19l-2.2.8L18 22l-.8-2.2L15 19l2.2-.8z"/></svg></span>
           <h3 style="font-size:17px;margin-bottom:8px">Styling</h3>
           <p class="small">Gels, creams, edge control and twist butters for defined styles.</p>
           <div class="prod-list">
             <a class="prod" href="https://www.jumia.co.ke/catalog/?q=eco+styler+olive+oil+gel" target="_blank" rel="sponsored noopener noreferrer">
-              <span>
-                <span class="prod-name">Olive Oil Styling Gel</span>
-                <span class="prod-brand" style="display:block">Eco Styler</span>
-              </span>
-              <span class="prod-right">
-                <svg class="prod-go" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7"/><path d="M9 7h8v8"/></svg>
-              </span>
+              <span><span class="prod-name">Olive Oil Styling Gel</span><span class="prod-brand">Eco Styler</span></span>
+              <svg class="prod-go" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7"/><path d="M9 7h8v8"/></svg>
             </a>
             <a class="prod" href="https://www.jumia.co.ke/catalog/?q=ebin+24+hour+edge+control" target="_blank" rel="sponsored noopener noreferrer">
-              <span>
-                <span class="prod-name">24 Hour Edge Control</span>
-                <span class="prod-brand" style="display:block">Ebin New York</span>
-              </span>
-              <span class="prod-right">
-                <svg class="prod-go" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7"/><path d="M9 7h8v8"/></svg>
-              </span>
+              <span><span class="prod-name">24 Hour Edge Control</span><span class="prod-brand">Ebin New York</span></span>
+              <svg class="prod-go" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7"/><path d="M9 7h8v8"/></svg>
             </a>
             <a class="prod" href="https://www.jumia.co.ke/catalog/?q=mielle+pomegranate+honey+twisting+souffle" target="_blank" rel="sponsored noopener noreferrer">
-              <span>
-                <span class="prod-name">Twisting Souffl&eacute;</span>
-                <span class="prod-brand" style="display:block">Mielle Organics</span>
-              </span>
-              <span class="prod-right">
-                <svg class="prod-go" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7"/><path d="M9 7h8v8"/></svg>
-              </span>
+              <span><span class="prod-name">Twisting Souffl&eacute;</span><span class="prod-brand">Mielle Organics</span></span>
+              <svg class="prod-go" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7"/><path d="M9 7h8v8"/></svg>
+            </a>
+            <a class="prod" href="https://www.jumia.co.ke/catalog/?q=got2b+glued+styling+spray" target="_blank" rel="sponsored noopener noreferrer">
+              <span><span class="prod-name">Glued Styling Spray</span><span class="prod-brand">got2b</span></span>
+              <svg class="prod-go" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7"/><path d="M9 7h8v8"/></svg>
             </a>
           </div>
         </div>
+
         <div class="card card-still reveal" style="padding:26px 24px">
-          <span class="ico" style="display:block;margin-bottom:16px"><svg viewBox="0 0 24 24"><path d="M6 6m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0"/><path d="M6 18m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0"/><path d="M20 4L8.1 15.9"/><path d="M8.1 8.1L20 20"/></svg></span>
+          <span class="cat-ico"><svg viewBox="0 0 24 24"><path d="M6 6m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0"/><path d="M6 18m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0"/><path d="M20 4L8.1 15.9"/><path d="M8.1 8.1L20 20"/></svg></span>
           <h3 style="font-size:17px;margin-bottom:8px">Protective care</h3>
           <p class="small">Sheen sprays, loc and braid care for the weeks a style is in.</p>
           <div class="prod-list">
             <a class="prod" href="https://www.jumia.co.ke/catalog/?q=african+pride+braid+sheen+spray" target="_blank" rel="sponsored noopener noreferrer">
-              <span>
-                <span class="prod-name">Braid Sheen Spray</span>
-                <span class="prod-brand" style="display:block">African Pride</span>
-              </span>
-              <span class="prod-right">
-                <svg class="prod-go" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7"/><path d="M9 7h8v8"/></svg>
-              </span>
+              <span><span class="prod-name">Braid Sheen Spray</span><span class="prod-brand">African Pride</span></span>
+              <svg class="prod-go" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7"/><path d="M9 7h8v8"/></svg>
             </a>
             <a class="prod" href="https://www.jumia.co.ke/catalog/?q=jamaican+mango+lime+loc+gel" target="_blank" rel="sponsored noopener noreferrer">
-              <span>
-                <span class="prod-name">Loc &amp; Twist Gel</span>
-                <span class="prod-brand" style="display:block">Jamaican Mango &amp; Lime</span>
-              </span>
-              <span class="prod-right">
-                <svg class="prod-go" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7"/><path d="M9 7h8v8"/></svg>
-              </span>
+              <span><span class="prod-name">Loc &amp; Twist Gel</span><span class="prod-brand">Jamaican Mango &amp; Lime</span></span>
+              <svg class="prod-go" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7"/><path d="M9 7h8v8"/></svg>
             </a>
             <a class="prod" href="https://www.jumia.co.ke/catalog/?q=satin+bonnet+hair" target="_blank" rel="sponsored noopener noreferrer">
-              <span>
-                <span class="prod-name">Satin-Lined Hair Bonnet</span>
-                <span class="prod-brand" style="display:block">Satin Roots</span>
-              </span>
-              <span class="prod-right">
-                <svg class="prod-go" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7"/><path d="M9 7h8v8"/></svg>
-              </span>
+              <span><span class="prod-name">Satin-Lined Hair Bonnet</span><span class="prod-brand">Satin Roots</span></span>
+              <svg class="prod-go" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7"/><path d="M9 7h8v8"/></svg>
+            </a>
+            <a class="prod" href="https://www.jumia.co.ke/catalog/?q=silk+pillowcase" target="_blank" rel="sponsored noopener noreferrer">
+              <span><span class="prod-name">Silk Pillowcase</span><span class="prod-brand">Satin Roots</span></span>
+              <svg class="prod-go" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7"/><path d="M9 7h8v8"/></svg>
             </a>
           </div>
         </div>
+
         <div class="card card-still reveal" style="padding:26px 24px">
-          <span class="ico" style="display:block;margin-bottom:16px"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg></span>
+          <span class="cat-ico"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg></span>
           <h3 style="font-size:17px;margin-bottom:8px">Scalp care</h3>
           <p class="small">Serums, tonics and scrubs for how your scalp feels day to day.</p>
           <div class="prod-list">
             <a class="prod" href="https://www.jumia.co.ke/catalog/?q=mielle+vitamin+e+scalp+serum" target="_blank" rel="sponsored noopener noreferrer">
-              <span>
-                <span class="prod-name">Vitamin E Scalp Serum</span>
-                <span class="prod-brand" style="display:block">Mielle Organics</span>
-              </span>
-              <span class="prod-right">
-                <svg class="prod-go" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7"/><path d="M9 7h8v8"/></svg>
-              </span>
+              <span><span class="prod-name">Vitamin E Scalp Serum</span><span class="prod-brand">Mielle Organics</span></span>
+              <svg class="prod-go" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7"/><path d="M9 7h8v8"/></svg>
             </a>
             <a class="prod" href="https://www.jumia.co.ke/catalog/?q=paul+mitchell+tea+tree+scalp" target="_blank" rel="sponsored noopener noreferrer">
-              <span>
-                <span class="prod-name">Tea Tree Scalp Treatment</span>
-                <span class="prod-brand" style="display:block">Paul Mitchell</span>
-              </span>
-              <span class="prod-right">
-                <svg class="prod-go" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7"/><path d="M9 7h8v8"/></svg>
-              </span>
+              <span><span class="prod-name">Tea Tree Scalp Treatment</span><span class="prod-brand">Paul Mitchell</span></span>
+              <svg class="prod-go" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7"/><path d="M9 7h8v8"/></svg>
             </a>
             <a class="prod" href="https://www.jumia.co.ke/catalog/?q=briogeo+scalp+revival+charcoal" target="_blank" rel="sponsored noopener noreferrer">
-              <span>
-                <span class="prod-name">Scalp Revival Charcoal Shampoo</span>
-                <span class="prod-brand" style="display:block">Briogeo</span>
-              </span>
-              <span class="prod-right">
-                <svg class="prod-go" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7"/><path d="M9 7h8v8"/></svg>
-              </span>
+              <span><span class="prod-name">Scalp Revival Charcoal Shampoo</span><span class="prod-brand">Briogeo</span></span>
+              <svg class="prod-go" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7"/><path d="M9 7h8v8"/></svg>
+            </a>
+            <a class="prod" href="https://www.jumia.co.ke/catalog/?q=the+ordinary+multi+peptide+serum+hair" target="_blank" rel="sponsored noopener noreferrer">
+              <span><span class="prod-name">Multi-Peptide Serum for Hair Density</span><span class="prod-brand">The Ordinary</span></span>
+              <svg class="prod-go" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7"/><path d="M9 7h8v8"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <div class="card card-still reveal" style="padding:26px 24px">
+          <span class="cat-ico"><svg viewBox="0 0 24 24"><path d="M12 21c-4 0-7-2.8-7-6.5 0-3 2-5.5 3.5-8.5C10 3.5 12 3 12 3s2 .5 3.5 3c1.5 3 3.5 5.5 3.5 8.5C19 18.2 16 21 12 21z"/><path d="M12 17a2.5 2.5 0 0 0 2.5-2.5"/></svg></span>
+          <h3 style="font-size:17px;margin-bottom:8px">Heat and everyday</h3>
+          <p class="small">Heat protectant, dry shampoo and lightweight conditioner for finer hair and daily washing.</p>
+          <div class="prod-list">
+            <a class="prod" href="https://www.jumia.co.ke/catalog/?q=tresemme+heat+protection+spray" target="_blank" rel="sponsored noopener noreferrer">
+              <span><span class="prod-name">Heat Protection Spray</span><span class="prod-brand">TRESemm&eacute;</span></span>
+              <svg class="prod-go" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7"/><path d="M9 7h8v8"/></svg>
+            </a>
+            <a class="prod" href="https://www.jumia.co.ke/catalog/?q=batiste+dry+shampoo" target="_blank" rel="sponsored noopener noreferrer">
+              <span><span class="prod-name">Dry Shampoo</span><span class="prod-brand">Batiste</span></span>
+              <svg class="prod-go" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7"/><path d="M9 7h8v8"/></svg>
+            </a>
+            <a class="prod" href="https://www.jumia.co.ke/catalog/?q=ogx+argan+oil+lightweight+conditioner" target="_blank" rel="sponsored noopener noreferrer">
+              <span><span class="prod-name">Argan Oil Lightweight Conditioner</span><span class="prod-brand">OGX</span></span>
+              <svg class="prod-go" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7"/><path d="M9 7h8v8"/></svg>
+            </a>
+            <a class="prod" href="https://www.jumia.co.ke/catalog/?q=olaplex+no+3+hair+perfector" target="_blank" rel="sponsored noopener noreferrer">
+              <span><span class="prod-name">No.3 Hair Perfector</span><span class="prod-brand">Olaplex</span></span>
+              <svg class="prod-go" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7"/><path d="M9 7h8v8"/></svg>
             </a>
           </div>
         </div>
       </div>
-      <p class="small" style="margin-top:28px;max-width:720px;font-size:12.5px">
-        Product links to Jumia Kenya and Amazon may be affiliate links, which means we may earn a small commission
-        if you buy through them, at no extra cost to you. Commission never affects what we show you.
+
+      <!-- AFFILIATE WORDING — the old line claimed a commission that is not in
+           place. Swap it back once the programmes are actually approved. -->
+      <p class="small" style="margin-top:28px;max-width:760px;font-size:12.5px">
+        Product links point to Jumia Kenya and Amazon. FolliSense does not sell products and does not currently
+        earn anything when you buy through them. If that changes we will say so here.
       </p>
     </section>
   </div>
@@ -908,38 +1071,47 @@
     <div class="split">
       <div class="reveal">
         <p class="eyebrow">Being clear</p>
-        <h2 style="margin-bottom:22px">What FolliSense<br>is not</h2>
+        <h2 style="margin-bottom:20px">What FolliSense is not</h2>
         <p class="copy" style="margin-bottom:18px">
           It does not diagnose anything, and it will never tell you that you have a named condition. It is not
           a substitute for a trichologist, a dermatologist or a doctor.
         </p>
-        <p class="copy">
+        <p class="copy" style="margin-bottom:28px">
           What it does is keep an honest record, and tell you plainly when what you have reported is worth
           showing to someone qualified, with your history organised so that appointment starts further along.
         </p>
+        <div class="card" style="padding:8px 26px">
+          <div class="tick">
+            <svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+            <div>
+              <p style="font-weight:600;margin-bottom:3px">Only you see your photos</p>
+              <p class="small">Stored privately and never shown to anyone else.</p>
+            </div>
+          </div>
+          <div class="tick">
+            <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>
+            <div>
+              <p style="font-weight:600;margin-bottom:3px">Treated as health data</p>
+              <p class="small">Handled with the care that implies, not as ordinary app content.</p>
+            </div>
+          </div>
+          <div class="tick">
+            <svg viewBox="0 0 24 24"><path d="M3 6h18"/><path d="M8 6V4a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1v2"/><path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"/></svg>
+            <div>
+              <p style="font-weight:600;margin-bottom:3px">Delete any time</p>
+              <p class="small">One photo, or your whole account, whenever you want.</p>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="card reveal" style="padding:10px 28px">
-        <div class="tick">
-          <svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
-          <div>
-            <p style="font-weight:600;margin-bottom:3px">Only you see your photos</p>
-            <p class="small">Stored securely and never shown to anyone else.</p>
+      <div class="reveal phone-narrow">
+        <div class="phone">
+          <span class="phone-slit" aria-hidden="true"></span>
+          <div class="phone-screen">
+            <img src="/shot-photos.png" alt="A private photo record organised by date" loading="lazy">
           </div>
         </div>
-        <div class="tick">
-          <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>
-          <div>
-            <p style="font-weight:600;margin-bottom:3px">Treated as health data</p>
-            <p class="small">Handled with the care that implies, not as ordinary app content.</p>
-          </div>
-        </div>
-        <div class="tick">
-          <svg viewBox="0 0 24 24"><path d="M3 6h18"/><path d="M8 6V4a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1v2"/><path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"/></svg>
-          <div>
-            <p style="font-weight:600;margin-bottom:3px">Delete any time</p>
-            <p class="small">One photo, or your whole account, whenever you want.</p>
-          </div>
-        </div>
+        <p class="phone-cap">A photo record</p>
       </div>
     </div>
   </section>
@@ -949,58 +1121,68 @@
 <div class="sect-green">
   <div class="wrap">
     <section class="sect reveal" style="text-align:center">
-      <h2 style="max-width:780px;margin:0 auto 20px">Start with a baseline.<br>Everything compares against it.</h2>
+      <h2 style="max-width:16ch;margin:0 auto 20px">Start with a baseline. Everything compares against it.</h2>
       <p class="lede" style="max-width:520px;margin:0 auto 34px">
         Three minutes now gives you a starting point you can measure against for as long as you use it.
       </p>
-      <a class="btn btn-ink" href="https://app.follisense.com">
-        Create your account
-        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-      </a>
+      <a class="btn btn-white" href="https://app.follisense.com">Create your account</a>
+      <p class="small" style="margin-top:34px">
+        Questions, or want to talk to us?
+        <a href="mailto:hello@follisense.com" style="color:#F5F7F2;text-decoration:underline;text-underline-offset:3px">hello@follisense.com</a>
+      </p>
     </section>
   </div>
 </div>
 
-<!-- ══ Footer ════════════════════════════════════════════════════════════
-     Privacy and Terms are now static pages on this site rather than deep
-     links into the app, so a reviewer never hits a login or waits for the
-     SPA to boot.                                                        -->
+<!-- ══ Footer ════════════════════════════════════════════════════════════ -->
 <footer>
   <div class="foot">
     <div class="logo">
-      <span class="mark" style="width:24px;height:24px;border-radius:8px">
-        <img src="/follisense-icon-green.png" alt="" width="24" height="24">
-      </span>
-      <span class="logo-word" style="font-size:16px;color:var(--ink)">FolliSense</span>
-      <span class="small" style="margin-left:8px;font-size:13.5px">Nairobi, Kenya</span>
+      <span class="mark" style="width:24px;height:24px"><img src="/follisense-icon-green.png" alt="" width="24" height="24"></span>
+      <span class="logo-word" style="font-size:17px;color:var(--ink)">FolliSense</span>
     </div>
     <div class="foot-links">
+      <a class="foot-link" href="#types">Hair types</a>
       <a class="foot-link" href="#how">How it works</a>
       <a class="foot-link" href="#men">For men</a>
       <a class="foot-link" href="#foli">Foli</a>
       <a class="foot-link" href="/privacy.html">Privacy</a>
       <a class="foot-link" href="/terms.html">Terms</a>
+      <a class="foot-link" href="mailto:hello@follisense.com">Contact</a>
       <a class="foot-link" href="mailto:support@follisense.com">Support</a>
       <a class="foot-link" href="#" onclick="FolliSenseConsent.open(); return false;">Cookie settings</a>
       <a class="foot-link" href="https://app.follisense.com/login">Log in</a>
     </div>
   </div>
   <div class="foot-note">
-       <p>
-      FolliSense is a wellness and self-care companion. It does not diagnose, treat or prevent
-      any medical condition. &copy; 2026 FolliSense. 
-    </p> </div>
+    <p>
+      FolliSense is a wellness and self-care companion. It does not diagnose, treat or prevent any medical
+      condition. General enquiries: <a href="mailto:hello@follisense.com" style="color:var(--body-c)">hello@follisense.com</a>.
+      &copy; 2026 FolliSense.
+    </p>
+  </div>
 </footer>
 
 <script>
-  // Nav starts transparent over the photograph, turns frosted white on scroll.
-  var hdr = document.getElementById('hdr');
-  var onScroll = function () {
-    if (window.scrollY > 24) hdr.classList.add('stuck');
-    else hdr.classList.remove('stuck');
-  };
-  onScroll();
-  window.addEventListener('scroll', onScroll, { passive: true });
+  var tabs = Array.prototype.slice.call(document.querySelectorAll('.tt'));
+  function selectTab(tab) {
+    tabs.forEach(function (t) {
+      var on = t === tab;
+      t.setAttribute('aria-selected', on ? 'true' : 'false');
+      document.getElementById('pan-' + t.dataset.p).hidden = !on;
+    });
+  }
+  tabs.forEach(function (t, i) {
+    t.addEventListener('click', function () { selectTab(t); });
+    t.addEventListener('keydown', function (e) {
+      var d = e.key === 'ArrowRight' ? 1 : e.key === 'ArrowLeft' ? -1 : 0;
+      if (!d) return;
+      e.preventDefault();
+      var next = tabs[(i + d + tabs.length) % tabs.length];
+      next.focus();
+      selectTab(next);
+    });
+  });
 
   var items = document.querySelectorAll('.reveal');
   if ('IntersectionObserver' in window) {
@@ -1009,10 +1191,7 @@
         if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
       });
     }, { rootMargin: '0px 0px -8% 0px', threshold: 0.08 });
-    items.forEach(function (el, i) {
-      el.style.transitionDelay = (Math.min(i, 3) * 70) + 'ms';
-      io.observe(el);
-    });
+    items.forEach(function (el) { io.observe(el); });
   } else {
     items.forEach(function (el) { el.classList.add('in'); });
   }
