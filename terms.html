@@ -3,14 +3,13 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Terms and Conditions — FolliSense</title>
-<meta name="description" content="The terms that apply when you use FolliSense, a wellness and self-care companion for scalp and hair health.">
+<title>Terms of Service — FolliSense</title>
+<meta name="description" content="The terms that govern your use of FolliSense.">
+<meta name="robots" content="index,follow">
 
-<meta property="og:title" content="Terms and Conditions — FolliSense">
-<meta property="og:description" content="The terms that apply when you use FolliSense.">
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://follisense.com/terms.html">
-<meta name="theme-color" content="#FFFFFF">
+<link rel="icon" href="/follisense-icon-green.png" sizes="256x256" type="image/png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png" sizes="180x180">
+<link rel="manifest" href="/site.webmanifest">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -27,98 +26,54 @@
     --body-c: #55554F;
     --faint:  #8C8C85;
     --accent: #2E4A39;
-    --accent-soft: rgba(46,74,57,.08);
-
-    --font: 'Instrument Sans', -apple-system, 'Segoe UI', sans-serif;
-    --gut:  clamp(20px, 5vw, 44px);
-    --r:    20px;
+    --font:   'Instrument Sans', -apple-system, 'Segoe UI', sans-serif;
+    --gut:    clamp(20px, 5vw, 44px);
   }
 
   * { box-sizing: border-box; }
-  html { -webkit-text-size-adjust: 100%; }
+  html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
   body {
-    margin: 0; background: var(--white); color: var(--ink);
-    font-family: var(--font); font-size: 16px;
+    margin: 0; background: var(--white); color: var(--body-c);
+    font-family: var(--font); font-size: 16px; line-height: 1.72;
     -webkit-font-smoothing: antialiased;
   }
-  img, svg { display: block; max-width: 100%; }
+  img { display: block; max-width: 100%; }
+  :focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 4px; }
 
-  .wrap { max-width: 1200px; margin: 0 auto; padding: 0 var(--gut); }
-  .doc  { max-width: 760px; margin: 0 auto; padding: 0 var(--gut); }
+  .wrap { max-width: 760px; margin: 0 auto; padding: 0 var(--gut); }
 
-  h1, h2, h3 { margin: 0; font-weight: 600; letter-spacing: -.035em; line-height: 1.02; }
-  h1 { font-size: clamp(34px, 5vw, 54px); }
-  h3 { font-size: 19px; line-height: 1.3; letter-spacing: -.015em; }
-  p  { margin: 0; }
-
-  .eyebrow {
-    display: inline-block; font-size: 11px; font-weight: 600; letter-spacing: .18em;
-    text-transform: uppercase; color: var(--faint); margin-bottom: 20px;
-  }
-  .copy  { font-size: 16.5px; line-height: 1.75; color: var(--body-c); }
-  .small { font-size: 14px; line-height: 1.65; color: var(--faint); }
-
-  .btn {
-    display: inline-flex; align-items: center; justify-content: center; gap: 9px;
-    height: 54px; padding: 0 28px; border-radius: 100px; border: none;
-    font-family: var(--font); font-size: 15.5px; font-weight: 600;
-    cursor: pointer; text-decoration: none; white-space: nowrap;
-    transition: transform .22s cubic-bezier(.2,.7,.3,1), box-shadow .22s, background .2s, color .2s;
-  }
-  .btn-ink { background: var(--ink); color: #fff; box-shadow: 0 8px 22px -12px rgba(17,17,16,.6); }
-  .btn-ink:hover { transform: translateY(-2px); box-shadow: 0 14px 30px -14px rgba(17,17,16,.65); }
-  .btn-sm { height: 42px; padding: 0 20px; font-size: 14px; }
-
-  /* Legal pages have no hero, so the nav is frosted from the start. */
-  header {
-    position: sticky; top: 0; z-index: 60;
-    background: rgba(255,255,255,.82);
-    backdrop-filter: saturate(160%) blur(16px);
-    -webkit-backdrop-filter: saturate(160%) blur(16px);
-    box-shadow: 0 1px 0 var(--hair);
-  }
-  .nav {
-    max-width: 1200px; margin: 0 auto; padding: 16px var(--gut);
-    display: flex; align-items: center; justify-content: space-between; gap: 16px;
-  }
+  header { border-bottom: 1px solid var(--hair); background: var(--white); }
+  .nav { max-width: 1200px; margin: 0 auto; padding: 16px var(--gut); display: flex; align-items: center; justify-content: space-between; gap: 16px; }
   .logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
-  .mark { width: 28px; height: 28px; border-radius: 9px; display: grid; place-items: center; flex-shrink: 0; background: var(--accent); }
-  .mark svg { width: 16px; height: 16px; fill: none; stroke: #fff; stroke-width: 1.9; }
+  .mark { width: 26px; height: 26px; display: grid; place-items: center; flex-shrink: 0; }
   .logo-word { font-size: 18.5px; font-weight: 600; letter-spacing: -.03em; color: var(--ink); }
-  .nav-links { display: flex; align-items: center; gap: 4px; }
-  .nav-link {
-    padding: 10px 14px; border-radius: 100px; text-decoration: none;
-    font-size: 14.5px; font-weight: 500; color: var(--body-c); transition: opacity .2s;
-  }
-  .nav-link:hover { opacity: .7; }
-  .btn-nav { background: var(--ink); color: #fff; }
+  .nav a.back { font-size: 14px; font-weight: 500; color: var(--body-c); text-decoration: none; }
+  .nav a.back:hover { color: var(--accent); }
 
-  .doc-head { padding: clamp(48px, 7vw, 88px) 0 0; }
-  .rule { width: 44px; height: 3px; background: var(--accent); border-radius: 2px; margin: 18px 0 8px; }
+  h1 { font-size: clamp(32px, 5vw, 46px); font-weight: 600; letter-spacing: -.035em; line-height: 1.06; color: var(--ink); margin: 0 0 12px; }
+  h2 { font-size: clamp(21px, 2.4vw, 26px); font-weight: 600; letter-spacing: -.025em; line-height: 1.2; color: var(--accent); margin: 56px 0 16px; }
+  h3 { font-size: 17px; font-weight: 600; letter-spacing: -.015em; color: var(--ink); margin: 30px 0 10px; }
+  p, li { font-size: 15.5px; }
+  p { margin: 0 0 16px; }
+  ul { margin: 0 0 18px; padding-left: 22px; }
+  li { margin-bottom: 9px; }
+  a { color: var(--accent); text-underline-offset: 3px; }
+  strong { color: var(--ink); font-weight: 600; }
 
-  .callout {
-    background: var(--accent-soft); border-radius: 14px;
-    padding: 18px 20px; margin: 28px 0 8px;
-  }
-  .callout p { font-size: 15px; line-height: 1.65; color: var(--body-c); }
-  .callout strong { color: var(--accent); }
+  .updated { font-size: 14px; color: var(--faint); margin-bottom: 0; }
+  .top { padding: clamp(48px, 7vw, 84px) 0 34px; border-bottom: 1px solid var(--hair); }
+  .body-wrap { padding: 8px 0 clamp(64px, 8vw, 104px); }
 
-  .doc-body { padding-bottom: clamp(64px, 9vw, 120px); }
-  .doc-body h3 { margin: 38px 0 10px; }
-  .doc-body p  { font-size: 16px; line-height: 1.75; color: var(--body-c); }
-  .doc-body p + p { margin-top: 12px; }
-  .doc-body a  { color: var(--accent); }
+  .lead { background: var(--paper); border-radius: 18px; padding: 26px 28px 12px; margin: 40px 0 8px; }
+  .lead p { font-size: 15px; }
+
+  .caps { font-size: 14.5px; }
 
   footer { border-top: 1px solid var(--hair); background: var(--paper); }
-  .foot { max-width: 1200px; margin: 0 auto; padding: 36px var(--gut); display: flex; flex-wrap: wrap; gap: 18px; align-items: center; justify-content: space-between; }
-  .foot .mark { width: 24px; height: 24px; border-radius: 8px; }
-  .foot .mark svg { width: 14px; height: 14px; }
-  .foot-links { display: flex; gap: 22px; flex-wrap: wrap; }
+  .foot { max-width: 1200px; margin: 0 auto; padding: 32px var(--gut); display: flex; flex-wrap: wrap; gap: 18px; align-items: center; justify-content: space-between; }
+  .foot-links { display: flex; gap: 20px; flex-wrap: wrap; }
   .foot-link { font-size: 14px; color: var(--body-c); text-decoration: none; }
-  .foot-link:hover { color: var(--ink); text-decoration: underline; text-underline-offset: 3px; }
-  .foot-note { max-width: 1200px; margin: 0 auto; padding: 0 var(--gut) 32px; }
-  .foot-note p { font-size: 13px; line-height: 1.7; color: var(--faint); max-width: 720px; }
-  .foot-note p + p { margin-top: 10px; }
+  .foot-link:hover { color: var(--accent); text-decoration: underline; text-underline-offset: 3px; }
 </style>
 </head>
 <body>
@@ -126,109 +81,180 @@
 <header>
   <nav class="nav">
     <a class="logo" href="/">
-      <span class="mark" aria-hidden="true">
-        <svg viewBox="0 0 24 24"><path d="M12 21c0-7 3-12 8-15-6 1-9 5-10 9"/><path d="M12 21C9 15 6 12 3 11c3 5 5 7 9 10"/></svg>
-      </span>
+      <span class="mark"><img src="/follisense-icon-green.png" alt="" width="26" height="26"></span>
       <span class="logo-word">FolliSense</span>
     </a>
-    <div class="nav-links">
-      <a class="nav-link" href="/">Home</a>
-      <a class="nav-link" href="/privacy.html">Privacy</a>
-      <a class="btn btn-nav btn-sm" href="https://app.follisense.com">Get started</a>
-    </div>
+    <a class="back" href="/">Back to site</a>
   </nav>
 </header>
 
-<div class="doc doc-head">
-  <p class="eyebrow">Legal</p>
-  <h1>Terms and Conditions</h1>
-  <div class="rule"></div>
-  <p class="small">Last updated: August 12, 2026</p>
-
-  <div class="callout">
-    <p><strong>Please note:</strong> FolliSense is a wellness and self-care companion. It does not diagnose, treat, or prevent any medical condition, and it is not a substitute for advice from a qualified healthcare professional.</p>
+<div class="wrap">
+  <div class="top">
+    <h1>Terms of Service</h1>
+    <p class="updated">Last updated 1 September 2026</p>
   </div>
-</div>
 
-<div class="doc doc-body">
+  <div class="body-wrap">
 
-  <h3>1. Acceptance of terms</h3>
-  <p>By creating an account or using the FolliSense service ("the Service"), you agree to be bound by these Terms. If you do not agree, please do not use the Service. You must be at least 18 years old to use the Service.</p>
+    <div class="lead">
+      <p>These Terms of Service are a legally binding agreement between you and <strong>Follisense Limited</strong> (&ldquo;Follisense&rdquo;, &ldquo;we&rdquo;, &ldquo;us&rdquo; or &ldquo;our&rdquo;), a company registered in Kenya, concerning your access to and use of Follisense at follisense.com, app.follisense.com and our mobile applications (together, the &ldquo;Services&rdquo;).</p>
+      <p>By accessing or using the Services you confirm that you have read, understood and agreed to be bound by these Terms. If you do not agree with them, you must not use the Services.</p>
+      <p>You can contact us at <a href="mailto:hello@follisense.com">hello@follisense.com</a>, or by post at Follisense Limited, Nairobi, Kenya.</p>
+    </div>
 
-  <h3>2. About the Service</h3>
-  <p>FolliSense helps you track and understand your scalp and hair health through guided photo check-ins, routine tracking, and personalised wellness insights. Insights provided by the Service are informational only. Always consult a healthcare professional about any concern regarding your scalp, hair, or general health.</p>
+    <h2>1. Our Services</h2>
+    <p>FolliSense is a hair and scalp self-tracking application. It keeps a private photo and symptom record so you can see how your scalp changes over time.</p>
+    <p>The Services are not intended for distribution to or use by any person or entity in any jurisdiction or country where such distribution or use would be contrary to law or regulation, or which would subject us to any registration requirement within such jurisdiction or country. Those who choose to access the Services from other locations do so on their own initiative and are solely responsible for compliance with local laws, to the extent local laws are applicable.</p>
 
-  <h3>3. Who the Service is designed for</h3>
-  <p>FolliSense is built around the needs of textured hair, primarily curly, coily and kinky patterns commonly described as type 3 and type 4. Our check-in questions, routine guidance and educational content assume the washing frequencies, protective styling practices, moisture needs and mechanical stresses associated with these hair patterns.</p>
-  <p>You are welcome to use the Service if you have straight or wavy hair, commonly described as type 1 and type 2. However, some guidance may be less relevant to you, and some content may not reflect the care practices typical for your hair. The Service is not tailored to those patterns and should not be relied on as though it were.</p>
+    <h2>2. Who can use FolliSense</h2>
+    <p>By using the Services, you represent and warrant that:</p>
+    <ul>
+      <li>you are at least 18 years old, or the equivalent age of majority in the jurisdiction in which you reside;</li>
+      <li>you have the legal capacity to enter into these Terms and you agree to comply with them;</li>
+      <li>you will not access the Services through automated or non-human means, whether through a bot, script or otherwise;</li>
+      <li>you will not use the Services for any illegal or unauthorised purpose; and</li>
+      <li>your use of the Services will not violate any applicable law or regulation.</li>
+    </ul>
+    <p>If you provide any information that is untrue, inaccurate, not current or incomplete, we have the right to suspend or terminate your account and refuse any current or future use of the Services.</p>
 
-  <h3>4. Men's scalp and hair tracking</h3>
-  <p>The Service includes a tracking experience designed for men, covering areas such as cut and shave routines, barber visits, razor bumps and ingrown hairs, hairline and crown changes, and locs or other longer styles.</p>
-  <p>Where the Service references common patterns of hair change, including any scale describing hairline or crown recession, this is a way of describing what you can observe about your own hair over time. It is not a diagnosis, a prognosis, or an assessment of any medical condition, and it does not predict how your hair will change in future. Hair loss can have many causes, some of which need medical attention. If you are concerned about changes to your hair or scalp, please see a doctor or dermatologist.</p>
+    <h2>3. Not medical advice</h2>
+    <p>FolliSense is a wellness and self-care tool. It is not a medical device. It does not diagnose, treat, cure or prevent any medical condition, and nothing in the Services is medical advice.</p>
+    <p>The Services are not a substitute for consultation with a trichologist, dermatologist, doctor or other qualified professional. Never disregard professional advice, or delay seeking it, because of anything you have read or recorded in the Services.</p>
+    <p>Any educational content, product suggestion or automated response is general information only and is not tailored to your circumstances. If you are concerned about your hair or scalp, see a qualified professional. If you have an urgent medical concern, contact emergency services.</p>
 
-  <h3>5. Foli, the in-app chatbot</h3>
-  <p>The Service includes Foli, a live chatbot that answers questions about hair and scalp care. Foli is automated software powered by artificial intelligence. You are not chatting with a person, a stylist, a nurse, or a doctor, and no human reviews your conversation as it happens.</p>
-  <p>Foli generates its replies automatically and can be wrong, incomplete, or out of date. Nothing Foli says is medical advice, a diagnosis, or a treatment recommendation, and you should not rely on it in place of a qualified professional. Foli is not an emergency or crisis service. If you have a medical emergency, or you are worried about your immediate health or safety, contact your local emergency services or a healthcare provider directly.</p>
-  <p>Please do not share information through Foli that you would not want stored, including identity numbers, payment details, or other people's personal information. How chat content is handled is described in our <a href="/privacy.html">Privacy Policy</a>.</p>
+    <h2>4. Your photographs and records</h2>
+    <p>The photographs and records you create in FolliSense are yours. They are private to your account, are not visible to other users, and we do not publish, display, license or sell them. We do not assert any ownership over them.</p>
+    <p>You grant us only the permission we need to run the Services for you: to store your content, process it as described in our <a href="/privacy.html">Privacy Policy</a>, and show it back to you. That permission ends when you delete the content or your account.</p>
+    <p>You may only upload photographs of yourself, or photographs another person has asked you to record on their behalf and consented to. You are responsible for having that consent. If you are recording an observation on someone else's behalf, it is recorded to their account, not yours.</p>
+    <p>You can delete any photograph, or your entire account, at any time from within the Services.</p>
+    <p>You are responsible for the content you upload. You agree not to upload anything that is illegal, harassing, hateful, harmful, defamatory, obscene, abusive, discriminatory, threatening, sexually explicit, deceitful or misleading, and you confirm you have the rights necessary to upload what you upload.</p>
 
-  <h3>6. Reminders and notifications</h3>
-  <p>The Service can send reminders, including reminders to take down a protective style, to check in, or to follow part of your routine. These reminders are generated from the information you enter, such as the date you installed a style and the cycle length you told us to expect. They are a convenience, not a clinical instruction, and they are not a safety mechanism.</p>
-  <p>Reminders can be delayed or missed for reasons outside our control, including device settings, notification permissions, connectivity, and the accuracy of the information entered. You remain responsible for deciding when to take down, install, or change a style. If a style feels painful, tight, or itchy, or your scalp is sore or inflamed, do not wait for a reminder. Take action and speak to a professional where appropriate.</p>
+    <h2>5. Feedback</h2>
+    <p>If you send us a question, comment, suggestion, idea or other feedback about the Services, you agree that we may use and share that feedback for any purpose without compensation to you. This section applies to feedback about the product only. It does not apply to your photographs, your records or anything else in your account, which are covered by section 4 above.</p>
 
-  <h3>7. Your account</h3>
-  <p>You agree to provide accurate information during registration and to keep your login credentials secure. You are responsible for all activity that occurs under your account. Notify us promptly if you suspect unauthorised access.</p>
+    <h2>6. Intellectual property rights</h2>
+    <p>We are the owner or licensee of all intellectual property rights in the Services, including source code, databases, functionality, software, designs, audio, video, text, photographs and graphics (the &ldquo;Content&rdquo;), as well as the trademarks, service marks and logos contained in them (the &ldquo;Marks&rdquo;). The Content and Marks are protected by copyright and trademark laws and treaties around the world.</p>
+    <p>Subject to your compliance with these Terms, we grant you a non-exclusive, non-transferable, revocable licence to access the Services and to download or print a copy of any portion of the Content to which you have properly gained access, solely for your personal, non-commercial use.</p>
+    <p>Except as set out in this section, no part of the Services and no Content or Marks may be copied, reproduced, aggregated, republished, uploaded, posted, publicly displayed, encoded, translated, transmitted, distributed, sold, licensed or otherwise exploited for any commercial purpose without our express prior written permission. Requests should be sent to <a href="mailto:hello@follisense.com">hello@follisense.com</a>.</p>
+    <p>We reserve all rights not expressly granted to you in and to the Services, Content and Marks. Any breach of this section will constitute a material breach of these Terms and your right to use the Services will terminate immediately.</p>
 
-  <h3>8. Your content and photos</h3>
-  <p>You retain ownership of the photos and information you submit. By using the Service, you grant FolliSense a limited licence to store and process this content solely to provide the Service to you, for example, generating your check-in history and insights. We do not sell your content. See our <a href="/privacy.html">Privacy Policy</a> for full details on how your data is handled.</p>
+    <h2>7. Prohibited activities</h2>
+    <p>You may not access or use the Services for any purpose other than that for which we make them available. As a user of the Services, you agree not to:</p>
+    <ul>
+      <li>Upload photographs of any person other than yourself, or of a person who has not consented to their photograph being uploaded.</li>
+      <li>Use the Services, or any information obtained through them, to diagnose, treat or make clinical decisions about any person.</li>
+      <li>Present the Services, or any output from them, as a medical assessment, or as the work of a qualified clinician.</li>
+      <li>Use the Services to advertise or offer to sell goods or services.</li>
+      <li>Sell or otherwise transfer your profile or account.</li>
+      <li>Systematically retrieve data or other content from the Services to create or compile a collection, compilation, database or directory without written permission from us.</li>
+      <li>Trick, defraud or mislead us or other users, especially in any attempt to learn sensitive account information such as passwords.</li>
+      <li>Circumvent, disable or otherwise interfere with security-related features of the Services.</li>
+      <li>Use any information obtained from the Services in order to harass, abuse or harm another person.</li>
+      <li>Make improper use of our support services or submit false reports of abuse or misconduct.</li>
+      <li>Use the Services in a manner inconsistent with any applicable laws or regulations.</li>
+      <li>Upload or transmit viruses, Trojan horses or other material that interferes with the use, features, functions, operation or maintenance of the Services.</li>
+      <li>Engage in any automated use of the system, including data mining, robots or similar data gathering and extraction tools.</li>
+      <li>Attempt to impersonate another user or person, or use the account of another user.</li>
+      <li>Interfere with, disrupt or create an undue burden on the Services or the networks connected to them.</li>
+      <li>Harass, annoy, intimidate or threaten any of our employees or agents.</li>
+      <li>Attempt to bypass any measures of the Services designed to prevent or restrict access.</li>
+      <li>Except as permitted by applicable law, decipher, decompile, disassemble or reverse engineer any of the software making up part of the Services.</li>
+      <li>Use the Services as part of any effort to compete with us, or for any revenue-generating endeavour or commercial enterprise.</li>
+    </ul>
 
-  <h3>9. Acceptable use</h3>
-  <p>You agree not to misuse the Service, including by attempting to access other users' data, interfering with the Service's operation, uploading unlawful content, or using the Service for any purpose other than personal, non-commercial scalp and hair care.</p>
+    <h2>8. Product links to other retailers</h2>
+    <p>The Services may show hair care products and link to third-party retailers where you can buy them. We do not sell products, do not process payments and are not a party to any purchase you make. Anything you buy is governed by that retailer's own terms.</p>
+    <p>We do not warrant, endorse or guarantee any product offered by a third party through the Services, and we are not responsible for monitoring any transaction between you and a retailer.</p>
+    <p>Some of these links may carry affiliate tracking, which means we may earn a commission if you buy through them, at no extra cost to you. Where that applies we say so on the page. Any such arrangement never affects which products we show you, and product suggestions are never based on the symptoms you report.</p>
 
-  <h3>10. Intellectual property</h3>
-  <p>The FolliSense name, logo, design, and all content and software comprising the Service are the property of FolliSense and are protected by applicable intellectual property laws. You may not copy, modify, or distribute them without our prior written permission.</p>
+    <h2>9. Services management</h2>
+    <p>We reserve the right, but not the obligation, to monitor the Services for violations of these Terms, to take appropriate legal action against anyone who violates the law or these Terms, and to manage the Services in a manner designed to protect our rights and property and to facilitate their proper functioning.</p>
 
-  <h3>11. Account deletion</h3>
-  <p>You may delete your account at any time from your profile settings. Deletion permanently removes your account and associated data from the Service, subject to any retention required by law.</p>
+    <h2>10. Term and termination</h2>
+    <p>These Terms remain in full force and effect while you use the Services.</p>
+    <p>We reserve the right to deny access to and use of the Services to any person who breaches these Terms or any applicable law or regulation. Where we suspend or terminate an account, we will tell you why and give you a reasonable opportunity to respond, unless we are prevented from doing so by law or unless doing so would create a risk to other users or to the Services.</p>
+    <p>We will not delete the photographs or records in your account except where you ask us to, where your account is terminated for breach of these Terms, or where we are required to by law. If your account is terminated, you may request a copy of your record before it is removed.</p>
+    <p>You can stop using the Services and delete your account at any time from within the Services.</p>
 
-  <h3>12. Affiliate links</h3>
-  <p>Some product links in the Service and on this website are affiliate links. If you buy through one, we may earn a small commission at no extra cost to you. Commission never affects which products we show you, and we are not the seller. Purchases, payment, delivery and returns are handled entirely by the retailer under their own terms.</p>
+    <h2>11. Modifications and interruptions</h2>
+    <p>We reserve the right to change, modify or remove the contents of the Services at any time at our sole discretion. We cannot guarantee the Services will be available at all times. We may experience hardware, software or other problems, or need to perform maintenance, resulting in interruptions, delays or errors. We will not be liable to you or any third party for any modification, suspension or discontinuance of the Services. Nothing in these Terms obliges us to maintain and support the Services or to supply any corrections, updates or releases.</p>
 
-  <h3>13. Disclaimers and limitation of liability</h3>
-  <p>The Service is provided "as is" without warranties of any kind, whether express or implied. To the maximum extent permitted by law, FolliSense shall not be liable for any indirect, incidental, or consequential damages arising from your use of, or inability to use, the Service. This includes any reliance on chatbot replies, reminders, or tracking content described in these Terms.</p>
+    <h2>12. Corrections</h2>
+    <p>There may be information in the Services that contains typographical errors, inaccuracies or omissions. We reserve the right to correct any errors, inaccuracies or omissions and to change or update the information in the Services at any time, without prior notice.</p>
 
-  <h3>14. Changes to these terms</h3>
-  <p>We may update these Terms from time to time. If we make material changes, we will notify you through the Service. Continued use of the Service after changes take effect constitutes acceptance of the updated Terms.</p>
+    <h2>13. Disclaimer</h2>
+    <p class="caps">THE SERVICES ARE PROVIDED ON AN AS-IS AND AS-AVAILABLE BASIS. YOU AGREE THAT YOUR USE OF THE SERVICES WILL BE AT YOUR SOLE RISK. TO THE FULLEST EXTENT PERMITTED BY LAW, WE DISCLAIM ALL WARRANTIES, EXPRESS OR IMPLIED, IN CONNECTION WITH THE SERVICES AND YOUR USE OF THEM, INCLUDING THE IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. WE MAKE NO WARRANTIES OR REPRESENTATIONS ABOUT THE ACCURACY OR COMPLETENESS OF THE SERVICES' CONTENT OR THE CONTENT OF ANY WEBSITES LINKED TO THE SERVICES, AND WE ASSUME NO LIABILITY OR RESPONSIBILITY FOR ANY ERRORS OR INACCURACIES OF CONTENT, ANY UNAUTHORISED ACCESS TO OUR SERVERS, ANY INTERRUPTION OR CESSATION OF TRANSMISSION TO OR FROM THE SERVICES, OR ANY BUGS OR VIRUSES WHICH MAY BE TRANSMITTED THROUGH THE SERVICES BY ANY THIRD PARTY.</p>
 
-  <h3>15. Governing law</h3>
-  <p>These Terms are governed by the laws of the Republic of Kenya, without regard to conflict of law provisions.</p>
+    <h2>14. Limitation of liability</h2>
+    <p class="caps">IN NO EVENT WILL WE OR OUR DIRECTORS, EMPLOYEES OR AGENTS BE LIABLE TO YOU OR ANY THIRD PARTY FOR ANY DIRECT, INDIRECT, CONSEQUENTIAL, EXEMPLARY, INCIDENTAL, SPECIAL OR PUNITIVE DAMAGES, INCLUDING LOST PROFIT, LOST REVENUE, LOSS OF DATA OR OTHER DAMAGES ARISING FROM YOUR USE OF THE SERVICES, EVEN IF WE HAVE BEEN ADVISED OF THE POSSIBILITY OF SUCH DAMAGES. OUR TOTAL LIABILITY TO YOU FOR ANY CAUSE WHATSOEVER, AND REGARDLESS OF THE FORM OF THE ACTION, WILL AT ALL TIMES BE LIMITED TO FIVE HUNDRED UNITED STATES DOLLARS (USD 500).</p>
+    <p>Nothing in these Terms excludes or limits our liability for death or personal injury caused by our negligence, for fraud or fraudulent misrepresentation, or for any other liability that cannot be excluded or limited under applicable law. Certain US state laws and international laws do not allow limitations on implied warranties or the exclusion or limitation of certain damages. If those laws apply to you, some or all of the above disclaimers or limitations may not apply, and you may have additional rights.</p>
 
-  <h3>16. Contact</h3>
-  <p>Questions about these Terms? Reach us at <a href="mailto:support@follisense.com">support@follisense.com</a>.</p>
+    <h2>15. Indemnification</h2>
+    <p>You agree to defend, indemnify and hold us harmless, including our affiliates and our respective officers, agents, partners and employees, from and against any loss, damage, liability, claim or demand, including reasonable legal fees and expenses, made by any third party arising out of your use of the Services, your breach of these Terms, your breach of your representations and warranties in these Terms, or your violation of the rights of a third party. We reserve the right, at your expense, to assume the exclusive defence and control of any matter for which you are required to indemnify us, and you agree to cooperate with our defence of such claims. We will use reasonable efforts to notify you of any such claim upon becoming aware of it.</p>
 
+    <h2>16. Your data</h2>
+    <p>We maintain the data you transmit to the Services in order to manage their performance, as described in our <a href="/privacy.html">Privacy Policy</a>. We perform routine backups, but you are responsible for the data you transmit and for any activity you undertake using the Services. Subject to section 14 above and to applicable law, we are not liable to you for any loss or corruption of that data.</p>
+
+    <h2>17. Electronic communications, transactions and signatures</h2>
+    <p>Visiting the Services, sending us emails and completing online forms constitute electronic communications. You consent to receive electronic communications, and you agree that all agreements, notices, disclosures and other communications we provide to you electronically satisfy any legal requirement that such communication be in writing. You agree to the use of electronic signatures, contracts, orders and other records, and to electronic delivery of notices, policies and records.</p>
+
+    <h2>18. Governing law</h2>
+    <p>These Terms are governed by and construed in accordance with the laws of Kenya. Follisense Limited and you irrevocably consent that the courts of Nairobi, Kenya shall have exclusive jurisdiction to resolve any dispute which may arise in connection with these Terms.</p>
+    <p>If you are a consumer resident in the European Economic Area or the United Kingdom, nothing in this section deprives you of the protection of the mandatory consumer law of the country in which you live, or of your right to bring proceedings in the courts of that country.</p>
+
+    <h2>19. Dispute resolution</h2>
+
+    <h3>Informal negotiations</h3>
+    <p>To expedite resolution and control the cost of any dispute, controversy or claim related to these Terms (a &ldquo;Dispute&rdquo;) brought by either you or us, the parties agree to first attempt to negotiate any Dispute informally for at least <strong>30 days</strong> before initiating arbitration. Such informal negotiations commence upon written notice from one party to the other.</p>
+
+    <h3>Binding arbitration</h3>
+    <p>If the parties are unable to resolve the Dispute through informal negotiation, the Dispute shall be finally resolved by arbitration in accordance with the United Nations Commission on International Trade Law Arbitration Rules in force at the time the arbitration commences. The number of arbitrators shall be <strong>one</strong>. The seat, or legal place, of arbitration shall be <strong>Nairobi, Kenya</strong>. The language of the proceedings shall be <strong>English</strong>. The governing law shall be the substantive law of Kenya.</p>
+
+    <h3>Restrictions</h3>
+    <p>Any arbitration shall be limited to the Dispute between the parties individually. To the full extent permitted by law, no arbitration shall be joined with any other proceeding, there is no right or authority for any Dispute to be arbitrated on a class-action basis or to use class action procedures, and there is no right or authority for any Dispute to be brought in a purported representative capacity on behalf of the general public or any other persons.</p>
+
+    <h3>Exceptions</h3>
+    <p>The following Disputes are not subject to the provisions above concerning informal negotiations and binding arbitration: any Dispute seeking to enforce or protect, or concerning the validity of, any intellectual property rights of a party; any Dispute related to or arising from allegations of theft, piracy, invasion of privacy or unauthorised use; and any claim for injunctive relief. If this provision is found to be illegal or unenforceable, then neither party will elect to arbitrate any Dispute falling within that portion of the provision found to be illegal or unenforceable, and such Dispute shall be decided by a court of competent jurisdiction within the courts listed for jurisdiction above.</p>
+    <p>Nothing in this section prevents you from bringing a Dispute before a small claims court, or before a consumer body or court in your country of residence where applicable law gives you that right.</p>
+
+    <h2>20. App stores</h2>
+    <p>If you download our application from the Apple App Store or Google Play, you acknowledge that these Terms are between you and Follisense Limited only, and not with Apple or Google. Apple and Google have no obligation to provide any maintenance or support for the application, and are not responsible for addressing any claim you have relating to the application. Your use of the application must comply with the applicable app store's terms of service.</p>
+
+    <h2>21. Changes to these Terms</h2>
+    <p>We may change these Terms from time to time. The updated version will be shown by an updated date at the top of this page. If we make material changes, we will notify you, either by prominently posting a notice in the Services or by contacting you directly. Your continued use of the Services after a change takes effect means you accept the revised Terms. If you do not accept them, you should stop using the Services and may delete your account.</p>
+
+    <h2>22. Miscellaneous</h2>
+    <p>These Terms, together with any policies or operating rules we post in respect of the Services, constitute the entire agreement between you and us. Our failure to exercise or enforce any right or provision of these Terms shall not operate as a waiver of that right or provision. These Terms operate to the fullest extent permissible by law. We may assign any or all of our rights and obligations to others at any time. We shall not be responsible or liable for any loss, damage, delay or failure to act caused by any cause beyond our reasonable control. If any provision or part of a provision of these Terms is determined to be unlawful, void or unenforceable, that provision or part is deemed severable and does not affect the validity and enforceability of the remaining provisions. No joint venture, partnership, employment or agency relationship is created between you and us as a result of these Terms or your use of the Services.</p>
+
+    <h2>23. Contact us</h2>
+    <p>To resolve a complaint regarding the Services, or to receive further information about their use, contact us at:</p>
+    <p>
+      <a href="mailto:hello@follisense.com">hello@follisense.com</a><br>
+      Follisense Limited<br>
+      Nairobi<br>
+      Kenya
+    </p>
+
+  </div>
 </div>
 
 <footer>
   <div class="foot">
     <div class="logo">
-      <span class="mark" aria-hidden="true">
-        <svg viewBox="0 0 24 24"><path d="M12 21c0-7 3-12 8-15-6 1-9 5-10 9"/><path d="M12 21C9 15 6 12 3 11c3 5 5 7 9 10"/></svg>
-      </span>
-      <span class="logo-word" style="font-size:16px">FolliSense</span>
-      <span class="small" style="margin-left:8px;font-size:13.5px">Nairobi, Kenya</span>
+      <span class="mark" style="width:24px;height:24px"><img src="/follisense-icon-green.png" alt="" width="24" height="24"></span>
+      <span class="logo-word" style="font-size:17px">FolliSense</span>
     </div>
     <div class="foot-links">
+      <a class="foot-link" href="/">Home</a>
       <a class="foot-link" href="/privacy.html">Privacy</a>
-      <a class="foot-link" href="/terms.html">Terms</a>
+      <a class="foot-link" href="mailto:hello@follisense.com">Contact</a>
       <a class="foot-link" href="mailto:support@follisense.com">Support</a>
-      <a class="foot-link" href="https://app.follisense.com/login">Log in</a>
+      <a class="foot-link" href="#" onclick="FolliSenseConsent.open(); return false;">Cookie settings</a>
     </div>
   </div>
-  <div class="foot-note">
-    <p>FolliSense is a wellness and self-care companion for scalp and hair health. It does not diagnose, treat, or prevent any medical condition and is not a substitute for advice from a qualified healthcare professional. Foli, our in-app chatbot, is automated software and can be wrong.</p>
-    <p>Some links are affiliate links. We may earn a small commission at no extra cost to you.</p>
-    <p>&copy; 2026 FolliSense. All rights reserved.</p>
-  </div>
 </footer>
+
 <script src="/consent.js"></script>
+
 </body>
 </html>
