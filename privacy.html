@@ -4,13 +4,12 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Privacy Policy — FolliSense</title>
-<meta name="description" content="How FolliSense collects, stores and handles your scalp photos and check-in data, and the rights you have over it under Kenya's Data Protection Act, 2019.">
+<meta name="description" content="How FolliSense collects, uses, stores and shares your personal information.">
+<meta name="robots" content="index,follow">
 
-<meta property="og:title" content="Privacy Policy — FolliSense">
-<meta property="og:description" content="How FolliSense collects, stores and handles your scalp photos and check-in data.">
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://follisense.com/privacy.html">
-<meta name="theme-color" content="#FFFFFF">
+<link rel="icon" href="/follisense-icon-green.png" sizes="256x256" type="image/png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png" sizes="180x180">
+<link rel="manifest" href="/site.webmanifest">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -27,94 +26,59 @@
     --body-c: #55554F;
     --faint:  #8C8C85;
     --accent: #2E4A39;
-    --accent-soft: rgba(46,74,57,.08);
-
-    --font: 'Instrument Sans', -apple-system, 'Segoe UI', sans-serif;
-    --gut:  clamp(20px, 5vw, 44px);
-    --r:    20px;
+    --deep:   #1A2820;
+    --font:   'Instrument Sans', -apple-system, 'Segoe UI', sans-serif;
+    --gut:    clamp(20px, 5vw, 44px);
   }
 
   * { box-sizing: border-box; }
-  html { -webkit-text-size-adjust: 100%; }
+  html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
   body {
-    margin: 0; background: var(--white); color: var(--ink);
-    font-family: var(--font); font-size: 16px;
+    margin: 0; background: var(--white); color: var(--body-c);
+    font-family: var(--font); font-size: 16px; line-height: 1.72;
     -webkit-font-smoothing: antialiased;
   }
-  img, svg { display: block; max-width: 100%; }
+  img { display: block; max-width: 100%; }
+  :focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 4px; }
 
-  .wrap { max-width: 1200px; margin: 0 auto; padding: 0 var(--gut); }
-  .doc  { max-width: 760px; margin: 0 auto; padding: 0 var(--gut); }
+  .wrap { max-width: 760px; margin: 0 auto; padding: 0 var(--gut); }
 
-  h1, h2, h3 { margin: 0; font-weight: 600; letter-spacing: -.035em; line-height: 1.02; }
-  h1 { font-size: clamp(34px, 5vw, 54px); }
-  h3 { font-size: 19px; line-height: 1.3; letter-spacing: -.015em; }
-  p  { margin: 0; }
-
-  .eyebrow {
-    display: inline-block; font-size: 11px; font-weight: 600; letter-spacing: .18em;
-    text-transform: uppercase; color: var(--faint); margin-bottom: 20px;
-  }
-  .copy  { font-size: 16.5px; line-height: 1.75; color: var(--body-c); }
-  .small { font-size: 14px; line-height: 1.65; color: var(--faint); }
-
-  .btn {
-    display: inline-flex; align-items: center; justify-content: center; gap: 9px;
-    height: 54px; padding: 0 28px; border-radius: 100px; border: none;
-    font-family: var(--font); font-size: 15.5px; font-weight: 600;
-    cursor: pointer; text-decoration: none; white-space: nowrap;
-    transition: transform .22s cubic-bezier(.2,.7,.3,1), box-shadow .22s, background .2s, color .2s;
-  }
-  .btn-ink { background: var(--ink); color: #fff; box-shadow: 0 8px 22px -12px rgba(17,17,16,.6); }
-  .btn-ink:hover { transform: translateY(-2px); box-shadow: 0 14px 30px -14px rgba(17,17,16,.65); }
-  .btn-sm { height: 42px; padding: 0 20px; font-size: 14px; }
-
-  /* Legal pages have no hero, so the nav is frosted from the start. */
-  header {
-    position: sticky; top: 0; z-index: 60;
-    background: rgba(255,255,255,.82);
-    backdrop-filter: saturate(160%) blur(16px);
-    -webkit-backdrop-filter: saturate(160%) blur(16px);
-    box-shadow: 0 1px 0 var(--hair);
-  }
-  .nav {
-    max-width: 1200px; margin: 0 auto; padding: 16px var(--gut);
-    display: flex; align-items: center; justify-content: space-between; gap: 16px;
-  }
+  header { border-bottom: 1px solid var(--hair); background: var(--white); }
+  .nav { max-width: 1200px; margin: 0 auto; padding: 16px var(--gut); display: flex; align-items: center; justify-content: space-between; gap: 16px; }
   .logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
-  .mark { width: 28px; height: 28px; border-radius: 9px; display: grid; place-items: center; flex-shrink: 0; background: var(--accent); }
-  .mark svg { width: 16px; height: 16px; fill: none; stroke: #fff; stroke-width: 1.9; }
+  .mark { width: 26px; height: 26px; display: grid; place-items: center; flex-shrink: 0; }
   .logo-word { font-size: 18.5px; font-weight: 600; letter-spacing: -.03em; color: var(--ink); }
-  .nav-links { display: flex; align-items: center; gap: 4px; }
-  .nav-link {
-    padding: 10px 14px; border-radius: 100px; text-decoration: none;
-    font-size: 14.5px; font-weight: 500; color: var(--body-c); transition: opacity .2s;
-  }
-  .nav-link:hover { opacity: .7; }
-  .btn-nav { background: var(--ink); color: #fff; }
+  .nav a.back { font-size: 14px; font-weight: 500; color: var(--body-c); text-decoration: none; }
+  .nav a.back:hover { color: var(--accent); }
 
-  .doc-head { padding: clamp(48px, 7vw, 88px) 0 0; }
-  .rule { width: 44px; height: 3px; background: var(--accent); border-radius: 2px; margin: 18px 0 8px; }
+  h1 { font-size: clamp(32px, 5vw, 46px); font-weight: 600; letter-spacing: -.035em; line-height: 1.06; color: var(--ink); margin: 0 0 12px; }
+  h2 { font-size: clamp(21px, 2.4vw, 26px); font-weight: 600; letter-spacing: -.025em; line-height: 1.2; color: var(--accent); margin: 56px 0 16px; }
+  h3 { font-size: 17px; font-weight: 600; letter-spacing: -.015em; color: var(--ink); margin: 30px 0 10px; }
+  p, li { font-size: 15.5px; }
+  p { margin: 0 0 16px; }
+  ul { margin: 0 0 18px; padding-left: 22px; }
+  li { margin-bottom: 9px; }
+  a { color: var(--accent); text-underline-offset: 3px; }
+  strong { color: var(--ink); font-weight: 600; }
 
-  .callout {
-    background: var(--accent-soft); border-radius: 14px;
-    padding: 18px 20px; margin: 28px 0 8px;
-  }
-  .callout p { font-size: 15px; line-height: 1.65; color: var(--body-c); }
-  .callout strong { color: var(--accent); }
+  .updated { font-size: 14px; color: var(--faint); margin-bottom: 0; }
+  .top { padding: clamp(48px, 7vw, 84px) 0 0; border-bottom: 1px solid var(--hair); padding-bottom: 34px; }
+  .body-wrap { padding: 8px 0 clamp(64px, 8vw, 104px); }
 
-  .doc-body { padding-bottom: clamp(64px, 9vw, 120px); }
-  .doc-body h3 { margin: 38px 0 10px; }
-  .doc-body p  { font-size: 16px; line-height: 1.75; color: var(--body-c); }
-  .doc-body a  { color: var(--accent); }
+  .summary { background: var(--paper); border-radius: 18px; padding: 28px 28px 12px; margin: 40px 0 8px; }
+  .summary h2 { margin-top: 0; font-size: 19px; }
+  .summary p { font-size: 15px; }
+
+  table { width: 100%; border-collapse: collapse; margin: 18px 0 24px; font-size: 14.5px; }
+  th, td { border: 1px solid var(--line); padding: 11px 13px; text-align: left; vertical-align: top; }
+  th { background: var(--mist); color: var(--ink); font-weight: 600; }
+  td.yn { text-align: center; white-space: nowrap; font-weight: 600; color: var(--ink); }
 
   footer { border-top: 1px solid var(--hair); background: var(--paper); }
-  .foot { max-width: 1200px; margin: 0 auto; padding: 36px var(--gut); display: flex; flex-wrap: wrap; gap: 18px; align-items: center; justify-content: space-between; }
-  .foot .mark { width: 24px; height: 24px; border-radius: 8px; }
-  .foot .mark svg { width: 14px; height: 14px; }
-  .foot-links { display: flex; gap: 22px; flex-wrap: wrap; }
+  .foot { max-width: 1200px; margin: 0 auto; padding: 32px var(--gut); display: flex; flex-wrap: wrap; gap: 18px; align-items: center; justify-content: space-between; }
+  .foot-links { display: flex; gap: 20px; flex-wrap: wrap; }
   .foot-link { font-size: 14px; color: var(--body-c); text-decoration: none; }
-  .foot-link:hover { color: var(--ink); text-decoration: underline; text-underline-offset: 3px; }
+  .foot-link:hover { color: var(--accent); text-decoration: underline; text-underline-offset: 3px; }
 </style>
 </head>
 <body>
@@ -122,77 +86,322 @@
 <header>
   <nav class="nav">
     <a class="logo" href="/">
-      <span class="mark" aria-hidden="true">
-        <svg viewBox="0 0 24 24"><path d="M12 21c0-7 3-12 8-15-6 1-9 5-10 9"/><path d="M12 21C9 15 6 12 3 11c3 5 5 7 9 10"/></svg>
-      </span>
+      <span class="mark"><img src="/follisense-icon-green.png" alt="" width="26" height="26"></span>
       <span class="logo-word">FolliSense</span>
     </a>
-    <div class="nav-links">
-      <a class="nav-link" href="/">Home</a>
-      <a class="nav-link" href="/terms.html">Terms</a>
-      <a class="btn btn-nav btn-sm" href="https://app.follisense.com">Get started</a>
-    </div>
+    <a class="back" href="/">Back to site</a>
   </nav>
 </header>
 
-<div class="doc doc-head">
-  <p class="eyebrow">Legal</p>
-  <h1>Privacy Policy</h1>
-  <div class="rule"></div>
-  <p class="small">Last updated: June 25, 2026</p>
-
-  <div class="callout">
-    <p><strong>In short:</strong> your scalp photos and check-in data belong to you, are stored privately, and are used only to provide FolliSense to you. We never sell your data, and you can delete everything at any time.</p>
+<div class="wrap">
+  <div class="top">
+    <h1>Privacy Policy</h1>
+    <p class="updated">Last updated 1 September 2026</p>
   </div>
-</div>
 
-<div class="doc doc-body">
+  <div class="body-wrap">
 
-  <h3>1. Information we collect</h3>
-  <p>When you register, we collect your name and email address. As you use the Service, we collect the information you choose to provide, including scalp and hair photos, check-in responses, routine details, and hair profile information (such as hair texture). We also automatically collect limited technical data, such as device type and usage information, to keep the Service running reliably.</p>
+    <div class="summary">
+      <h2>Summary of key points</h2>
+      <p>This Privacy Policy describes how FolliSense Limited (&ldquo;we&rdquo;, &ldquo;us&rdquo; or &ldquo;our&rdquo;) accesses, collects, stores, uses and shares your personal information when you use FolliSense.</p>
+      <p><strong>What personal information do we process?</strong> We process personal information depending on how you interact with us and the Services, the choices you make, and the features you use.</p>
+      <p><strong>Do we process sensitive personal information?</strong> Yes. Photographs of your scalp and the symptoms you record concern your physical health, so we treat them as health data. We process them with your explicit consent.</p>
+      <p><strong>Do we collect information from third parties?</strong> Only from Google, if you choose to sign in with a Google account.</p>
+      <p><strong>How do we process your information?</strong> To provide, improve and administer our Services, to communicate with you, for security, and to comply with law. We process your information only when we have a valid legal reason to do so.</p>
+      <p><strong>In what situations and with which parties do we share personal information?</strong> With the service providers who host and operate FolliSense on our behalf. We do not sell your personal information and we do not share it for advertising.</p>
+      <p><strong>How do we keep your information safe?</strong> Photographs are held in a private store and served only through short-lived links. Access controls restrict every record to the account it belongs to. However, no electronic transmission or storage technology can be guaranteed to be completely secure.</p>
+      <p><strong>What are your rights?</strong> Depending on where you are, applicable privacy law may give you rights over your personal information, including access, correction and deletion.</p>
+      <p><strong>How do you exercise your rights?</strong> Email <a href="mailto:hello@follisense.com">hello@follisense.com</a>. We will consider and act upon any request in accordance with applicable data protection laws.</p>
+    </div>
 
-  <h3>2. How we use your information</h3>
-  <p>We use your information to create and manage your account, generate your check-in history and personalised wellness insights, analyse the photos you submit in order to provide the Service's features, and improve the Service. We do not use your photos or health-related information for advertising.</p>
+    <h2>1. What information do we collect?</h2>
 
-  <h3>3. Photo storage and analysis</h3>
-  <p>Photos you submit are stored securely in a private storage bucket accessible only to your account. When you request an analysis, your photo is processed by our AI service solely to generate your results, and is not used for any other purpose.</p>
+    <h3>Personal information you disclose to us</h3>
+    <p>We collect personal information that you voluntarily provide to us when you register on the Services, when you participate in activities on the Services, or otherwise when you contact us. The personal information we collect may include the following:</p>
+    <ul>
+      <li>names</li>
+      <li>email addresses</li>
+      <li>passwords</li>
+      <li>contact or authentication data</li>
+      <li>gender</li>
+      <li>photographs of your scalp and hair</li>
+      <li>self-reported symptom and hair health information</li>
+      <li>hair and scalp profile information, such as hair type, texture, current styles, style duration and chemical processing</li>
+      <li>hair care routine and product usage, including when you started and stopped using a product</li>
+      <li>dates of events such as installs, takedowns, trims and colour services</li>
+      <li>messages you send to our in-app assistant</li>
+    </ul>
 
-  <h3>4. Disclosure of your information</h3>
-  <p>We do not sell your personal information. We share data only with the service providers that make the Service work (such as secure hosting, authentication, and AI analysis providers), each bound to use it only on our behalf, or where disclosure is required by law.</p>
+    <h3>Sensitive information</h3>
+    <p>When necessary, with your consent or as otherwise permitted by applicable law, we process the following categories of sensitive information: <strong>health data</strong> and <strong>account login information</strong>.</p>
+    <p>Photographs of your scalp and the symptoms you record concern your physical health. We ask for your explicit consent before processing them, we record the exact wording you were shown, and you can withdraw that consent at any time.</p>
 
-  <h3>5. Data retention and deletion</h3>
-  <p>Your data is retained while your account is active. You may delete your account at any time from your profile settings, which permanently removes your account, photos, and check-in history from the Service, subject to any retention required by law.</p>
+    <h3>Google sign-in data</h3>
+    <p>We offer you the option to register using your existing Google account. If you choose to register in this way, we will collect certain profile information from Google, as described in the section called &ldquo;How do we handle your social logins?&rdquo; below.</p>
 
-  <h3>6. Security</h3>
-  <p>We use administrative and technical safeguards, including encrypted connections and access controls, to protect your personal information. No system is completely impenetrable, but we work to keep your data safe and will notify you of any breach affecting your personal data as required by law.</p>
+    <h3>Application data</h3>
+    <p>If you use our application, we also may collect the following information if you choose to provide us with access or permission:</p>
+    <ul>
+      <li><em>Device access.</em> We may request access or permission to certain features of your device, including the camera and notifications. If you wish to change our access or permissions, you may do so in your device settings.</li>
+      <li><em>Device data.</em> We automatically collect device information such as device model and manufacturer, operating system and version, device and application identification numbers, browser type and version, internet service provider, and Internet Protocol (IP) address.</li>
+      <li><em>Push notifications.</em> We may request to send you push notifications regarding your account or certain features of the application. If you wish to opt out of receiving these, you may turn them off in your device settings.</li>
+    </ul>
+    <p>This information is primarily needed to maintain the security and operation of our application, for troubleshooting, and for our internal analytics and reporting purposes.</p>
+    <p>All personal information that you provide to us must be true, complete and accurate, and you must notify us of any changes to such personal information.</p>
 
-  <h3>7. Your rights</h3>
-  <p>Subject to applicable law, including Kenya's Data Protection Act, 2019, you have the right to access, correct, and delete your personal data, and to object to or restrict certain processing. To exercise these rights, use the in-app tools or contact us directly.</p>
+    <h3>Information automatically collected</h3>
+    <p>We automatically collect certain information when you visit, use or navigate the Services. This information does not reveal your specific identity but may include device and usage information, such as your IP address, browser and device characteristics, operating system, language preferences, referring URLs, device name, country, information about how and when you use our Services, and other technical information. This information is primarily needed to maintain the security and operation of our Services, and for our internal analytics and reporting purposes.</p>
+    <p>Like many businesses, we also collect information through cookies and similar technologies. You can find out more about this in section 5 below.</p>
+    <p>The information we collect includes:</p>
+    <ul>
+      <li><em>Log and usage data.</em> Service-related, diagnostic, usage and performance information our servers automatically collect when you access or use our Services and which we record in log files. This may include your IP address, device information, browser type and settings, and information about your activity in the Services, such as date and time stamps, pages viewed and features used.</li>
+      <li><em>Device data.</em> Information about the computer, phone, tablet or other device you use to access the Services, which may include your IP address, device and application identification numbers, browser type, hardware model, internet service provider or mobile carrier, operating system, and system configuration information.</li>
+      <li><em>Approximate location data.</em> We do not request access to your device location and we do not collect precise or GPS location. Our service providers may infer an approximate location, such as a city or country, from your IP address.</li>
+    </ul>
 
-  <h3>8. Changes to this policy</h3>
-  <p>We may update this policy from time to time. If we make material changes, we will notify you through the Service before they take effect.</p>
+    <h3>Google API</h3>
+    <p>Our use of information received from Google APIs will adhere to the <a href="https://developers.google.com/terms/api-services-user-data-policy" target="_blank" rel="noopener noreferrer">Google API Services User Data Policy</a>, including the <a href="https://developers.google.com/terms/api-services-user-data-policy#limited-use" target="_blank" rel="noopener noreferrer">Limited Use requirements</a>.</p>
 
-  <h3>9. Contact us</h3>
-  <p>Questions about this policy or your data? Contact us at <a href="mailto:support@follisense.com">support@follisense.com</a>.</p>
+    <h3>Information collected from other sources</h3>
+    <p>The only third party we receive information from is Google, and only if you choose to sign in with a Google account.</p>
+    <p>If you register or sign in using your Google account, we receive your name, email address and account identifier from Google. Any personal information we receive depends on your Google account's privacy settings. Please note that Google's own use of your information is not governed by this Privacy Policy.</p>
+    <p>We do not buy personal information from data brokers, marketing partners or public databases, and we do not enrich your record from outside sources.</p>
 
+    <h2>2. How do we process your information?</h2>
+    <p>We process your personal information for a variety of reasons, depending on how you interact with our Services, including:</p>
+    <ul>
+      <li><strong>To facilitate account creation and authentication and otherwise manage user accounts.</strong> So you can create and log in to your account, and keep your account in working order.</li>
+      <li><strong>To deliver and facilitate delivery of services to the user.</strong> To provide you with the service you have asked for, including keeping your photo and symptom record and showing it back to you.</li>
+      <li><strong>To send administrative and reminder communications.</strong> To send you reminders you have set up yourself, and service messages necessary for the administration and use of your account. You can turn reminders off at any time.</li>
+      <li><strong>To suggest products.</strong> To suggest hair care products based on the hair profile and goals you have told us about. Product suggestions are never based on the symptoms you report.</li>
+      <li><strong>To request feedback.</strong> To contact you about your use of our Services.</li>
+      <li><strong>To identify usage trends.</strong> To understand how our Services are being used so we can improve them.</li>
+      <li><strong>To save or protect an individual's vital interest.</strong> Where necessary to prevent harm.</li>
+    </ul>
+
+    <h2>3. What legal bases do we rely on to process your information?</h2>
+    <p><strong><u>If you are located in the EU or UK, this section applies to you.</u></strong></p>
+    <p>The General Data Protection Regulation (GDPR) and UK GDPR require us to explain the valid legal bases we rely on in order to process your personal information. We may rely on the following legal bases:</p>
+    <ul>
+      <li><strong>Consent.</strong> We may process your information if you have given us permission to use your personal information for a specific purpose. Health data, meaning your photographs and reported symptoms, is processed on the basis of your explicit consent. Analytics is also processed on the basis of consent, and nothing is collected for analytics until you grant it. You can withdraw your consent at any time.</li>
+      <li><strong>Performance of a contract.</strong> We may process your personal information when necessary to fulfil our contractual obligations to you, including providing our Services or at your request prior to entering into a contract with you.</li>
+      <li><strong>Legitimate interests.</strong> We may process your information when we believe it is reasonably necessary to achieve our legitimate business interests and those interests do not outweigh your interests and fundamental rights and freedoms. For example, to analyse how our Services are used so we can improve them, and to understand how our users use our products and services so we can improve the user experience.</li>
+      <li><strong>Legal obligations.</strong> We may process your information where we believe it is necessary for compliance with our legal obligations, such as to cooperate with a law enforcement body or regulatory agency, exercise or defend our legal rights, or disclose your information as evidence in litigation in which we are involved.</li>
+      <li><strong>Vital interests.</strong> We may process your information where we believe it is necessary to protect your vital interests or the vital interests of a third party, such as situations involving potential threats to the safety of any person.</li>
+    </ul>
+
+    <h2>4. When and with whom do we share your personal information?</h2>
+    <p>We may share your data with third-party vendors, service providers, contractors or agents who perform services for us or on our behalf and require access to such information to do that work. We have contracts in place with our third parties, which are designed to help safeguard your personal information. This means that they cannot do anything with your personal information unless we have instructed them to do it. They will also not share your personal information with any organisation apart from us. They also commit to protect the data they hold on our behalf and to retain it for the period we instruct.</p>
+    <p>The third parties we may share personal information with are as follows:</p>
+    <ul>
+      <li><strong>AI service providers:</strong> Google Cloud Vision and Groq</li>
+      <li><strong>Allow users to connect to their third-party accounts:</strong> Google account</li>
+      <li><strong>Cloud computing services:</strong> Supabase and Google Cloud Platform</li>
+      <li><strong>Email and messaging infrastructure:</strong> Resend and Firebase Cloud Messaging</li>
+      <li><strong>Web and mobile analytics:</strong> PostHog</li>
+      <li><strong>Website and application hosting:</strong> Vercel</li>
+    </ul>
+    <p>We also may need to share your personal information in the following situations:</p>
+    <ul>
+      <li><strong>Business transfers.</strong> We may share or transfer your information in connection with, or during negotiations of, any merger, sale of company assets, financing, or acquisition of all or a portion of our business to another company.</li>
+    </ul>
+    <p>We do not share your personal information with advertisers or advertising networks, and no other user of FolliSense can see your photographs or your record.</p>
+
+    <h2>5. Do we use cookies and other tracking technologies?</h2>
+    <p>We use a small number of cookies and similar technologies. Analytics only runs if you agree to it.</p>
+    <p>We may use cookies and similar tracking technologies to gather information when you interact with our Services. Some online tracking technologies help us maintain the security of our Services and your account, prevent crashes, fix bugs, save your preferences, and assist with basic site functions.</p>
+    <p>We also use a third-party analytics provider to understand how our Services are used. Analytics is off by default and is only enabled if you agree to it through our cookie banner. You can change your choice at any time.</p>
+    <p>We do not permit third parties to use tracking technologies on our Services for advertising, and we do not use tracking technologies to tailor advertisements to your interests.</p>
+    <p>Most web browsers are set to accept cookies by default. If you prefer, you can usually set your browser to remove or reject cookies. If you choose to do so, this could affect certain features or services of our Services.</p>
+
+    <h2>6. Do we offer artificial intelligence-based products?</h2>
+    <p>We offer two features powered by automated technologies. Neither of them interprets your health information.</p>
+    <p>As part of our Services, we offer features powered by artificial intelligence, machine learning or similar technologies (&ldquo;AI Products&rdquo;). The terms in this Privacy Policy govern your use of the AI Products within our Services.</p>
+    <p>We provide the AI Products through third-party service providers (&ldquo;AI Service Providers&rdquo;), including Google Cloud Vision and Groq. Your input, output and personal information will be shared with and processed by these AI Service Providers to enable your use of our AI Products. You must not use the AI Products in any way that violates the terms or policies of any AI Service Provider.</p>
+    <p>Our AI Products are designed for the following functions:</p>
+    <ul>
+      <li>Confirming that a photograph you upload shows a scalp before it is accepted. This is a check on the image only. It does not analyse or interpret what the photograph shows.</li>
+      <li>Answering general hair care questions through our in-app assistant. It does not read your photographs or your health record.</li>
+    </ul>
+    <p>All personal information processed using our AI Products is handled in line with this Privacy Policy and our agreements with those third parties.</p>
+
+    <h2>7. How do we handle your social logins?</h2>
+    <p>Our Services offer you the ability to register and log in using your Google account details. Where you choose to do this, we will receive certain profile information from Google. This will usually include your name, email address and account identifier.</p>
+    <p>We will use the information we receive only for the purposes described in this Privacy Policy or that are otherwise made clear to you on the relevant Services. Please note that we do not control, and are not responsible for, other uses of your personal information by Google. We recommend that you review their privacy notice to understand how they collect, use and share your personal information, and how you can set your privacy preferences.</p>
+
+    <h2>8. Is your information transferred internationally?</h2>
+    <p>FolliSense Limited operates from Kenya. Our service providers store and process personal information in the United States and in Ireland. Regardless of your location, please be aware that your information may be transferred to, stored by and processed by us in our facilities and in the facilities of the third parties with whom we may share your personal information (see &ldquo;When and with whom do we share your personal information?&rdquo; above), including facilities in Kenya, the United States, Ireland and other countries.</p>
+    <p>If you are a resident in the European Economic Area (EEA), United Kingdom (UK) or Switzerland, then these countries may not necessarily have data protection laws as comprehensive as those in your country. However, we will take all necessary measures to protect your personal information in accordance with this Privacy Policy and applicable law.</p>
+    <p><strong>European Commission's Standard Contractual Clauses.</strong> We have implemented measures to protect your personal information, including by using the European Commission's Standard Contractual Clauses for transfers of personal information between us and our third-party providers. These clauses require all recipients to protect all personal information that they process originating from the EEA or UK in accordance with European data protection laws and regulations. Our Standard Contractual Clauses can be provided upon request.</p>
+
+    <h2>9. How long do we keep your information?</h2>
+    <p>We will only keep your personal information for as long as it is necessary for the purposes set out in this Privacy Policy, unless a longer retention period is required or permitted by law. No purpose in this notice will require us keeping your personal information for longer than the period of time in which you have an account with us.</p>
+    <p>When we have no ongoing legitimate business need to process your personal information, we will either delete or anonymise such information, or, if this is not possible, for example because your personal information has been stored in backup archives, then we will securely store your personal information and isolate it from any further processing until deletion is possible.</p>
+
+    <h2>10. How do we keep your information safe?</h2>
+    <p>We have implemented appropriate and reasonable technical and organisational security measures designed to protect the security of any personal information we process. Your photographs are held in a private store, are not publicly reachable, and are served to you only through short-lived links. Access controls at the database level restrict every record to the account it belongs to.</p>
+    <p>However, despite our safeguards and efforts to secure your information, no electronic transmission over the internet or information storage technology can be guaranteed to be 100% secure, so we cannot promise or guarantee that hackers, cybercriminals or other unauthorised third parties will not be able to defeat our security and improperly collect, access, steal or modify your information. Although we will do our best to protect your personal information, transmission of personal information to and from our Services is at your own risk. You should only access the Services within a secure environment.</p>
+
+    <h2>11. Do we collect information from minors?</h2>
+    <p>We do not knowingly collect, solicit data from, or market to children under 18 years of age or the equivalent age as specified by law in your jurisdiction, nor do we knowingly sell such personal information. By using the Services, you represent that you are at least 18 or the equivalent age as specified by law in your jurisdiction, or that you are the parent or guardian of such a minor and consent to that minor's use of the Services. If we learn that personal information from users under 18 years of age has been collected, we will deactivate the account and take reasonable measures to promptly delete such data from our records. If you become aware of any data we may have collected from children under age 18, please contact us at <a href="mailto:hello@follisense.com">hello@follisense.com</a>.</p>
+
+    <h2>12. What are your privacy rights?</h2>
+    <p>Depending on your state of residence in the US, or if you are in the European Economic Area (EEA), the United Kingdom (UK) or Switzerland, you have rights that allow you greater access to and control over your personal information. You may review, change or terminate your account at any time.</p>
+    <p>In some regions you have certain rights under applicable data protection laws. These may include the right (i) to request access and obtain a copy of your personal information, (ii) to request rectification or erasure, (iii) to restrict the processing of your personal information, (iv) if applicable, to data portability, and (v) not to be subject to automated decision-making. In certain circumstances, you may also have the right to object to the processing of your personal information. You can make such a request by contacting us using the contact details provided in the section &ldquo;How can you contact us about this notice?&rdquo; below.</p>
+    <p>We will consider and act upon any request in accordance with applicable data protection laws.</p>
+    <p>If you are located in the UK and are unhappy with how we have handled your personal information, you can make a complaint directly to us. This is in addition to the rights you have under the UK General Data Protection Regulation and the Data Protection Act 2018.</p>
+    <p><strong>How to contact us:</strong></p>
+    <ul>
+      <li><strong>Email:</strong> <a href="mailto:hello@follisense.com">hello@follisense.com</a></li>
+      <li><strong>Post:</strong> see &ldquo;How can you contact us about this notice?&rdquo; below</li>
+    </ul>
+    <p><strong>What happens after you complain:</strong></p>
+    <ul>
+      <li>We will acknowledge your complaint within 30 days of receiving it.</li>
+      <li>We will investigate without unjustifiable or excessive delay.</li>
+      <li>We will keep you informed of progress and explain the outcome.</li>
+    </ul>
+    <p>If you are not happy with our final response, you can refer your complaint to the Information Commissioner's Office, the UK supervisory authority.</p>
+    <ul>
+      <li><strong>Website:</strong> <a href="http://ico.org.uk/make-a-complaint" target="_blank" rel="noopener noreferrer">ico.org.uk/make-a-complaint</a></li>
+      <li><strong>Helpline:</strong> 0303 123 1113</li>
+      <li><strong>Post:</strong> Information Commissioner's Office, Wycliffe House, Water Lane, Wilmslow, Cheshire, SK9 5AF</li>
+    </ul>
+    <p>If you are located in the EEA or UK and you believe we are unlawfully processing your personal information, you also have the right to complain to your <a href="https://ec.europa.eu/justice/data-protection/bodies/authorities/index_en.htm" target="_blank" rel="noopener noreferrer">Member State data protection authority</a> or <a href="https://ico.org.uk/make-a-complaint/data-protection-complaints/data-protection-complaints/" target="_blank" rel="noopener noreferrer">UK data protection authority</a>. If you are located in Switzerland, you may contact the <a href="https://www.edoeb.admin.ch/edoeb/en/home.html" target="_blank" rel="noopener noreferrer">Federal Data Protection and Information Commissioner</a>.</p>
+
+    <h3>Withdrawing your consent</h3>
+    <p>If we are relying on your consent to process your personal information, you have the right to withdraw your consent at any time. You can withdraw your consent in your account settings, or by contacting us using the contact details provided below. However, please note that this will not affect the lawfulness of the processing before its withdrawal, nor will it affect the processing of your personal information conducted in reliance on lawful processing grounds other than consent.</p>
+
+    <h3>Opting out of reminders</h3>
+    <p>You can turn off email reminders at any time by clicking the unsubscribe link in any reminder email, or in your account settings. Push notifications can be turned off in your device settings. We may still communicate with you to send service-related messages that are necessary for the administration and use of your account, to respond to service requests, or for other non-marketing purposes.</p>
+
+    <h3>Account information</h3>
+    <p>If you would at any time like to review or change the information in your account or terminate your account, you can:</p>
+    <ul>
+      <li>Log in to your account settings and update your user account.</li>
+      <li>Delete your account from within the app.</li>
+      <li>Contact us using the contact information provided.</li>
+    </ul>
+    <p>Upon your request to terminate your account, we will deactivate or delete your account and information from our active databases. However, we may retain some information in our files to prevent fraud, troubleshoot problems, assist with any investigations, enforce our legal terms and comply with applicable legal requirements.</p>
+    <p>If you have questions or comments about your privacy rights, you may email us at <a href="mailto:hello@follisense.com">hello@follisense.com</a>.</p>
+
+    <h2>13. Controls for do-not-track features</h2>
+    <p>Most web browsers and some mobile operating systems and mobile applications include a Do-Not-Track (&ldquo;DNT&rdquo;) feature or setting you can activate to signal your privacy preference not to have data about your online browsing activities monitored and collected. At this stage, no uniform technology standard for recognising and implementing DNT signals has been finalised. As such, we do not currently respond to DNT browser signals or any other mechanism that automatically communicates your choice not to be tracked online. If a standard for online tracking is adopted that we must follow in the future, we will inform you about that practice in a revised version of this Privacy Policy.</p>
+    <p>California law requires us to let you know how we respond to web browser DNT signals. Because there currently is not an industry or legal standard for recognising or honouring DNT signals, we do not respond to them at this time.</p>
+
+    <h2>14. Do United States residents have specific privacy rights?</h2>
+    <p>If you are a resident of California, Colorado, Connecticut, Delaware, Florida, Indiana, Iowa, Kentucky, Maryland, Minnesota, Montana, Nebraska, New Hampshire, New Jersey, Oregon, Rhode Island, Tennessee, Texas, Utah or Virginia, you may have the right to request access to and receive details about the personal information we maintain about you and how we have processed it, correct inaccuracies, get a copy of, or delete your personal information. You may also have the right to withdraw your consent to our processing of your personal information. These rights may be limited in some circumstances by applicable law.</p>
+
+    <h3>Categories of personal information we collect</h3>
+    <p>The table below shows the categories of personal information we have collected in the past twelve (12) months. The examples are illustrative of each category and do not describe the specific personal information we collect from you. For a full inventory, please refer to section 1 above.</p>
+    <table>
+      <thead>
+        <tr><th>Category</th><th>Examples</th><th>Collected</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>A. Identifiers</td><td>Contact details, such as real name, alias, unique personal identifier, online identifier, Internet Protocol address, email address and account name</td><td class="yn">YES</td></tr>
+        <tr><td>B. Personal information as defined in the California Customer Records statute</td><td>Name, contact information, education, employment, employment history and financial information</td><td class="yn">YES</td></tr>
+        <tr><td>C. Protected classification characteristics under state or federal law</td><td>Gender, age, date of birth, race and ethnicity, national origin, marital status and other demographic data</td><td class="yn">YES</td></tr>
+        <tr><td>D. Commercial information</td><td>Transaction information, purchase history, financial details and payment information</td><td class="yn">YES</td></tr>
+        <tr><td>E. Biometric information</td><td>Fingerprints and voiceprints</td><td class="yn">NO</td></tr>
+        <tr><td>F. Internet or other similar network activity</td><td>Browsing history, search history, online behaviour, interest data, and interactions with our and other websites, applications, systems and advertisements</td><td class="yn">YES</td></tr>
+        <tr><td>G. Geolocation data</td><td>Device location</td><td class="yn">YES</td></tr>
+        <tr><td>H. Audio, electronic, sensory or similar information</td><td>Images and audio, video or call recordings created in connection with our business activities</td><td class="yn">YES</td></tr>
+        <tr><td>I. Professional or employment-related information</td><td>Business contact details, job title, work history and professional qualifications</td><td class="yn">NO</td></tr>
+        <tr><td>J. Education information</td><td>Student records and directory information</td><td class="yn">NO</td></tr>
+        <tr><td>K. Inferences drawn from collected personal information</td><td>Inferences drawn from any of the collected personal information listed above to create a profile or summary about, for example, an individual's preferences and characteristics</td><td class="yn">YES</td></tr>
+        <tr><td>L. Sensitive personal information</td><td>Account login information and health data</td><td class="yn">YES</td></tr>
+      </tbody>
+    </table>
+    <p>Category C is limited to gender. We do not collect race, ethnicity, national origin, date of birth or marital status. Category D is limited to the products you save or record using, and we do not collect payment card details. Category G is limited to an approximate location inferred from your IP address, and we do not collect precise or GPS location.</p>
+    <p>We only collect sensitive personal information as defined by applicable privacy laws, for the purposes allowed by law, or with your consent. You may have the right to limit the use or disclosure of your sensitive personal information. We do not collect or process sensitive personal information for the purpose of inferring characteristics about you.</p>
+    <p>We will use and retain each of the collected categories of personal information for as long as you have an account with us.</p>
+
+    <h3>How we use and share personal information</h3>
+    <p>We collect and share your personal information through the service providers listed in section 4, and through click redirects when you follow a product link to a third-party retailer such as Jumia or Amazon.</p>
+    <p>We may disclose your personal information to our service providers pursuant to a written contract between us and each service provider.</p>
+    <p>We may use your personal information for our own business purposes, such as for undertaking internal research for technological development and demonstration. This is not considered to be selling of your personal information.</p>
+    <p><strong>We have not sold or shared any personal information to third parties for a business or commercial purpose in the preceding twelve (12) months.</strong> We have disclosed the following categories of personal information to third parties for a business or commercial purpose in the preceding twelve (12) months: Category A, Category B, Category C, Category D, Category F, Category G, Category H, Category K and Category L.</p>
+    <p>The categories of third parties to whom we disclosed personal information for a business or commercial purpose can be found in section 4 above.</p>
+
+    <h3>Your rights</h3>
+    <p>You have rights under certain US state data protection laws. However, these rights are not absolute, and in certain cases we may decline your request as permitted by law. These rights include:</p>
+    <ul>
+      <li><strong>Right to know</strong> whether or not we are processing your personal data</li>
+      <li><strong>Right to access</strong> your personal data</li>
+      <li><strong>Right to correct</strong> inaccuracies in your personal data</li>
+      <li><strong>Right to request</strong> the deletion of your personal data</li>
+      <li><strong>Right to obtain a copy</strong> of the personal data you previously shared with us</li>
+      <li><strong>Right to non-discrimination</strong> for exercising your rights</li>
+      <li><strong>Right to opt out</strong> of the processing of your personal data if it is used for targeted advertising, the sale of personal data, or profiling in furtherance of decisions that produce legal or similarly significant effects. We do not use your personal data for any of these purposes.</li>
+    </ul>
+    <p>Depending upon the state where you live, you may also have the following rights:</p>
+    <ul>
+      <li>Right to access the categories of personal data being processed</li>
+      <li>Right to obtain a list of the categories of third parties to which we have disclosed personal data</li>
+      <li>Right to obtain a list of specific third parties to which we have disclosed personal data</li>
+      <li>Right to review, understand, question and, depending on where you live, correct how personal data has been profiled</li>
+      <li>Right to limit use and disclosure of sensitive personal data</li>
+      <li>Right to opt out of the collection of sensitive data and personal data collected through the operation of a voice or facial recognition feature</li>
+    </ul>
+
+    <h3>How to exercise your rights</h3>
+    <p>To exercise these rights, you can email us at <a href="mailto:hello@follisense.com">hello@follisense.com</a>, or refer to the contact details at the bottom of this document.</p>
+    <p>Under certain US state data protection laws, you can designate an authorised agent to make a request on your behalf. We may deny a request from an authorised agent that does not submit proof that they have been validly authorised to act on your behalf in accordance with applicable laws.</p>
+
+    <h3>Request verification</h3>
+    <p>Upon receiving your request, we will need to verify your identity to determine you are the same person about whom we have the information in our system. We will only use personal information provided in your request to verify your identity or authority to make the request. However, if we cannot verify your identity from the information already maintained by us, we may request that you provide additional information for the purposes of verifying your identity and for security or fraud-prevention purposes.</p>
+    <p>If you submit the request through an authorised agent, we may need to collect additional information to verify your identity before processing your request, and the agent will need to provide written and signed permission from you to submit such request on your behalf.</p>
+
+    <h3>Appeals</h3>
+    <p>Under certain US state data protection laws, if we decline to take action regarding your request, you may appeal our decision by emailing us at <a href="mailto:hello@follisense.com">hello@follisense.com</a>. We will inform you in writing of any action taken or not taken in response to the appeal, including a written explanation of the reasons for the decision. If your appeal is denied, you may submit a complaint to your state attorney general.</p>
+
+    <h3>California &ldquo;Shine The Light&rdquo; law</h3>
+    <p>California Civil Code Section 1798.83, also known as the &ldquo;Shine The Light&rdquo; law, permits our users who are California residents to request and obtain from us, once a year and free of charge, information about categories of personal information (if any) we disclosed to third parties for direct marketing purposes and the names and addresses of all third parties with which we shared personal information in the immediately preceding calendar year. If you are a California resident and would like to make such a request, please submit your request in writing to us using the contact details provided below.</p>
+
+    <h2>15. Kenya Data Protection Act, 2019</h2>
+    <p>FolliSense is established in Kenya and processes personal data in accordance with the Data Protection Act, 2019. Users in Kenya have the right to be informed of the use of their personal data, to access their personal data, to object to processing, to correction of false or misleading data, and to deletion. Complaints may be made to the Office of the Data Protection Commissioner.</p>
+
+    <h2>16. Automated processing and what this service does not do</h2>
+    <p>FolliSense is a wellness and self-care tool. It does not diagnose, treat or prevent any medical condition and does not provide medical advice.</p>
+    <p>Automated processing is limited to two things. An automated image check confirms that an uploaded photograph shows a scalp before it is accepted; it does not analyse or interpret the image. An automated chat assistant answers general hair care questions; it does not read your photographs or health records.</p>
+    <p>Product suggestions are based on self-reported hair profile and stated goals, never on reported symptoms. No automated decision producing legal or similarly significant effects is made about any user.</p>
+
+    <h2>17. Do we make updates to this notice?</h2>
+    <p>We may update this Privacy Policy from time to time. The updated version will be indicated by an updated date at the top of this Privacy Policy. If we make material changes, we may notify you either by prominently posting a notice of such changes or by directly sending you a notification. We encourage you to review this Privacy Policy frequently to be informed of how we are protecting your information.</p>
+
+    <h2>18. How can you contact us about this notice?</h2>
+    <p>If you have questions or comments about this notice, you may email us at <a href="mailto:hello@follisense.com">hello@follisense.com</a> or contact us by post at:</p>
+    <p>
+      FolliSense Limited<br>
+      Nairobi<br>
+      Kenya
+    </p>
+
+    <h2>19. How can you review, update or delete the data we collect from you?</h2>
+    <p>Based on the applicable laws of your country or state of residence, you may have the right to request access to the personal information we collect from you, details about how we have processed it, correct inaccuracies, or delete your personal information. You may also have the right to withdraw your consent to our processing of your personal information. These rights may be limited in some circumstances by applicable law.</p>
+    <p>You can delete your account, and everything in it, from within the app at any time. To request to review, update or delete your personal information in any other way, email <a href="mailto:hello@follisense.com">hello@follisense.com</a>.</p>
+
+  </div>
 </div>
 
 <footer>
   <div class="foot">
     <div class="logo">
-      <span class="mark" aria-hidden="true">
-        <svg viewBox="0 0 24 24"><path d="M12 21c0-7 3-12 8-15-6 1-9 5-10 9"/><path d="M12 21C9 15 6 12 3 11c3 5 5 7 9 10"/></svg>
-      </span>
-      <span class="logo-word" style="font-size:16px">FolliSense</span>
-      <span class="small" style="margin-left:8px;font-size:13.5px">Nairobi, Kenya</span>
+      <span class="mark" style="width:24px;height:24px"><img src="/follisense-icon-green.png" alt="" width="24" height="24"></span>
+      <span class="logo-word" style="font-size:17px">FolliSense</span>
     </div>
     <div class="foot-links">
-      <a class="foot-link" href="/privacy.html">Privacy</a>
+      <a class="foot-link" href="/">Home</a>
       <a class="foot-link" href="/terms.html">Terms</a>
-      <a class="foot-link" href="https://app.follisense.com/login">Log in</a>
+      <a class="foot-link" href="mailto:hello@follisense.com">Contact</a>
+      <a class="foot-link" href="mailto:support@follisense.com">Support</a>
+      <a class="foot-link" href="#" onclick="FolliSenseConsent.open(); return false;">Cookie settings</a>
     </div>
   </div>
 </footer>
+
 <script src="/consent.js"></script>
+
 </body>
 </html>
