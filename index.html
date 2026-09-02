@@ -286,13 +286,13 @@
   .cat-ico svg { width: 19px; height: 19px; stroke: var(--accent); fill: none; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
 
   /* ── Matched comparison ── */
-  .cmp { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 16px; max-width: 760px; }
+  .cmp { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 12px; max-width: 440px; }
   .cmp figure { margin: 0; }
   .cmp .photo { max-width: none; aspect-ratio: 4 / 5; }
   .cmp figcaption { display: flex; align-items: baseline; justify-content: space-between; gap: 10px; margin-top: 12px; }
   .cmp .d { font-size: 14px; font-weight: 600; }
   .cmp .w { font-size: 13px; color: var(--faint); }
-  .cmp-meta { max-width: 760px; margin-top: 22px; padding-top: 20px; border-top: 1px solid var(--hair); display: flex; flex-wrap: wrap; gap: 9px; align-items: center; }
+    .cmp-meta { margin-top: 26px; padding-top: 20px; border-top: 1px solid var(--hair); display: flex; flex-wrap: wrap; gap: 9px; align-items: center; }
   .cmp-meta .lbl { font-size: 13px; color: var(--faint); margin-right: 4px; }
 
   /* ── Green sections ── */
@@ -751,42 +751,46 @@
      are honestly comparable, not that one of them is better.             -->
 <div class="wrap">
   <section class="sect" id="compare" style="scroll-margin-top:88px">
-    <div class="reveal" style="max-width:640px;margin-bottom:40px">
-      <p class="eyebrow">Matched comparison</p>
-      <h2 style="margin-bottom:20px">Two photos only sit side by side if they are actually comparable</h2>
-      <p class="copy">
-        Most hair photos taken weeks apart are useless next to each other. Different light, different point in
-        the wash week, hair wet one time and dry the next. FolliSense records those conditions at the shutter
-        and only offers a pair when they match. If nothing matches yet, it says so rather than showing you a
-        comparison that means nothing.
-      </p>
-    </div>
+    <div class="split">
 
-    <div class="cmp reveal">
-      <figure>
-        <div class="photo"><img src="/compare-a.jpg" alt="Crown photographed at the start of a style" loading="lazy"></div>
-        <figcaption><span class="d">12 July</span><span class="w">Day 1</span></figcaption>
-      </figure>
-      <figure>
-        <div class="photo"><img src="/compare-b.jpg" alt="The same crown photographed six weeks later" loading="lazy"></div>
-        <figcaption><span class="d">23 August</span><span class="w">Week 6</span></figcaption>
-      </figure>
-    </div>
+      <div class="reveal cmp">
+        <figure>
+          <div class="photo"><img src="/compare-a.jpg" alt="Crown photographed at the start of a style" loading="lazy"></div>
+          <figcaption><span class="d">12 July</span><span class="w">Day 1</span></figcaption>
+        </figure>
+        <figure>
+          <div class="photo"><img src="/compare-b.jpg" alt="The same crown photographed six weeks later" loading="lazy"></div>
+          <figcaption><span class="d">23 August</span><span class="w">Week 6</span></figcaption>
+        </figure>
+      </div>
 
-    <div class="cmp-meta reveal">
-      <span class="lbl">Matched on</span>
-      <span class="chip">Crown</span>
-      <span class="chip">Dry</span>
-      <span class="chip">Unstretched</span>
-      <span class="chip">No product</span>
+      <div class="reveal">
+        <p class="eyebrow">Matched comparison</p>
+        <h2 style="margin-bottom:20px">Two photos only sit side by side if they are actually comparable</h2>
+        <p class="copy">
+          Most hair photos taken weeks apart are useless next to each other. Different light, different point in
+          the wash week, hair wet one time and dry the next. FolliSense records those conditions at the shutter
+          and only offers a pair when they match. If nothing matches yet, it says so rather than showing you a
+          comparison that means nothing.
+        </p>
+
+        <div class="cmp-meta">
+          <span class="lbl">Matched on</span>
+          <span class="chip">Crown</span>
+          <span class="chip">Dry</span>
+          <span class="chip">Unstretched</span>
+          <span class="chip">No product</span>
+        </div>
+
+        <p class="small" style="margin-top:16px;font-size:13px">
+          A pair like this is a record of what changed, not evidence that anything worked. FolliSense does not
+          claim a result and does not sell one.
+        </p>
+      </div>
+
     </div>
-    <p class="small reveal" style="margin-top:16px;max-width:640px;font-size:13px">
-      A pair like this is a record of what changed, not evidence that anything worked. FolliSense does not
-      claim a result and does not sell one.
-    </p>
   </section>
 </div>
-
 <!-- ══ For men ═══════════════════════════════════════════════════════════
      PHOTO SLOT 8 — men.jpg, wide crop roughly 3:2.                       -->
 <div style="background:var(--paper)">
