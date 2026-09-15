@@ -150,6 +150,31 @@
   }
   .nav-link:hover { opacity: .68; }
   .nav-hide { display: none; }
+
+.back-to-top {
+  position: fixed;
+  right: 22px;
+  bottom: 22px;
+  z-index: 30;
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  border-radius: 50%;
+  background: var(--navy);
+  color: #fff;
+  font-size: 21px;
+  box-shadow: 0 10px 24px rgba(16, 42, 67, 0.2);
+  transition:
+    transform 0.18s ease,
+    background 0.18s ease;
+}
+.back-to-top:hover {
+  background: var(--coral);
+  transform: translateY(-4px);
+}
+
   @media (min-width: 960px) { .nav-hide { display: inline-flex; } }
 
   /* ── Hero: full-bleed photograph, scrim, copy on top ──
@@ -1276,6 +1301,19 @@
 </script>
 
 <script src="/consent.js"></script>
+    <a class="back-to-top" href="#top" aria-label="Back to top">↑</a>
+    <script>
+      const menuToggle = document.querySelector(".menu-toggle");
+      const mainNav = document.querySelector(".main-nav");
+      const backToTop = document.querySelector(".back-to-top");
+
+      menuToggle.onclick = () => mainNav.classList.toggle("open");
+      const updateBackToTop = () => {
+        backToTop.classList.toggle("show", window.scrollY > 420);
+      };
+      window.addEventListener("scroll", updateBackToTop, { passive: true });
+      updateBackToTop();
+    </script>
 
 </body>
 </html>
