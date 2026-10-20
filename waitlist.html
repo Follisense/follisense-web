@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Join the waitlist | FolliSense</title>
+<meta name="description" content="Join the FolliSense waitlist and be first in when it opens. Scalp and hair health tracking for every hair type.">
+<meta name="robots" content="index,follow">
+
+<meta property="og:title" content="Join the FolliSense waitlist">
+<meta property="og:description" content="Scalp and hair health tracking for every hair type. Be first in when it opens.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://follisense.com/waitlist.html">
+<meta property="og:image" content="https://follisense.com/hero.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#2E4A39">
+
+<link rel="icon" href="/follisense-icon-green.png" sizes="256x256" type="image/png">
+<link rel="icon" href="/icon-512.png" sizes="512x512" type="image/png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png" sizes="180x180">
+<link rel="manifest" href="/site.webmanifest">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+  /* ═══════════════════════════════════════════════════════════════════════
+     BACKGROUND IMAGE
+       waitlist-bg.jpg   Put it in the repo root next to index.html.
+                         Portrait or square works best, since most people
+                         arrive on a phone from the QR code. At least 1600px
+                         on the long side. A green scrim sits over it so the
+                         text stays readable. If the file is missing, the page
+                         falls back to plain green.
+     ═══════════════════════════════════════════════════════════════════════ */
+  :root {
+    --bg-img: url('waitlist-bg.jpg');
+
+    --white:  #FFFFFF;
+    --line:   #E8E8E4;
+    --ink:    #111110;
+    --body-c: #55554F;
+    --faint:  #8C8C85;
+
+    --accent:      #2E4A39;
+    --accent-mid:  #4C7A5A;
+    --accent-lite: #6E9E82;
+    --deep:        #1A2820;
+    --on-green:    #D5E1D9;
+    --on-green-2:  #A9C4B3;
+    --danger:      #F2B8B5;
+
+    --font: 'Instrument Sans', -apple-system, 'Segoe UI', sans-serif;
+    --gut:  clamp(20px, 5vw, 44px);
+  }
+
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0; min-height: 100vh; min-height: 100dvh;
+    display: flex; flex-direction: column;
+    background: var(--accent); color: var(--white);
+    font-family: var(--font); font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+    position: relative; isolation: isolate;
+  }
+  /* Photo layer, then a green scrim on top of it. Fixed so it fills the
+     screen however tall the page gets. */
+  body::before, body::after {
+    content: ""; position: fixed; inset: 0; z-index: -1; pointer-events: none;
+  }
+  body::before {
+    background: var(--accent) var(--bg-img) center / cover no-repeat;
+  }
+  body::after {
+    background:
+      linear-gradient(180deg, rgba(26,40,32,.55) 0%, rgba(26,40,32,.72) 55%, rgba(26,40,32,.9) 100%);
+  }
+  img { display: block; max-width: 100%; }
+  :focus-visible { outline: 2px solid var(--white); outline-offset: 3px; border-radius: 4px; }
+
+  /* ── Nav: same glass pill and logo as index.html ── */
+  header { padding: 12px var(--gut); }
+  .nav {
+    max-width: 1156px; margin: 0 auto;
+    display: flex; align-items: center; justify-content: space-between; gap: 16px;
+    padding: 8px 8px 8px 18px; border-radius: 100px;
+    background: rgba(255,255,255,.10);
+    box-shadow: inset 0 0 0 1px rgba(255,255,255,.20);
+    backdrop-filter: saturate(150%) blur(14px);
+    -webkit-backdrop-filter: saturate(150%) blur(14px);
+  }
+  .logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+  .mark { width: 26px; height: 26px; display: grid; place-items: center; flex-shrink: 0; }
+  .mark img { width: 100%; height: 100%; object-fit: contain; }
+  .logo-word { font-size: 18.5px; font-weight: 600; letter-spacing: -.03em; color: var(--white); }
+  .nav-link {
+    padding: 9px 15px; border-radius: 100px; text-decoration: none;
+    font-size: 14px; font-weight: 500; color: var(--white); transition: opacity .2s;
+  }
+  .nav-link:hover { opacity: .68; }
+
+  /* ── Main ── */
+  main {
+    flex: 1; display: flex; align-items: center;
+    padding: clamp(40px, 8vw, 100px) var(--gut);
+  }
+  .inner { width: 100%; max-width: 620px; margin: 0 auto; }
+
+  .eyebrow {
+    display: inline-block; margin: 0 0 18px;
+    font-size: 11px; font-weight: 600; letter-spacing: .18em; text-transform: uppercase;
+    color: var(--on-green-2);
+  }
+  h1 {
+    margin: 0 0 18px; font-weight: 600; color: var(--white);
+    font-size: clamp(36px, 6.4vw, 62px); line-height: 1.03; letter-spacing: -.035em;
+  }
+  .lede {
+    margin: 0 0 34px; max-width: 34em;
+    font-size: clamp(16.5px, 1.4vw, 18.5px); line-height: 1.6; color: var(--on-green);
+  }
+
+  /* ── Form ── */
+  .sr-only {
+    position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+    overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0;
+  }
+  .field {
+    display: flex; align-items: center; gap: 6px;
+    background: var(--white); border-radius: 100px; padding: 6px;
+    border: 2px solid transparent; transition: border-color .2s;
+  }
+  .field.has-error { border-color: var(--danger); }
+  .field input {
+    flex: 1; min-width: 0; height: 46px; padding: 0 16px;
+    border: none; background: transparent; outline: none;
+    font-family: var(--font); font-size: 16px; color: var(--ink);
+  }
+  .field input::placeholder { color: var(--faint); }
+  .btn {
+    display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+    height: 46px; padding: 0 24px; border-radius: 100px; border: none;
+    background: var(--ink); color: var(--white);
+    font-family: var(--font); font-size: 15px; font-weight: 600;
+    cursor: pointer; white-space: nowrap;
+    transition: transform .22s cubic-bezier(.2,.7,.3,1), box-shadow .22s, opacity .2s;
+  }
+  .btn:hover { transform: translateY(-1px); box-shadow: 0 12px 26px -14px rgba(0,0,0,.7); }
+  .btn[aria-busy="true"] { opacity: .7; cursor: progress; transform: none; box-shadow: none; }
+  .btn:focus-visible { outline-color: var(--ink); }
+
+  .msg { min-height: 22px; margin: 12px 4px 0; font-size: 14px; line-height: 1.5; }
+  .msg.error { color: var(--danger); }
+  .fine { margin: 6px 4px 0; font-size: 13px; line-height: 1.55; color: var(--on-green-2); }
+  .fine a { color: var(--on-green); text-underline-offset: 3px; }
+
+  /* ── Success ── */
+  .done {
+    display: none; background: rgba(255,255,255,.08);
+    border: 1px solid rgba(255,255,255,.18); border-radius: 20px;
+    padding: 26px 26px 24px;
+  }
+  .done.show { display: block; }
+  .done .tick {
+    width: 40px; height: 40px; border-radius: 50%; margin-bottom: 16px;
+    display: grid; place-items: center; background: var(--white); color: var(--accent);
+  }
+  .done h2 { margin: 0 0 8px; font-size: 22px; font-weight: 600; letter-spacing: -.02em; }
+  .done p { margin: 0; font-size: 15.5px; line-height: 1.6; color: var(--on-green); }
+  .done .btn { margin-top: 22px; text-decoration: none; }
+  .btn-white { background: var(--white); color: var(--deep); }
+  .btn-white:focus-visible { outline-color: var(--white); }
+
+  /* ── Points ── */
+  .points {
+    list-style: none; padding: 28px 0 0; margin: 46px 0 0;
+    display: grid; grid-template-columns: 1fr; gap: 18px;
+    border-top: 1px solid rgba(255,255,255,.16);
+  }
+  .points li { font-size: 14px; line-height: 1.55; color: var(--on-green-2); }
+  .points strong { display: block; font-size: 15px; font-weight: 600; color: var(--white); margin-bottom: 2px; }
+
+  footer { padding: 22px var(--gut) 28px; text-align: center; font-size: 13px; color: var(--on-green-2); }
+  footer a { color: var(--on-green); text-underline-offset: 3px; }
+
+  @media (max-width: 520px) {
+    header { padding: 10px 14px; }
+    .nav { padding: 6px 6px 6px 14px; }
+    .logo-word { font-size: 17px; }
+    .nav-link { padding: 8px 12px; font-size: 13.5px; }
+
+    .field { flex-direction: column; align-items: stretch; border-radius: 24px; padding: 8px; }
+    .field input { height: 48px; text-align: center; }
+    .btn { width: 100%; height: 50px; }
+  }
+  @media (min-width: 700px) {
+    .points { grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ══ Nav ═══════════════════════════════════════════════════════════════ -->
+<header>
+  <nav class="nav">
+    <a class="logo" href="/">
+      <span class="mark"><img src="/follisense-icon-green.png" alt="" width="26" height="26"></span>
+      <span class="logo-word">FolliSense</span>
+    </a>
+    <a class="nav-link" href="/">Learn more</a>
+  </nav>
+</header>
+
+<!-- ══ Waitlist ══════════════════════════════════════════════════════════ -->
+<main>
+  <div class="inner">
+    <p class="eyebrow">Early access</p>
+    <h1>Be first in when FolliSense opens.</h1>
+    <p class="lede">
+      A photo and symptom record of your scalp, built around the way you actually wear your hair.
+      Join the waitlist and we will email you the day your account is ready.
+    </p>
+
+    <form id="waitlist-form" novalidate>
+      <label for="email" class="sr-only">Email address</label>
+      <div class="field" id="field">
+        <input id="email" name="email" type="email" inputmode="email" autocomplete="email"
+               placeholder="you@email.com" required>
+        <button class="btn" id="submit" type="submit">Join the waitlist</button>
+      </div>
+      <p class="msg" id="msg" role="alert" aria-live="polite"></p>
+      <p class="fine">One email when we open, nothing else. See our <a href="/privacy.html">Privacy Policy</a>.</p>
+    </form>
+
+    <div class="done" id="done" role="status" aria-live="polite">
+      <div class="tick" aria-hidden="true">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>
+      </div>
+      <h2 id="done-title">You are on the list.</h2>
+      <p id="done-body">We will email you when FolliSense opens. While you wait, take a look at what it does.</p>
+      <a class="btn btn-white" href="/">Explore FolliSense</a>
+    </div>
+
+    <ul class="points">
+      <li><strong>Every hair type</strong>Straight, wavy, curly, coily, locs and relaxed.</li>
+      <li><strong>Built around your styles</strong>Braids, twists, wash days and takedowns.</li>
+      <li><strong>Private by default</strong>Your scalp photos are never public.</li>
+    </ul>
+  </div>
+</main>
+
+<!-- ══ Footer ════════════════════════════════════════════════════════════ -->
+<footer>
+  Questions? <a href="mailto:hello@follisense.com">hello@follisense.com</a>
+  &middot; <a href="/privacy.html">Privacy</a>
+  &middot; <a href="/terms.html">Terms</a>
+  &middot; <a href="#" onclick="FolliSenseConsent.open(); return false;">Cookie settings</a>
+</footer>
+
+<script>
+(function () {
+  // Fill these in from Supabase: Project Settings, then API.
+  // The anon key is public by design. The waitlist table's RLS only allows inserts.
+  var SUPABASE_URL      = 'https://rvmnirypyopqtozvldjs.supabase.co';
+  var SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJ2bW5pcnlweW9wcXRvenZsZGpzIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzM5MTE2MjAsImV4cCI6MjA4OTQ4NzYyMH0.RzfRJ1pWbdUzRJd5bngeiInK9ntoPVR9GAj61qX2wjg';
+
+  var form  = document.getElementById('waitlist-form');
+  var field = document.getElementById('field');
+  var input = document.getElementById('email');
+  var btn   = document.getElementById('submit');
+  var msg   = document.getElementById('msg');
+  var done  = document.getElementById('done');
+
+  // ?src=qr on the printed code, anything else defaults to "web"
+  var params = new URLSearchParams(window.location.search);
+  var source = (params.get('src') || 'web').toLowerCase().replace(/[^a-z0-9_-]/g, '').slice(0, 32) || 'web';
+
+  var EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+
+  function showError(text) {
+    msg.textContent = text;
+    msg.className = 'msg error';
+    field.classList.add('has-error');
+  }
+  function clearError() {
+    msg.textContent = '';
+    msg.className = 'msg';
+    field.classList.remove('has-error');
+  }
+  function showDone(already) {
+    if (already) {
+      document.getElementById('done-title').textContent = 'You are already on the list.';
+    }
+    form.style.display = 'none';
+    done.classList.add('show');
+    try { if (window.posthog) window.posthog.capture('waitlist_joined', { source: source, already: !!already }); } catch (e) {}
+  }
+
+  input.addEventListener('input', clearError);
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    if (btn.getAttribute('aria-busy') === 'true') return;
+
+    var email = input.value.trim().toLowerCase();
+    if (!email) { showError('Enter your email address.'); input.focus(); return; }
+    if (!EMAIL_RE.test(email) || email.length > 254) { showError('That email does not look right. Check it and try again.'); input.focus(); return; }
+
+    clearError();
+    btn.setAttribute('aria-busy', 'true');
+    btn.textContent = 'Joining…';
+
+    fetch(SUPABASE_URL + '/rest/v1/waitlist', {
+      method: 'POST',
+      headers: {
+        'apikey': SUPABASE_ANON_KEY,
+        'Authorization': 'Bearer ' + SUPABASE_ANON_KEY,
+        'Content-Type': 'application/json',
+        'Prefer': 'return=minimal'
+      },
+      body: JSON.stringify({ email: email, source: source })
+    })
+    .then(function (res) {
+      if (res.ok) { showDone(false); return; }
+      if (res.status === 409) { showDone(true); return; } // unique email index hit
+      throw new Error('status ' + res.status);
+    })
+    .catch(function () {
+      showError('Something went wrong on our side. Try again in a moment.');
+    })
+    .then(function () {
+      btn.removeAttribute('aria-busy');
+      btn.textContent = 'Join the waitlist';
+    });
+  });
+})();
+</script>
+<script src="/consent.js"></script>
+</body>
+</html>
