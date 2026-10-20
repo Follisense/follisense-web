@@ -45,9 +45,11 @@ const TARGETS = {
   // Wide photo panels. Displayed at 440px, 300px on mobile.
   'men.jpg':   900,
   'style.jpg': 900,
-
   // Full-bleed hero background. This one genuinely needs to be large.
   'hero.jpg': 2400,
+
+  // Waitlist page background. Full screen, mostly seen on phones from the QR code.
+  'waitlist-bg.jpg': 1600,
 };
 
 const kb = (bytes) => (bytes / 1024).toFixed(0) + ' KB';
